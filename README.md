@@ -1,34 +1,48 @@
-# Rihlatur Ruh — website
+# Rihlaturruh — website
 
-Een serene één-pagina-site. Alles zit in **één bestand** (`index.html`) plus het logo (`logo.png`), dus je kunt 'm gratis online testen via **GitHub Pages**.
+Een website met tabbladen, opgebouwd als **één bestand** (`index.html`). Je test 'm gratis online via **GitHub Pages**.
+
+Tabbladen nu: **Home · Over · Consulten · Reflecties · Producten · Contact**
+Onderaan elke pagina: social-icons voor Instagram, TikTok, YouTube en e-mail.
 
 ## Wat zit erin
-- `index.html` — de hele website
-- `logo.png` — je logo (wordt ook als favicon en deel-afbeelding gebruikt)
+- `index.html` — de hele website (menu, alle tabbladen, formulieren)
+- `logo.png` — je logo (ook favicon + deel-afbeelding)
 
-## Online zetten via GitHub (de makkelijkste route — zonder commando's)
+## Online zetten via GitHub Pages (zonder commando's)
+1. Account op [github.com](https://github.com).
+2. Rechtsboven **+** → **New repository** → naam `rihlaturruh` → **Public** → **Create repository**.
+3. Klik **uploading an existing file** en sleep `index.html` én `logo.png` erin → **Commit changes**.
+4. **Settings** → **Pages** → branch **main**, map **/(root)** → **Save**.
+5. Na ~1 minuut verschijnt je link: `https://JOUW-NAAM.github.io/rihlaturruh/`
 
-1. Maak een gratis account op [github.com](https://github.com) als je die nog niet hebt.
-2. Klik rechtsboven op **+** → **New repository**.
-   - Naam bijv. `rihlaturruh`
-   - Zet 'm op **Public**
-   - Klik **Create repository**.
-3. Op de nieuwe pagina: klik **uploading an existing file**.
-   Sleep `index.html` én `logo.png` in het venster. Klik onderaan **Commit changes**.
-4. Ga naar **Settings** (bovenin) → in het linkermenu **Pages**.
-5. Bij *Branch* kies je **main** en map **/(root)** → **Save**.
-6. Wacht ~1 minuut en ververs. Bovenaan verschijnt je adres:
-   `https://JOUW-GEBRUIKERSNAAM.github.io/rihlaturruh/`
-
-Klaar — dat is je testlink die je met iedereen kunt delen.
+## Hoe de tabbladen werken
+Alles staat op één pagina; het menu wisselt tussen secties (#home, #over, …). Je kunt dus rechtstreeks naar een tab linken, bijv. `.../rihlaturruh/#consulten`.
 
 ## Tekst aanpassen
-Open `index.html` (op GitHub: klik het bestand → potloodje ✏️).
-- De alinea onder **OVER** staat gemarkeerd met `<!-- Vervang deze alinea ... -->`. Zet daar je eigen info-tekst neer.
-- Logo vervangen? Upload een nieuw bestand met de naam `logo.png`.
+Open `index.html` (op GitHub: bestand openen → potloodje ✏️). Elke sectie staat tussen duidelijke kommentaarregels, bijv. `<!-- ======= OVER ======= -->`. De "Over"-tekst is opgesteld vanuit je briefing — pas 'm gerust aan naar je eigen woorden.
 
-## Later een eigen domein (optioneel)
-Heb je bijv. `rihlaturruh.nl`? Dat kun je later koppelen onder **Settings → Pages → Custom domain**.
+## Extra tabbladen later toevoegen (Professionals · Vrouwen · Kinderen · Sport & Ziel)
+Per nieuwe tab twee dingen:
+1. **Menuknop** — voeg in `<nav class="nav">` én in `<nav class="mobile-menu">` toe:
+   `<button data-go="vrouwen">Voor vrouwen</button>`
+2. **Sectie** — voeg onderaan in `<main>` toe:
+   ```html
+   <section id="vrouwen" class="page">
+     <section class="block"><div class="wrap">
+       <p class="eyebrow">Voor vrouwen</p>
+       <h2 class="title">Titel</h2>
+       <p class="lede">Inleiding…</p>
+     </div></section>
+   </section>
+   ```
+   De `id` van de sectie moet exact gelijk zijn aan de `data-go` van de knop.
 
----
-De links die nu actief zijn: Instagram, TikTok, YouTube en e-mail (rihlaturruh@gmail.com).
+## Let op: boekingen & formulieren
+GitHub Pages serveert alleen "statische" bestanden — er draait geen server. Daarom:
+- **Consult aanvragen / contactformulier / nieuwsbrief** openen nu je e-mailprogramma met een vooraf ingevuld bericht naar rihlaturruh@gmail.com. Dat werkt direct, zonder kosten.
+- Wil je een **echt boekingssysteem** (agenda met tijdslots)? Koppel later een gratis dienst zoals **Cal.com** of **Calendly**: zet de link op de knop "Consult aanvragen".
+- Wil je een **echt contactformulier** dat in je inbox binnenkomt (zonder mailprogramma)? Gebruik bijv. **Formspree** (gratis); ik help je dat inbouwen.
+
+## Eigen domein (optioneel)
+Heb je bijv. `rihlaturruh.nl`? Koppelen kan onder **Settings → Pages → Custom domain**.
