@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rihlatur Ruh · De reis van de ziel</title>
+<meta name="description" content="Rihlatur Ruh — رحلة الروح. Een reis van de ziel. Volg de reflecties, verhalen en beelden op Instagram, TikTok en YouTube.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Rihlatur Ruh · De reis van de ziel">
+<meta property="og:description" content="رحلة الروح — een reis van de ziel.">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:        #F6EFE1;
+    --paper-deep:   #EFE3CF;
+    --green:        #2E5E45;
+    --green-deep:   #1C3B2C;
+    --gold:         #C29A4B;
+    --gold-soft:    #D9BE83;
+    --rose:         #E7C8AE;
+    --ink:          #2A2A20;
+    --ink-soft:     #5E5847;
+    --line:         rgba(42,42,32,.14);
+
+    --display: "Fraunces", Georgia, serif;
+    --arabic:  "Amiri", serif;
+    --body:    "Karla", system-ui, sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* dusk wash from the logo's sky, settling into parchment */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, var(--rose) 0%, rgba(231,200,174,0) 55%),
+      linear-gradient(180deg, #F9F3E7 0%, var(--paper) 38%, var(--paper-deep) 100%);
+    z-index:-2;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:560px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- HERO ---------- */
+  header{
+    padding:64px 0 40px;
+    text-align:center;
+  }
+
+  .crest{
+    position:relative;
+    width:min(76vw, 270px);
+    aspect-ratio:1;
+    margin:0 auto 30px;
+  }
+  /* breathing lantern halo — the guiding light of the brand */
+  .crest::before{
+    content:"";
+    position:absolute; inset:-14%;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(217,190,131,.55) 0%, rgba(217,190,131,0) 68%);
+    z-index:0;
+    animation:breathe 7s ease-in-out infinite;
+  }
+  .crest img{
+    position:relative;
+    z-index:1;
+    width:100%; height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.6) inset,
+      0 18px 50px -18px rgba(28,59,44,.55);
+  }
+  /* thin gold ring */
+  .crest::after{
+    content:"";
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    opacity:.55;
+    z-index:2;
+  }
+
+  .arabic{
+    font-family:var(--arabic);
+    font-size:clamp(2rem, 9vw, 2.7rem);
+    color:var(--green);
+    direction:rtl;
+    line-height:1.2;
+    margin-bottom:6px;
+  }
+
+  h1{
+    font-family:var(--display);
+    font-optical-sizing:auto;
+    font-weight:500;
+    font-size:clamp(2.3rem, 9vw, 3.1rem);
+    letter-spacing:.01em;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+
+  .tagline{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.05rem, 4.4vw, 1.25rem);
+    color:var(--green-deep);
+  }
+
+  .lede{
+    margin:18px auto 0;
+    max-width:42ch;
+    color:var(--ink-soft);
+    font-size:1rem;
+  }
+
+  /* slim gold rule with a centre diamond */
+  .rule{
+    display:flex; align-items:center; justify-content:center;
+    gap:12px;
+    margin:40px 0;
+    color:var(--gold);
+  }
+  .rule::before, .rule::after{
+    content:""; height:1px; flex:1; max-width:90px;
+    background:linear-gradient(90deg, transparent, var(--gold));
+  }
+  .rule::after{ background:linear-gradient(90deg, var(--gold), transparent); }
+  .rule span{ width:6px; height:6px; transform:rotate(45deg); background:var(--gold); }
+
+  /* ---------- ABOUT ---------- */
+  .eyebrow{
+    font-family:var(--body);
+    font-weight:600;
+    font-size:.74rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    text-align:center;
+    margin-bottom:14px;
+  }
+  .about p{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+  .about p + p{ margin-top:14px; }
+
+  /* ---------- CHANNELS ---------- */
+  .channels{ margin-top:8px; display:flex; flex-direction:column; gap:12px; }
+
+  .channel{
+    display:flex; align-items:center; gap:16px;
+    padding:16px 20px;
+    background:rgba(255,255,255,.5);
+    border:1px solid var(--line);
+    border-radius:16px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .channel:hover, .channel:focus-visible{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+    background:rgba(255,255,255,.78);
+    box-shadow:0 14px 30px -16px rgba(28,59,44,.45), 0 0 0 4px rgba(217,190,131,.16);
+    outline:none;
+  }
+
+  .ic{
+    flex:0 0 auto;
+    width:42px; height:42px;
+    display:grid; place-items:center;
+    border-radius:50%;
+    background:var(--green);
+    color:var(--paper);
+    transition:background .25s ease;
+  }
+  .channel:hover .ic{ background:var(--green-deep); }
+  .ic svg{ width:21px; height:21px; }
+
+  .meta{ display:flex; flex-direction:column; min-width:0; }
+  .meta .name{ font-weight:600; font-size:1.02rem; letter-spacing:.01em; }
+  .meta .sub{ font-size:.86rem; color:var(--ink-soft); }
+
+  .arrow{
+    margin-left:auto;
+    color:var(--gold);
+    transition:transform .25s ease;
+    flex:0 0 auto;
+  }
+  .channel:hover .arrow{ transform:translateX(4px); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    padding:46px 0 56px;
+    color:var(--ink-soft);
+    font-size:.85rem;
+  }
+  footer .arabic-foot{
+    font-family:var(--arabic);
+    color:var(--green);
+    font-size:1.3rem;
+    direction:rtl;
+    display:block;
+    margin-bottom:10px;
+  }
+
+  /* ---------- entrance motion ---------- */
+  .reveal{ opacity:0; transform:translateY(16px); }
+  .show .reveal{ opacity:1; transform:none; transition:opacity .9s ease, transform .9s ease; }
+  .show .d1{ transition-delay:.05s; }
+  .show .d2{ transition-delay:.18s; }
+  .show .d3{ transition-delay:.30s; }
+  .show .d4{ transition-delay:.42s; }
+
+  @keyframes breathe{
+    0%,100%{ transform:scale(1);   opacity:.85; }
+    50%    { transform:scale(1.06); opacity:1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .crest::before{ animation:none; }
+    .reveal{ opacity:1; transform:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap" id="page">
+    <header>
+      <div class="crest reveal d1">
+        <img src="logo.png" alt="Rihlatur Ruh — een reiziger op weg naar de groene koepel">
+      </div>
+      <p class="arabic reveal d2">رحلة الروح</p>
+      <h1 class="reveal d2">Rihlatur&nbsp;Ruh</h1>
+      <p class="tagline reveal d3">De reis van de ziel</p>
+      <p class="lede reveal d3">
+        Reflecties, verhalen en beelden onderweg — een stille reis naar binnen,
+        gedeeld over de kanalen hieronder.
+      </p>
+    </header>
+
+    <div class="rule reveal d4"><span></span></div>
+
+    <!-- ===== OVER (pas deze tekst aan) ===== -->
+    <section class="about reveal d4">
+      <p class="eyebrow">Over</p>
+      <p>
+        Rihlatur Ruh is een plek voor bezinning en het zachte licht onderweg.
+        <!-- Vervang deze alinea door je eigen tekst uit de info-upload. -->
+      </p>
+    </section>
+
+    <div class="rule"><span></span></div>
+
+    <!-- ===== KANALEN ===== -->
+    <p class="eyebrow">Volg de reis</p>
+    <nav class="channels" aria-label="Sociale kanalen">
+
+      <a class="channel" href="https://www.instagram.com/rihlaturruh" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <span class="meta"><span class="name">Instagram</span><span class="sub">Beelden & momenten</span></span>
+        <span class="arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </a>
+
+      <a class="channel" href="https://www.tiktok.com/@rihlaturruh" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 9.5a4 4 0 1 0 4 4V4c.6 2.2 2.3 3.6 4.5 3.8"/>
+          </svg>
+        </span>
+        <span class="meta"><span class="name">TikTok</span><span class="sub">Korte verhalen in beeld</span></span>
+        <span class="arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </a>
+
+      <a class="channel" href="https://youtube.com/@rihlaturruh" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10.5 9.5v5l4-2.5z" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <span class="meta"><span class="name">YouTube</span><span class="sub">Langere reflecties & video</span></span>
+        <span class="arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </a>
+
+      <a class="channel" href="mailto:rihlaturruh@gmail.com">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/>
+          </svg>
+        </span>
+        <span class="meta"><span class="name">E-mail</span><span class="sub">rihlaturruh@gmail.com</span></span>
+        <span class="arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </a>
+
+    </nav>
+
+    <footer>
+      <span class="arabic-foot">رحلة الروح</span>
+      © <span id="year"></span> Rihlatur Ruh
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // entrance reveal
+    window.addEventListener('load', function(){
+      requestAnimationFrame(function(){
+        document.getElementById('page').classList.add('show');
+      });
+    });
+  </script>
+</body>
+</html>
