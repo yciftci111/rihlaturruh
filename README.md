@@ -28,10 +28,14 @@ Open `index.html` (op GitHub: bestand → potloodje ✏️). Elke sectie staat t
 - FAQ "Wat kost een consult?" — vul je tarieven/werkwijze in.
 - Reflecties — vervang de drie voorbeeldartikelen door je eigen teksten.
 
-## Echt boekingssysteem & formulieren (later)
-GitHub Pages heeft geen server. Daarom openen de knoppen nu je e-mailprogramma met een vooraf ingevuld bericht naar rihlaturruh@gmail.com (werkt direct, gratis).
-- Echte agenda met tijdslots → koppel **Cal.com** of **Calendly** aan de knop "Consult aanvragen".
-- Contactformulier rechtstreeks in je inbox → **Formspree** (gratis). Zeg het maar, dan bouw ik het in.
+## Boekingssysteem — Cal.com (gekozen)
+De knop **"Boek je consult"** op de Consulten-pagina is gekoppeld aan **`https://cal.com/rihlaturruh`**.
+- Maak een gratis Cal.com-account aan en claim de gebruikersnaam **rihlaturruh** (zodat de link klopt). Is die bezet? Kies een andere en pas de link in `index.html` aan (zoek op `cal.com/rihlaturruh`).
+- Maak je afspraaktypes aan (bv. Kennismaking 20 min, Consult 60 min) en koppel je agenda; dan werkt de knop meteen.
+- De "Boek een consult"-knoppen op Home en Over mij leiden eerst naar de Consulten-pagina (eerst uitleg, dan boeken).
+
+## Contactformulier rechtstreeks in je inbox (optioneel, later)
+GitHub Pages heeft geen server, dus het contact- en nieuwsbriefformulier openen nu je e-mailprogramma. Wil je dat berichten direct in je inbox binnenkomen → **Formspree** (gratis). Zeg het maar, dan bouw ik het in.
 
 ## Later uitbreiden (na het fundament)
 Wil je in een latere fase tabs toevoegen (Voor professionals · Voor vrouwen · Voor kinderen · Sport & Ziel)? Per tab twee dingen:
