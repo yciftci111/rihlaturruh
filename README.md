@@ -1,32 +1,43 @@
 # Rihlaturruh — website
 
-Een website met tabbladen, opgebouwd als **één bestand** (`index.html`). Je test 'm gratis online via **GitHub Pages**.
+Een rustige, premium website met tabbladen, opgebouwd als **één bestand** (`index.html`). Gratis te testen via **GitHub Pages**.
 
-Tabbladen nu: **Home · Over · Consulten · Reflecties · Producten · Contact**
-Onderaan elke pagina: social-icons voor Instagram, TikTok, YouTube en e-mail.
+Tabbladen: **Home · Over mij · Consulten · Reflecties · Contact**
+Onderaan elke pagina: social-icons (Instagram, TikTok, YouTube, e-mail).
+Merkbelofte verwerkt in de teksten: **Authentiek · Diepgaand · Toepasbaar**.
 
 ## Wat zit erin
-- `index.html` — de hele website (menu, alle tabbladen, formulieren)
+- `index.html` — de hele website (menu, alle tabbladen, FAQ, formulieren)
 - `logo.png` — je logo (ook favicon + deel-afbeelding)
+
+## Bewust nog NIET op de site (gericht op focus)
+Volgens je 90-dagenplan bouw je eerst een sterk fundament. Daarom:
+- **Geen winkel/Producten-tab.** De reflectiekaartenset is Prioriteit 3 (nog in ontwikkeling). Op de homepagina staat alleen een zachte teaser ("Inschrijvers horen als eerste wanneer de reflectiekaarten verschijnen") die je nieuwsbrieflijst voedt.
+- **Nieuwsbrief "Brief aan de Ziel"** staat centraal op Home én Reflecties — zo bouw je je lijst op.
 
 ## Online zetten via GitHub Pages (zonder commando's)
 1. Account op [github.com](https://github.com).
-2. Rechtsboven **+** → **New repository** → naam `rihlaturruh` → **Public** → **Create repository**.
-3. Klik **uploading an existing file** en sleep `index.html` én `logo.png` erin → **Commit changes**.
+2. **+** → **New repository** → naam `rihlaturruh` → **Public** → **Create repository**.
+3. **uploading an existing file** → sleep `index.html` én `logo.png` erin → **Commit changes**.
 4. **Settings** → **Pages** → branch **main**, map **/(root)** → **Save**.
-5. Na ~1 minuut verschijnt je link: `https://JOUW-NAAM.github.io/rihlaturruh/`
-
-## Hoe de tabbladen werken
-Alles staat op één pagina; het menu wisselt tussen secties (#home, #over, …). Je kunt dus rechtstreeks naar een tab linken, bijv. `.../rihlaturruh/#consulten`.
+5. Na ~1 minuut: `https://JOUW-NAAM.github.io/rihlaturruh/`
 
 ## Tekst aanpassen
-Open `index.html` (op GitHub: bestand openen → potloodje ✏️). Elke sectie staat tussen duidelijke kommentaarregels, bijv. `<!-- ======= OVER ======= -->`. De "Over"-tekst is opgesteld vanuit je briefing — pas 'm gerust aan naar je eigen woorden.
+Open `index.html` (op GitHub: bestand → potloodje ✏️). Elke sectie staat tussen duidelijke kommentaarregels, bijv. `<!-- ===== OVER MIJ ===== -->`. Let op de tips in het bestand, o.a.:
+- "Over mij" — opgesteld vanuit je briefing; maak het je eigen.
+- FAQ "Wat kost een consult?" — vul je tarieven/werkwijze in.
+- Reflecties — vervang de drie voorbeeldartikelen door je eigen teksten.
 
-## Extra tabbladen later toevoegen (Professionals · Vrouwen · Kinderen · Sport & Ziel)
-Per nieuwe tab twee dingen:
-1. **Menuknop** — voeg in `<nav class="nav">` én in `<nav class="mobile-menu">` toe:
+## Echt boekingssysteem & formulieren (later)
+GitHub Pages heeft geen server. Daarom openen de knoppen nu je e-mailprogramma met een vooraf ingevuld bericht naar rihlaturruh@gmail.com (werkt direct, gratis).
+- Echte agenda met tijdslots → koppel **Cal.com** of **Calendly** aan de knop "Consult aanvragen".
+- Contactformulier rechtstreeks in je inbox → **Formspree** (gratis). Zeg het maar, dan bouw ik het in.
+
+## Later uitbreiden (na het fundament)
+Wil je in een latere fase tabs toevoegen (Voor professionals · Voor vrouwen · Voor kinderen · Sport & Ziel)? Per tab twee dingen:
+1. **Menuknop** in `<nav class="nav">` én `<nav class="mobile-menu">`:
    `<button data-go="vrouwen">Voor vrouwen</button>`
-2. **Sectie** — voeg onderaan in `<main>` toe:
+2. **Sectie** onderaan in `<main>`:
    ```html
    <section id="vrouwen" class="page">
      <section class="block"><div class="wrap">
@@ -36,13 +47,7 @@ Per nieuwe tab twee dingen:
      </div></section>
    </section>
    ```
-   De `id` van de sectie moet exact gelijk zijn aan de `data-go` van de knop.
-
-## Let op: boekingen & formulieren
-GitHub Pages serveert alleen "statische" bestanden — er draait geen server. Daarom:
-- **Consult aanvragen / contactformulier / nieuwsbrief** openen nu je e-mailprogramma met een vooraf ingevuld bericht naar rihlaturruh@gmail.com. Dat werkt direct, zonder kosten.
-- Wil je een **echt boekingssysteem** (agenda met tijdslots)? Koppel later een gratis dienst zoals **Cal.com** of **Calendly**: zet de link op de knop "Consult aanvragen".
-- Wil je een **echt contactformulier** dat in je inbox binnenkomt (zonder mailprogramma)? Gebruik bijv. **Formspree** (gratis); ik help je dat inbouwen.
+   De `id` van de sectie = de `data-go` van de knop.
 
 ## Eigen domein (optioneel)
-Heb je bijv. `rihlaturruh.nl`? Koppelen kan onder **Settings → Pages → Custom domain**.
+Heb je `rihlaturruh.nl`? Koppelen onder **Settings → Pages → Custom domain**.

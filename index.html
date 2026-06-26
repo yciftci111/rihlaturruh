@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rihlaturruh · De reis van de ziel</title>
-<meta name="description" content="Rihlaturruh — رحلة الروح. Een spirituele gids voor ziel, hart en psyche volgens de Koran en de Soennah. Consulten, reflecties en producten.">
+<meta name="description" content="Rihlaturruh — رحلة الروح. Spirituele begeleiding en reflectie vanuit de Koran en de authentieke Soennah. Authentiek, diepgaand en toepasbaar.">
 <meta property="og:title" content="Rihlaturruh · De reis van de ziel">
-<meta property="og:description" content="Een spirituele gids voor ziel, hart en psyche volgens de Koran en de Soennah.">
+<meta property="og:description" content="Een gids voor ziel, hart en karakter — vanuit de Koran en de authentieke Soennah.">
 <meta property="og:image" content="logo.png">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="logo.png">
@@ -53,7 +53,7 @@
   .mobile-menu button{font:inherit;font-size:1rem;text-align:left;background:none;border:0;padding:13px 4px;color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line)}
   .mobile-menu button.active{color:var(--green-deep);font-weight:700}
 
-  @media(max-width:860px){
+  @media(max-width:820px){
     .nav{display:none}
     .menu-toggle{display:grid;place-items:center}
     .mobile-menu.open{display:flex}
@@ -65,21 +65,27 @@
   @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
   section.block{padding:60px 0}
-  .eyebrow{font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .eyebrow{font-weight:600;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
   h2.title{font-family:var(--display);font-weight:500;font-size:clamp(1.9rem,4.6vw,2.7rem);line-height:1.12;letter-spacing:.01em;margin-bottom:16px}
   h3{font-family:var(--display);font-weight:600;font-size:1.28rem;margin-bottom:8px}
-  .lede{font-size:1.08rem;color:var(--ink-soft);max-width:56ch}
+  .lede{font-size:1.08rem;color:var(--ink-soft);max-width:58ch}
   p.body+p.body{margin-top:14px}
   .body{color:var(--ink-soft)}
+  .measure{max-width:64ch}
 
   /* ---------- HERO (home) ---------- */
-  .hero{position:relative;text-align:center;padding:74px 0 56px}
+  .hero{position:relative;text-align:center;padding:78px 0 50px}
   .hero::before{content:"";position:absolute;inset:-40px 0 auto 0;height:340px;background:radial-gradient(80% 100% at 50% 0,var(--rose) 0,rgba(231,200,174,0) 70%);z-index:-1}
-  .hero .crest{width:128px;height:128px;margin:0 auto 22px;position:relative}
+  .hero .crest{width:132px;height:132px;margin:0 auto 22px;position:relative}
   .hero .crest img{width:100%;height:100%;border-radius:50%;border:1px solid var(--gold);object-fit:cover;box-shadow:0 16px 44px -18px rgba(28,59,44,.5)}
   .hero .ar{font-family:var(--arabic);font-size:clamp(1.7rem,7vw,2.3rem);color:var(--green);direction:rtl;margin-bottom:4px}
-  .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(2.6rem,8vw,3.6rem);letter-spacing:.005em;margin-bottom:14px}
-  .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(1.05rem,3.6vw,1.35rem);color:var(--green-deep);max-width:34ch;margin:0 auto}
+  .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(2.6rem,8vw,3.6rem);letter-spacing:.005em;margin-bottom:16px}
+  .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(1.08rem,3.6vw,1.4rem);color:var(--green-deep);max-width:38ch;margin:0 auto}
+
+  .values{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:24px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .values span{display:inline-flex;align-items:center;gap:14px}
+  .values span::after{content:"";width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+  .values span:last-child::after{display:none}
 
   .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
   .btn{font:inherit;font-weight:600;font-size:.98rem;padding:14px 26px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s,color .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
@@ -88,7 +94,7 @@
   .btn.ghost{background:transparent;color:var(--green-deep);border-color:var(--green)}
   .btn.ghost:hover{background:rgba(46,94,69,.08);transform:translateY(-2px)}
 
-  /* ---------- GRID OF BLOCKS ---------- */
+  /* ---------- GRID ---------- */
   .grid{display:grid;gap:18px}
   .grid.cols-2{grid-template-columns:repeat(2,1fr)}
   .grid.cols-3{grid-template-columns:repeat(3,1fr)}
@@ -101,32 +107,40 @@
   .card .ic svg{width:24px;height:24px}
   .card .more{margin-top:14px;color:var(--gold);font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:6px}
 
-  /* tag chips */
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
   .chip{background:var(--green-tint);color:var(--green-deep);border-radius:999px;padding:8px 15px;font-size:.9rem;font-weight:500}
 
-  /* divider */
   .rule{display:flex;align-items:center;justify-content:center;gap:12px;margin:6px 0 0;color:var(--gold)}
   .rule::before,.rule::after{content:"";height:1px;flex:1;max-width:120px;background:linear-gradient(90deg,transparent,var(--gold))}
   .rule::after{background:linear-gradient(90deg,var(--gold),transparent)}
   .rule i{width:6px;height:6px;transform:rotate(45deg);background:var(--gold)}
 
-  /* article list */
+  /* article cards */
   .article{display:block;text-decoration:none;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);transition:transform .25s,box-shadow .25s,border-color .25s}
   .article:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 18px 36px -20px rgba(28,59,44,.45)}
   .article .cat{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;padding:22px 24px 0}
   .article h3{padding:8px 24px 0}
   .article p{padding:8px 24px 24px;color:var(--ink-soft);font-size:.96rem}
 
-  /* newsletter strip */
-  .news{background:var(--green);color:#F4EEDF;border-radius:22px;padding:40px 34px;text-align:center}
+  /* FAQ */
+  .faq{max-width:760px;margin-top:8px}
+  .faq details{border-bottom:1px solid var(--line);padding:6px 0}
+  .faq summary{list-style:none;cursor:pointer;padding:16px 2px;font-family:var(--display);font-weight:600;font-size:1.08rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--gold);font-size:1.4rem;font-family:var(--body);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .ans{padding:0 2px 18px;color:var(--ink-soft);max-width:62ch}
+
+  /* newsletter */
+  .news{background:var(--green);color:#F4EEDF;border-radius:22px;padding:42px 34px;text-align:center}
   .news .ar{font-family:var(--arabic);color:var(--gold-soft);font-size:1.4rem;direction:rtl;margin-bottom:8px}
   .news h3{color:#FBF7EE;font-size:1.6rem;margin-bottom:8px}
-  .news p{color:#E5E0D0;max-width:46ch;margin:0 auto 22px}
+  .news p{color:#E5E0D0;max-width:48ch;margin:0 auto 22px}
   .news form{display:flex;gap:10px;max-width:430px;margin:0 auto;flex-wrap:wrap;justify-content:center}
   .news input{flex:1;min-width:200px;padding:14px 16px;border-radius:999px;border:0;font:inherit;font-size:.95rem}
   .news .btn.primary{background:var(--gold);color:var(--green-deep)}
   .news .btn.primary:hover{background:var(--gold-soft)}
+  .news .teaser{margin-top:16px;font-size:.85rem;color:var(--gold-soft);letter-spacing:.02em}
 
   /* contact form */
   .form{display:flex;flex-direction:column;gap:14px;max-width:520px}
@@ -141,7 +155,7 @@
 
   .callout{background:var(--green-tint);border:1px solid rgba(46,94,69,.18);border-radius:14px;padding:16px 18px;font-size:.92rem;color:var(--green-deep);margin-top:18px}
 
-  /* ---------- FOOTER ---------- */
+  /* footer */
   .site-footer{border-top:1px solid var(--line);margin-top:30px;padding:44px 0 54px;text-align:center}
   .socials{display:flex;justify-content:center;gap:14px;margin-bottom:20px}
   .socials a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);color:var(--green-deep);transition:transform .2s,background .2s,color .2s,border-color .2s}
@@ -150,7 +164,7 @@
   .foot-ar{font-family:var(--arabic);color:var(--green);font-size:1.3rem;direction:rtl;margin-bottom:6px}
   .foot-small{font-size:.84rem;color:var(--ink-soft)}
 
-  @media(prefers-reduced-motion:reduce){.page{animation:none}html{scroll-behavior:auto}}
+  @media(prefers-reduced-motion:reduce){.page{animation:none}html{scroll-behavior:auto}.faq details[open] summary::after{transition:none}}
 </style>
 </head>
 <body>
@@ -165,10 +179,9 @@
       </button>
       <nav class="nav" aria-label="Hoofdmenu">
         <button data-go="home" class="active">Home</button>
-        <button data-go="over">Over</button>
+        <button data-go="over">Over mij</button>
         <button data-go="consulten">Consulten</button>
         <button data-go="reflecties">Reflecties</button>
-        <button data-go="producten">Producten</button>
         <button data-go="contact">Contact</button>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu openen" aria-expanded="false">
@@ -177,10 +190,9 @@
     </div>
     <nav class="mobile-menu" id="mobileMenu" aria-label="Hoofdmenu mobiel">
       <button data-go="home" class="active">Home</button>
-      <button data-go="over">Over Rihlaturruh</button>
+      <button data-go="over">Over mij</button>
       <button data-go="consulten">Consulten</button>
       <button data-go="reflecties">Reflecties</button>
-      <button data-go="producten">Producten</button>
       <button data-go="contact">Contact</button>
     </nav>
   </div>
@@ -195,7 +207,8 @@
       <div class="crest"><img src="logo.png" alt="Rihlaturruh logo"></div>
       <p class="ar">رحلة الروح</p>
       <h1>Rihlaturruh</h1>
-      <p class="sub">Een spirituele gids voor ziel, hart en psyche volgens de Koran en de Soennah.</p>
+      <p class="sub">Een gids voor ziel, hart en karakter — vanuit de Koran en de authentieke Soennah.</p>
+      <div class="values"><span>Authentiek</span><span>Diepgaand</span><span>Toepasbaar</span></div>
       <div class="btns">
         <a class="btn primary" data-go="consulten" href="#consulten">Boek een consult</a>
         <a class="btn ghost" data-go="reflecties" href="#reflecties">Lees reflecties</a>
@@ -205,29 +218,30 @@
 
   <section class="block">
     <div class="wrap">
+      <p class="eyebrow" style="text-align:center">Waarmee ik je help</p>
       <div class="grid cols-2">
         <a class="card" data-go="consulten" href="#consulten">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c-1 3 1.6 6 8.8 11 7.2-5 9.8-8 8.8-11z"/></svg></span>
-          <h3>Zielzorg</h3>
-          <p class="body">Spirituele begeleiding en levensvragen — van zingeving en rouw tot geloofstwijfel.</p>
+          <h3>Zielzorg &amp; begeleiding</h3>
+          <p class="body">Persoonlijke gesprekken rond zingeving, rouw, stress en geloofsvragen — een veilige ruimte om de ziel weer richting Allah te keren.</p>
           <span class="more">Naar consulten →</span>
         </a>
         <a class="card" data-go="reflecties" href="#reflecties">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/></svg></span>
           <h3>Reflecties</h3>
-          <p class="body">Koran, Soennah en hartverzachtende woorden over sabr, tawakkul en tazkiyah.</p>
+          <p class="body">Hartverzachtende woorden uit Koran en Soennah over sabr, tawakkul en het zuiveren van het hart.</p>
           <span class="more">Lees verder →</span>
         </a>
-        <a class="card" data-go="producten" href="#producten">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="15" rx="2"/><path d="M8 3h13v15"/></svg></span>
-          <h3>Tools &amp; kaarten</h3>
-          <p class="body">Reflectiekaarten, journals en werkboeken voor individuen én professionals.</p>
-          <span class="more">Bekijk producten →</span>
+        <a class="card" data-go="over" href="#over">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6a2 2 0 0 1 2-2h8l6 6v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 4v6h6"/></svg></span>
+          <h3>Kennis &amp; Koran</h3>
+          <p class="body">Begeleiding geworteld in theologie, tajweed en de Arabische taal — gevormd door studie in Medina.</p>
+          <span class="more">Over mij →</span>
         </a>
         <a class="card" data-go="over" href="#over">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.4-3 7.7-7 9-4-1.3-7-4.6-7-9V7z"/><path d="M9.5 12l1.8 1.8 3.2-3.6"/></svg></span>
-          <h3>Sport &amp; weerbaarheid</h3>
-          <p class="body">De discipline van lichaam en ziel: sabr, zelfbeheersing en innerlijke kracht.</p>
+          <h3>Lichaam, hart &amp; ziel</h3>
+          <p class="body">De verbinding tussen discipline, weerbaarheid en spiritualiteit — sabr en zelfbeheersing als oefening van de ziel.</p>
           <span class="more">Lees het verhaal →</span>
         </a>
       </div>
@@ -239,47 +253,48 @@
       <div class="news">
         <p class="ar">رسالة إلى الروح</p>
         <h3>Brief aan de Ziel</h3>
-        <p>Wekelijks een korte reflectie en een praktische oefening voor hart en ziel — rechtstreeks in je inbox.</p>
-        <form id="newsForm">
-          <input type="email" id="newsEmail" placeholder="Je e-mailadres" required aria-label="E-mailadres">
+        <p>Wekelijks een korte reflectie en een praktische oefening voor hart en ziel — rustig, geworteld en toepasbaar.</p>
+        <form class="js-news">
+          <input class="js-news-email" type="email" placeholder="Je e-mailadres" required aria-label="E-mailadres">
           <button class="btn primary" type="submit">Inschrijven</button>
         </form>
+        <p class="teaser">Inschrijvers horen als eerste wanneer de reflectiekaarten verschijnen.</p>
       </div>
     </div>
   </section>
 </section>
 
-<!-- ======================= OVER ======================= -->
+<!-- ======================= OVER MIJ ======================= -->
 <section id="over" class="page">
   <section class="block">
     <div class="wrap">
-      <p class="eyebrow">Over Rihlaturruh</p>
+      <p class="eyebrow">Over mij</p>
       <h2 class="title">Een reis die in Medina begon</h2>
-      <p class="lede">Rihlaturruh — de reis van de ziel — komt voort uit jaren van studie, stilte en begeleiding. Het is geboren uit het verlangen om islamitische spiritualiteit, geestelijke verzorging en karaktervorming toegankelijk te maken voor moslims van alle leeftijden.</p>
+      <p class="lede">Rihlaturruh — de reis van de ziel — komt voort uit jaren van studie, stilte en begeleiding. Mijn missie is mensen dichter bij Allah te brengen: door spirituele begeleiding, reflectie, kennis en de praktische toepassing van de Koran en de authentieke Soennah.</p>
 
       <div class="grid cols-2" style="margin-top:34px">
         <div class="card">
-          <h3>Kennis &amp; theologie</h3>
-          <p class="body">Geschoold in de islamitische wetenschappen en gevormd door een periode van wonen en studeren in Medina, met een diepe verbondenheid met de bronnen: Koran en authentieke Soennah.</p>
+          <h3>Theologie &amp; Medina</h3>
+          <p class="body">Als islamitisch theoloog gevormd door een periode van wonen en studeren in Medina, met een diepe verbondenheid met de bronnen: Koran en authentieke Soennah.</p>
         </div>
         <div class="card">
           <h3>Tajweed &amp; Arabisch</h3>
-          <p class="body">Sterk in tajweed en actief bezig met de hifdh van de Koran. Arabisch bestudeerd via onder andere de Medina-boeken en Arabiyyah Bayna Yadayk.</p>
+          <p class="body">Sterk in tajweed en werkend aan de memorisatie van de Koran. Arabisch bestudeerd via onder andere de Medina-boeken en Arabiyyah Bayna Yadayk.</p>
         </div>
         <div class="card">
           <h3>Geestelijke verzorging</h3>
-          <p class="body">Ervaren in zingeving, levensvragen en spirituele begeleiding — het stille werk van luisteren, dragen en de ziel weer richting Allah keren.</p>
+          <p class="body">Als geestelijk verzorger ervaren in zingeving en levensvragen — het stille werk van luisteren, dragen en richting geven.</p>
         </div>
         <div class="card">
-          <h3>Sport &amp; weerbaarheid</h3>
-          <p class="body">Een achtergrond in karate en zelfverdediging, en jaren lesgeven binnen de vechtsport. De verbinding tussen lichaam, geest, ziel en discipline loopt als een draad door alles heen.</p>
+          <h3>Lichaam &amp; weerbaarheid</h3>
+          <p class="body">Een achtergrond in karate en zelfverdediging, met jaren leservaring. De verbinding tussen lichaam, hart, ziel en karaktervorming loopt als een draad door mijn werk.</p>
         </div>
       </div>
 
-      <p class="body" style="margin-top:30px;max-width:62ch">
-        Onderwijs aan kinderen binnen de moskee, begeleiding bij levensvragen en de zorg voor het innerlijke leven komen hier samen in één missie: mensen begeleiden in hun reis naar Allah door spirituele verdieping, zelfreflectie, karaktervorming en bewust leven.
+      <p class="body measure" style="margin-top:30px">
+        Die combinatie — kennis, zielzorg en discipline — is wat Rihlaturruh onderscheidt. Geen oppervlakkige zelfhulp, maar begeleiding die geworteld is in openbaring en toepasbaar in je dagelijks leven. Dat is mijn belofte: <strong>authentiek, diepgaand en toepasbaar</strong>.
       </p>
-      <!-- Tip: vervang of vul deze tekst aan met je eigen woorden — dit is opgesteld vanuit je briefing. -->
+      <!-- Tip: dit is opgesteld vanuit je briefing — vervang of vul aan met je eigen woorden. -->
 
       <div class="btns" style="justify-content:flex-start;margin-top:28px">
         <a class="btn primary" data-go="consulten" href="#consulten">Boek een consult</a>
@@ -329,6 +344,26 @@
         <a class="btn primary" href="mailto:rihlaturruh@gmail.com?subject=Aanvraag%20consult%20Rihlaturruh&amp;body=Assalamu%20alaykum%2C%0A%0AIk%20zou%20graag%20een%20consult%20aanvragen.%0A%0AMijn%20vraag%3A%0A%0AVoorkeursmoment%3A%0A%0A">Consult aanvragen</a>
         <a class="btn ghost" data-go="contact" href="#contact">Eerst contact opnemen</a>
       </div>
+
+      <h2 class="title" style="font-size:1.6rem;margin:54px 0 6px">Veelgestelde vragen</h2>
+      <div class="faq">
+        <details>
+          <summary>Voor wie zijn de consulten bedoeld?</summary>
+          <p class="ans">Voor iedereen die spirituele verdieping, rust of richting zoekt — of je nu worstelt met een concrete levensvraag of gewoon dichter bij Allah wilt komen. Jong of oud, beginnend of gevorderd.</p>
+        </details>
+        <details>
+          <summary>Hoe verloopt een consult?</summary>
+          <p class="ans">Na je aanvraag plannen we een moment in. Gesprekken kunnen online of op afspraak plaatsvinden. We beginnen met luisteren naar je vraag en kijken samen naar wat de Koran en Soennah je hierin bieden, praktisch toepasbaar gemaakt.</p>
+        </details>
+        <details>
+          <summary>Is alles vertrouwelijk?</summary>
+          <p class="ans">Ja. Wat je deelt blijft tussen ons. Een veilige en vertrouwelijke ruimte is de basis van goede begeleiding.</p>
+        </details>
+        <details>
+          <summary>Wat kost een consult?</summary>
+          <p class="ans">Neem contact op voor de actuele tarieven en mogelijkheden. <!-- Vul hier je eigen tarieven of werkwijze in. --></p>
+        </details>
+      </div>
     </div>
   </section>
 </section>
@@ -339,7 +374,7 @@
     <div class="wrap">
       <p class="eyebrow">Reflecties</p>
       <h2 class="title">Hartverzachtende woorden</h2>
-      <p class="lede">Korte teksten en artikelen over Koran, Soennah en het innerlijke leven — over geduld, vertrouwen, het zuiveren van het hart en het dragen van emoties.</p>
+      <p class="lede">Korte teksten over Koran, Soennah en het innerlijke leven — over geduld, vertrouwen, het zuiveren van het hart en het dragen van emoties. Bedoeld om mee te nemen in je dag.</p>
 
       <div class="grid cols-3" style="margin-top:34px">
         <a class="article" data-go="contact" href="#contact">
@@ -360,30 +395,15 @@
       </div>
 
       <div class="callout">Dit zijn voorbeeldreflecties. Hier komen jouw eigen artikelen en Koranreflecties — laat het me weten en ik help je ze toevoegen.</div>
-    </div>
-  </section>
-</section>
 
-<!-- ======================= PRODUCTEN ======================= -->
-<section id="producten" class="page">
-  <section class="block">
-    <div class="wrap">
-      <p class="eyebrow">Producten</p>
-      <h2 class="title">Tools voor hart, huis en praktijk</h2>
-      <p class="lede">Praktische materialen die spiritualiteit tastbaar maken — voor persoonlijke groei, voor het gezin en voor professionals in de geestelijke verzorging.</p>
-
-      <div class="grid cols-3" style="margin-top:34px">
-        <div class="card"><h3>Reflectiekaarten</h3><p class="body">Kaartensets met Koran- en Soennah-reflecties voor dagelijkse bezinning.</p></div>
-        <div class="card"><h3>Journals</h3><p class="body">Spirituele journaling-methodes om de reis van je ziel vast te leggen.</p></div>
-        <div class="card"><h3>Werkboeken</h3><p class="body">Begeleide oefeningen rond tazkiyah, sabr en karaktervorming.</p></div>
-        <div class="card"><h3>E-books</h3><p class="body">Verdiepende teksten over spiritualiteit, veerkracht en zingeving.</p></div>
-        <div class="card"><h3>Kinderkaarten</h3><p class="body">Educatieve kaarten en spellen rond emoties, identiteit en weerbaarheid.</p></div>
-        <div class="card"><h3>Tools voor verzorgers</h3><p class="body">Materialen voor islamitische geestelijk verzorgers in zorg en detentie.</p></div>
-      </div>
-
-      <div class="callout">De winkel wordt nog ingericht. Interesse in een product of vroege toegang? Laat het weten.</div>
-      <div class="btns" style="justify-content:flex-start;margin-top:22px">
-        <a class="btn primary" href="mailto:rihlaturruh@gmail.com?subject=Interesse%20producten%20Rihlaturruh">Mail je interesse</a>
+      <div class="news" style="margin-top:34px">
+        <p class="ar">رسالة إلى الروح</p>
+        <h3>Wil je de reflecties wekelijks ontvangen?</h3>
+        <p>Schrijf je in voor Brief aan de Ziel: elke week een reflectie en een praktische oefening.</p>
+        <form class="js-news">
+          <input class="js-news-email" type="email" placeholder="Je e-mailadres" required aria-label="E-mailadres">
+          <button class="btn primary" type="submit">Inschrijven</button>
+        </form>
       </div>
     </div>
   </section>
@@ -420,6 +440,10 @@
           <div class="callout" style="margin-top:20px">
             <b>Samenwerkingen</b><br>
             Ben je een moskee, zorginstelling of organisatie en wil je samenwerken rond geestelijke verzorging, weerbaarheid of educatie? Stuur gerust een bericht.
+          </div>
+          <div class="callout" style="margin-top:14px">
+            <b>Nieuwsbrief — Brief aan de Ziel</b><br>
+            Wekelijkse reflecties in je inbox? Schrijf je in op de <a href="#home" data-go="home" style="color:var(--green-deep);font-weight:700">homepagina</a>.
           </div>
         </div>
       </div>
@@ -458,6 +482,7 @@
   var menuToggle = document.getElementById('menuToggle');
 
   function go(id){
+    if(!document.getElementById(id)) id = 'home';
     pages.forEach(function(p){ p.classList.toggle('active', p.id === id); });
     document.querySelectorAll('.nav button, .mobile-menu button').forEach(function(b){
       b.classList.toggle('active', b.getAttribute('data-go') === id);
@@ -481,7 +506,16 @@
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  // mailto-based form handlers (werkt zonder server)
+  // newsletter forms (werkt zonder server via e-mail)
+  document.querySelectorAll('.js-news').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var em = f.querySelector('.js-news-email').value;
+      window.location.href = 'mailto:rihlaturruh@gmail.com?subject=' + encodeURIComponent('Inschrijving Brief aan de Ziel') + '&body=' + encodeURIComponent('Ik wil me graag inschrijven voor de nieuwsbrief. Mijn e-mail: ' + em);
+    });
+  });
+
+  // contact form
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
     var n = document.getElementById('cName').value;
@@ -490,17 +524,11 @@
     var body = 'Naam: ' + n + '%0AE-mail: ' + em + '%0A%0A' + encodeURIComponent(m);
     window.location.href = 'mailto:rihlaturruh@gmail.com?subject=' + encodeURIComponent('Bericht via website — ' + n) + '&body=' + body;
   });
-  document.getElementById('newsForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var em = document.getElementById('newsEmail').value;
-    window.location.href = 'mailto:rihlaturruh@gmail.com?subject=' + encodeURIComponent('Inschrijving Brief aan de Ziel') + '&body=' + encodeURIComponent('Ik wil me graag inschrijven voor de nieuwsbrief. Mijn e-mail: ' + em);
-  });
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // deep-link via hash
   var start = (location.hash || '#home').replace('#','');
-  if (document.getElementById(start)) go(start);
+  go(start);
 </script>
 </body>
 </html>
