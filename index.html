@@ -252,10 +252,7 @@
       <div class="news">
         <h3>Brief aan de Ziel</h3>
         <p>Wekelijks een korte reflectie en een praktische oefening voor hart en ziel — rustig, geworteld en toepasbaar.</p>
-        <form class="js-news">
-          <input class="js-news-email" type="email" placeholder="Je e-mailadres" required aria-label="E-mailadres">
-          <button class="btn primary" type="submit">Inschrijven</button>
-        </form>
+        <a class="btn primary" href="https://brief-aan-de-ziel.kit.com/955c0af13d" target="_blank" rel="noopener">Schrijf je in</a>
         <p class="teaser">Inschrijvers horen als eerste wanneer de reflectiekaarten verschijnen.</p>
       </div>
     </div>
@@ -397,10 +394,7 @@
       <div class="news" style="margin-top:34px">
         <h3>Wil je de reflecties wekelijks ontvangen?</h3>
         <p>Schrijf je in voor Brief aan de Ziel: elke week een reflectie en een praktische oefening.</p>
-        <form class="js-news">
-          <input class="js-news-email" type="email" placeholder="Je e-mailadres" required aria-label="E-mailadres">
-          <button class="btn primary" type="submit">Inschrijven</button>
-        </form>
+        <a class="btn primary" href="https://brief-aan-de-ziel.kit.com/955c0af13d" target="_blank" rel="noopener">Schrijf je in</a>
       </div>
     </div>
   </section>
@@ -442,7 +436,7 @@
           </div>
           <div class="callout" style="margin-top:14px">
             <b>Nieuwsbrief — Brief aan de Ziel</b><br>
-            Wekelijkse reflecties in je inbox? Schrijf je in op de <a href="#home" data-go="home" style="color:var(--green-deep);font-weight:700">homepagina</a>.
+            Wekelijkse reflecties in je inbox? <a href="https://brief-aan-de-ziel.kit.com/955c0af13d" target="_blank" rel="noopener" style="color:var(--green-deep);font-weight:700">Schrijf je in op Brief aan de Ziel</a>.
           </div>
         </div>
       </div>
@@ -536,14 +530,6 @@
   menuToggle.addEventListener('click', function(){
     var open = mobileMenu.classList.toggle('open');
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  document.querySelectorAll('.js-news').forEach(function(f){
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var em = f.querySelector('.js-news-email').value;
-      window.location.href = 'mailto:rihlaturruh@gmail.com?subject=' + encodeURIComponent('Inschrijving Brief aan de Ziel') + '&body=' + encodeURIComponent('Ik wil me graag inschrijven voor de nieuwsbrief. Mijn e-mail: ' + em);
-    });
   });
 
   document.getElementById('contactForm').addEventListener('submit', function(e){

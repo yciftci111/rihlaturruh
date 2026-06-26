@@ -34,8 +34,12 @@ De knop **"Boek je consult"** op de Consulten-pagina is gekoppeld aan **`https:/
 - Hernoem je standaard-afspraaktypes naar bv. Kennismaking, Consult en Traject en koppel je agenda. De knop wijst naar je algemene boekingspagina, dus die blijft werken ook als de afspraaknamen veranderen.
 - De "Boek een consult"-knoppen op Home en Over mij leiden eerst naar de Consulten-pagina (eerst uitleg, dan boeken).
 
+## Nieuwsbrief — Kit (gekoppeld)
+De knoppen **"Schrijf je in"** (Home en Reflecties) en de link op de Contact-pagina wijzen naar je Kit-inschrijfpagina: **`https://brief-aan-de-ziel.kit.com/955c0af13d`**. Inschrijvingen komen automatisch in je Kit-lijst ("Brief aan de Ziel").
+- Wil je het formulier later volledig ín je eigen site (zodat mensen niet doorklikken naar Kit)? Kopieer in Kit de **HTML/JavaScript-embedcode** van het formulier en geef die door, dan bouw ik 'm op je eigen pagina in.
+
 ## Contactformulier rechtstreeks in je inbox (optioneel, later)
-GitHub Pages heeft geen server, dus het contact- en nieuwsbriefformulier openen nu je e-mailprogramma. Wil je dat berichten direct in je inbox binnenkomen → **Formspree** (gratis). Zeg het maar, dan bouw ik het in.
+GitHub Pages heeft geen server, dus het contactformulier opent nu je e-mailprogramma. Wil je dat berichten direct in je inbox binnenkomen → **Formspree** (gratis). Zeg het maar, dan bouw ik het in.
 
 ## Later uitbreiden (na het fundament)
 Wil je in een latere fase tabs toevoegen (Voor professionals · Voor vrouwen · Voor kinderen · Sport & Ziel)? Per tab twee dingen:
