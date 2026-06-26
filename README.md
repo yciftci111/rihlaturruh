@@ -28,10 +28,10 @@ Open `index.html` (op GitHub: bestand → potloodje ✏️). Elke sectie staat t
 - FAQ "Wat kost een consult?" — vul je tarieven/werkwijze in.
 - Reflecties — vervang de drie voorbeeldartikelen door je eigen teksten.
 
-## Boekingssysteem — Cal.com (gekozen)
-De knop **"Boek je consult"** op de Consulten-pagina is gekoppeld aan **`https://cal.com/rihlaturruh`**.
-- Maak een gratis Cal.com-account aan en claim de gebruikersnaam **rihlaturruh** (zodat de link klopt). Is die bezet? Kies een andere en pas de link in `index.html` aan (zoek op `cal.com/rihlaturruh`).
-- Maak je afspraaktypes aan (bv. Kennismaking 20 min, Consult 60 min) en koppel je agenda; dan werkt de knop meteen.
+## Boekingssysteem — Cal.com (gekoppeld)
+De knop **"Boek je consult"** op de Consulten-pagina is gekoppeld aan **`https://cal.eu/rihlaturruh`** (EU-profiel).
+- Verandert je adres ooit? Geef het door, dan pas ik de link in één regel aan (zoek in `index.html` op `cal.eu/rihlaturruh`).
+- Hernoem je standaard-afspraaktypes naar bv. Kennismaking, Consult en Traject en koppel je agenda. De knop wijst naar je algemene boekingspagina, dus die blijft werken ook als de afspraaknamen veranderen.
 - De "Boek een consult"-knoppen op Home en Over mij leiden eerst naar de Consulten-pagina (eerst uitleg, dan boeken).
 
 ## Contactformulier rechtstreeks in je inbox (optioneel, later)
