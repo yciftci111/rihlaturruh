@@ -1,14 +1,20 @@
 # Rihlaturruh — website
 
-Een rustige, premium website met tabbladen, opgebouwd als **één bestand** (`index.html`). Gratis te testen via **GitHub Pages**.
+Een premium, fotografisch geïnspireerde website met tabbladen, opgebouwd als **één bestand** (`index.html`). Gratis te testen via **GitHub Pages**.
 
-Tabbladen: **Home · Over mij · Consulten · Reflecties · Contact**
+Tabbladen: **Home · Over mij · Diensten & Aanbod · Materialen · Contact** + knop **Plan een consult**.
 Onderaan elke pagina: social-icons (Instagram, TikTok, YouTube, e-mail).
-Merkbelofte verwerkt in de teksten: **Authentiek · Diepgaand · Toepasbaar**.
+Merkbelofte in de teksten: **Authentiek · Diepgaand · Toepasbaar**.
 
 ## Wat zit erin
-- `index.html` — de hele website (menu, alle tabbladen, FAQ, formulieren)
-- `logo.png` — je logo (ook favicon + deel-afbeelding)
+- `index.html` — de hele website (menu, alle tabbladen, formulieren)
+- `logo.png` — je nieuwe logo (volledig, incl. woordmerk; deel-afbeelding)
+- `logo-mark.png` — de ronde logo-versie (header, footer, favicon)
+
+**Belangrijk:** upload alle drie de bestanden naar GitHub (`index.html`, `logo.png`, `logo-mark.png`).
+
+## Nog toe te voegen: foto's
+Deze versie is ontworpen om er compleet uit te zien zonder foto's (logo + ornamenten). Wil je de volledige fotografische look uit je mockups (moskee-hero, lantaarns, journals, olijftakken, fauteuil)? Lever die beelden aan, dan plaats ik ze op de juiste plekken in de secties.
 
 ## Bewust nog NIET op de site (gericht op focus)
 Volgens je 90-dagenplan bouw je eerst een sterk fundament. Daarom:
