@@ -256,6 +256,31 @@
   .imgpanel{border-radius:6px;overflow:hidden;border:1px solid var(--line);min-height:380px;background:var(--green-tint)}
   .imgpanel img{width:100%;height:100%;min-height:380px;object-fit:cover;display:block}
   @media(prefers-reduced-motion:reduce){.page{animation:none}html{scroll-behavior:auto}}
+  /* ================= PROFESSIONEEL LAYOUT-SYSTEEM ================= */
+  .split{grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .split.alt{align-items:center}
+  .split > *{min-width:0}
+  .split.reverse .imgpanel{order:-1}
+  .imgpanel{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;min-height:0;box-shadow:0 24px 56px -32px rgba(24,50,38,.5)}
+  .imgpanel img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .hero-wm{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:clamp(2.6rem,5.4vw,4.2rem);color:var(--green-deep);line-height:1;margin:0}
+  .hero-tag{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:14px 0 0}
+  .hero-sub{margin:20px 0 0;color:var(--ink-soft);font-size:1.1rem;max-width:46ch}
+  .copy .lead,.copy .body{max-width:52ch}
+  .centered-block{text-align:center;max-width:42ch;margin:0 auto}
+  .centered-block .fi{width:56px;height:56px;border-radius:50%;background:var(--green-tint);color:var(--green);display:grid;place-items:center;margin:0 auto 14px}
+  .centered-block .fi svg{width:26px;height:26px}
+  .centered-block .body{max-width:none}
+  .plaincols{align-items:start;gap:44px}
+  .plaincols .txtcol h3{margin-bottom:12px}
+  .biocol{max-width:70ch;margin:0 auto}
+  @media(max-width:900px){
+    .split{grid-template-columns:1fr;gap:30px}
+    .split.reverse .imgpanel{order:0}
+    .imgpanel,.imgpanel img{aspect-ratio:16/10}
+    .plaincols{gap:32px}
+  }
+
 </style>
 </head>
 <body>
@@ -293,46 +318,46 @@
 
 <main>
 
-<!-- ===================== HOME ===================== -->
+<!-- ============================= HOME ============================= -->
 <section id="home" class="page active">
   <!-- HERO -->
-  <div class="hero2">
-    <div class="left">
-      <h1 class="hero-wm">Rihlaturruh</h1>
-      <p class="hero-tag">&#8250;&nbsp; De reis van de ziel &nbsp;&#8249;</p>
-      <p class="hero-sub">Een plek voor islamitische reflectie, geestelijke verzorging en materialen die uitnodigen tot bezinning, betekenis en innerlijke rust.</p>
-      <div class="btns">
-        <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
-        <a class="btn ghost" data-go="materialen" href="#materialen">Ontdek de materialen &rarr;</a>
+  <section class="block" style="padding-top:60px">
+    <div class="wrap split">
+      <div class="copy">
+        <h1 class="hero-wm">Rihlaturruh</h1>
+        <p class="hero-tag">&#8250;&nbsp; De reis van de ziel &nbsp;&#8249;</p>
+        <p class="hero-sub">Een plek voor islamitische reflectie, geestelijke verzorging en materialen die uitnodigen tot bezinning, betekenis en innerlijke rust.</p>
+        <div class="btns" style="margin-top:30px">
+          <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
+          <a class="btn ghost" data-go="materialen" href="#materialen">Ontdek de materialen &rarr;</a>
+        </div>
       </div>
+      <div class="imgpanel"><img src="p-home-hero.jpg" alt="De Profetenmoskee in Medina bij zonsondergang" loading="eager"></div>
     </div>
-    <div class="right"><img src="p-home-hero.jpg" alt="De Profetenmoskee in Medina bij zonsondergang"></div>
-  </div>
+  </section>
 
-  <!-- IEDERE ZIEL KENT HAAR EIGEN REIS -->
-  <section class="block">
-    <div class="wrap split alt">
-      <div class="ie-text">
-        <h2 class="title up" style="text-align:center">Iedere ziel kent haar eigen reis</h2>
-        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-        <p class="body" style="text-align:center">Soms brengt het leven rust en dankbaarheid. Soms brengt het verlies, onzekerheid of vragen waarop geen eenvoudig antwoord bestaat.</p>
-        <p class="body" style="text-align:center">Rihlaturruh is ontstaan vanuit de overtuiging dat juist in zulke momenten ruimte nodig is om stil te staan, te reflecteren en opnieuw richting te vinden.</p>
-        <p class="body" style="text-align:center">Ge&iuml;nspireerd door de Koran en de authentieke Soennah biedt Rihlaturruh een plek waar geloof, bezinning en geestelijke begeleiding samenkomen.</p>
-        <p class="body" style="text-align:center">Niet om alle antwoorden te geven, maar om mensen te ondersteunen in hun persoonlijke reis naar Allah.</p>
+  <!-- IEDERE ZIEL (image left) -->
+  <section class="block band">
+    <div class="wrap split reverse">
+      <div class="copy">
+        <h2 class="title up" style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Iedere ziel kent haar eigen reis</h2>
+        <div class="flourish left" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
+        <p class="body">Soms brengt het leven rust en dankbaarheid. Soms brengt het verlies, onzekerheid of vragen waarop geen eenvoudig antwoord bestaat.</p>
+        <p class="body">Rihlaturruh is ontstaan vanuit de overtuiging dat juist in zulke momenten ruimte nodig is om stil te staan, te reflecteren en opnieuw richting te vinden.</p>
+        <p class="body">Ge&iuml;nspireerd door de Koran en de authentieke Soennah biedt Rihlaturruh een plek waar geloof, bezinning en geestelijke begeleiding samenkomen &mdash; om mensen te ondersteunen in hun persoonlijke reis naar Allah.</p>
       </div>
       <div class="imgpanel"><img src="p-home-reflect.jpg" alt="Rust en reflectie bij het raam" loading="lazy"></div>
     </div>
   </section>
 
-  <!-- WAT JE HIER KUNT VINDEN -->
-  <section class="block band">
+  <!-- WAT JE HIER KUNT VINDEN (grid) -->
+  <section class="block">
     <div class="wrap">
       <div class="center">
         <h2 class="title up" style="font-size:clamp(1.5rem,3.4vw,2rem)">Wat je hier kunt vinden</h2>
         <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
       </div>
       <div class="grid c3" style="margin-top:30px">
-        <!-- Materialen -->
         <a class="card" data-go="materialen" href="#materialen">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
           <h3 class="up">Materialen</h3>
@@ -341,11 +366,10 @@
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Werkbladen</li>
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Posters</li>
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Digitale werkbladen</li>
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Voor persoonlijk en professioneel gebruik</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Persoonlijk en professioneel gebruik</li>
           </ul>
           <span class="arrow-link">Ontdek de materialen &rarr;</span>
         </a>
-        <!-- Consulten -->
         <a class="card" data-go="diensten" href="#diensten">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-1-1.6-3.2-2-4.8-1S5 6.8 6 8.4L12 15l6-6.6c1-1.6.4-3.4-1.2-4.4S13 3.4 12 5z"/><path d="M3 13c1.5-1 3-1 4.5 0M16.5 13c1.5-1 3-1 4.5 0"/></svg></span>
           <h3 class="up">Consulten</h3>
@@ -353,7 +377,6 @@
           <p class="body">Geestelijke begeleiding vanuit islamitisch perspectief. Deze mogelijkheid wordt stap voor stap verder uitgewerkt.</p>
           <span class="arrow-link">Lees meer &rarr;</span>
         </a>
-        <!-- Over Rihlaturruh -->
         <a class="card" data-go="over" href="#over">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/></svg></span>
           <h3 class="up">Over Rihlaturruh</h3>
@@ -365,10 +388,10 @@
     </div>
   </section>
 
-  <!-- ONZE VISIE -->
-  <section class="block">
+  <!-- ONZE VISIE (image right) -->
+  <section class="block band">
     <div class="wrap split">
-      <div>
+      <div class="copy">
         <p class="eyebrow">Onze visie</p>
         <h2 class="visie-h">Wij geloven dat geestelijke groei begint wanneer er ruimte ontstaat voor stilte, reflectie en oprechte verbinding met Allah.</h2>
         <p class="body">Rihlaturruh wil bijdragen aan die reis door kennis, bezinning en praktische hulpmiddelen aan te bieden die mensen ondersteunen in het dagelijks leven, zowel persoonlijk als professioneel.</p>
@@ -378,22 +401,20 @@
     </div>
   </section>
 
-  <!-- QUOTE -->
   <div class="quote">
     <span class="mk">&rdquo;</span>
     <p>Rihlaturruh betekent: de reis van de ziel. Een uitnodiging om niet alleen verder te gaan, maar ook stil te staan.</p>
   </div>
 </section>
 
-<!-- ===================== OVER MIJ ===================== -->
+<!-- ============================= OVER MIJ ============================= -->
 <section id="over" class="page">
-  <!-- INTRO -->
-  <section class="block">
-    <div class="wrap split alt">
-      <div>
+  <!-- INTRO (image right) -->
+  <section class="block" style="padding-top:60px">
+    <div class="wrap split">
+      <div class="copy">
         <h2 class="title" style="font-size:clamp(2.2rem,5vw,3.2rem)">Over Rihlaturruh</h2>
         <div class="tagflourish"><span class="ln"></span><span class="eyebrow">De reis van de ziel</span><span class="ln r"></span></div>
-        <div class="flourish left" style="justify-content:flex-start;margin:0 0 20px"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></div>
         <p class="body" style="color:var(--green-deep);font-weight:700;font-size:1.05rem">Rihlaturruh betekent de reis van de ziel.</p>
         <p class="body">Iedere mens bewandelt een eigen weg. Een weg die wordt gekenmerkt door momenten van vreugde en verdriet, hoop en onzekerheid, groei en beproeving. Tijdens deze reis staan we soms stil bij levensvragen, zoeken we naar betekenis of verlangen we naar innerlijke rust en nabijheid tot Allah.</p>
         <p class="body" style="color:var(--gold);font-weight:600">Vanuit die gedachte is Rihlaturruh ontstaan: een plek waar islamitische reflectie en geestelijke verzorging samenkomen.</p>
@@ -403,54 +424,59 @@
     </div>
   </section>
 
-  <!-- ONZE VISIE / VOOR WIE + beeld -->
+  <!-- ONZE VISIE (image left) -->
   <section class="block band">
-    <div class="wrap trio">
-      <div class="col">
-        <div class="center-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></div>
-        <h3 style="text-align:center;margin-bottom:16px">Onze visie</h3>
-        <p class="body">Wij geloven dat ware verandering begint in het hart.</p>
-        <p class="body">Wanneer we bewust leren stilstaan bij onze ervaringen, onze relatie met Allah en onze plaats in het leven, ontstaat ruimte voor innerlijke rust, veerkracht en betekenis.</p>
-        <p class="body">Daarom ontwikkelt Rihlaturruh zorgvuldig vormgegeven materialen die uitnodigen tot reflectie en bewustwording.</p>
-        <p class="body">Op termijn zal dit worden uitgebreid met islamitische geestelijke begeleiding voor mensen die behoefte hebben aan persoonlijke ondersteuning.</p>
+    <div class="wrap split reverse">
+      <div class="copy">
+        <p class="eyebrow">Onze visie</p>
+        <h3 style="margin:10px 0 14px;font-size:1.6rem">Waar verandering begint</h3>
+        <p class="body">Wij geloven dat ware verandering begint in het hart. Wanneer we bewust leren stilstaan bij onze ervaringen, onze relatie met Allah en onze plaats in het leven, ontstaat ruimte voor innerlijke rust, veerkracht en betekenis.</p>
+        <p class="body">Daarom ontwikkelt Rihlaturruh zorgvuldig vormgegeven materialen die uitnodigen tot reflectie en bewustwording. Op termijn zal dit worden uitgebreid met islamitische geestelijke begeleiding voor mensen die behoefte hebben aan persoonlijke ondersteuning.</p>
         <p class="body">Alles wat binnen Rihlaturruh wordt ontwikkeld, vindt zijn inspiratie in de Koran, de authentieke Soennah en de rijke islamitische traditie van zielzorg <em>(tazkiyat an-nafs)</em>.</p>
       </div>
-      <div class="col">
-        <div class="center-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5M15.5 14.6c2.4.3 4.5 1.8 4.5 4.4"/></svg></div>
-        <h3 style="text-align:center;margin-bottom:16px">Voor wie is Rihlaturruh?</h3>
-        <p class="body">Rihlaturruh is er voor iedereen die verlangt naar verdieping vanuit een islamitisch perspectief.</p>
-        <p class="body" style="font-weight:600;color:var(--ink)">De materialen zijn geschikt voor:</p>
-        <ul class="checklist" style="max-width:none;margin:6px 0 0">
+      <div class="imgpanel"><img src="p-over-wie.jpg" alt="Poort van de Profetenmoskee" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- VOOR WIE (image right) -->
+  <section class="block">
+    <div class="wrap split">
+      <div class="copy">
+        <p class="eyebrow">Voor wie is Rihlaturruh?</p>
+        <h3 style="margin:10px 0 14px;font-size:1.6rem">Voor iedereen die verdieping zoekt</h3>
+        <p class="body">Rihlaturruh is er voor iedereen die verlangt naar verdieping vanuit een islamitisch perspectief. De materialen zijn geschikt voor:</p>
+        <ul class="checklist" style="max-width:none;margin:8px 0 0">
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>persoonlijke reflectie en spirituele ontwikkeling</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>islamitische geestelijke verzorging</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>onderwijs en educatie</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>zorg- en welzijnsinstellingen</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>professionals die werken met moslims</li>
         </ul>
-        <p class="body" style="margin-top:16px">Om zoveel mogelijk mensen te bereiken, zullen de materialen geleidelijk beschikbaar worden in meerdere talen, waaronder Nederlands, Turks en &ndash; waar passend &ndash; Arabisch.</p>
+        <p class="body" style="margin-top:16px">Om zoveel mogelijk mensen te bereiken, worden de materialen geleidelijk beschikbaar in meerdere talen, waaronder Nederlands, Turks en &ndash; waar passend &ndash; Arabisch.</p>
       </div>
-      <div class="imgpanel"><img src="p-over-wie.jpg" alt="Poort van de Profetenmoskee" loading="lazy"></div>
+      <div class="imgpanel"><img src="p-over-achter.jpg" alt="Een rustige plek voor bezinning" loading="lazy"></div>
     </div>
   </section>
 
-  <!-- ACHTER RIHLATURRUH -->
-  <section class="block">
-    <div class="wrap split">
-      <div class="imgpanel"><img src="p-over-achter.jpg" alt="Een rustige plek voor bezinning" loading="lazy"></div>
-      <div>
-        <h2 class="title" style="font-size:clamp(2rem,4.4vw,2.7rem);margin-bottom:14px">Achter Rihlaturruh</h2>
-        <p class="body" style="color:var(--gold);font-weight:700;font-size:1.15rem;margin-bottom:6px">Mijn naam is Havva.</p>
+  <!-- ACHTER RIHLATURRUH (tekst, gecentreerd contained) -->
+  <section class="block band">
+    <div class="wrap">
+      <div class="center"><h2 class="title" style="font-size:clamp(1.8rem,4vw,2.5rem)">Achter Rihlaturruh</h2>
+        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
+      </div>
+      <div class="biocol" style="margin-top:8px">
+        <p class="body" style="color:var(--gold);font-weight:700;font-size:1.15rem;margin-bottom:4px">Mijn naam is Havva.</p>
         <p class="body" style="color:var(--ink);font-weight:700">Ik ben islamitisch theoloog en islamitisch geestelijk verzorger.</p>
         <p class="body">Mijn academische vorming begon met een bachelor in de islamitische theologie, waarna ik een master Islamitische Geestelijke Verzorging afrondde.</p>
         <p class="body">Een bijzonder vormende periode in mijn leven bracht ik door in Al-Madinah al-Munawwarah (Medina). Daar heb ik gewoond, gestudeerd en gewerkt. De nabijheid van de Masjid an-Nabawi, de dagelijkse omgang met kennis en de spirituele omgeving van Medina hebben mijn visie op geloof, zielzorg en geestelijke begeleiding blijvend gevormd.</p>
-        <p class="body">Die ervaringen vormen vandaag de dag de inspiratie achter Rihlaturruh. Vanuit mijn achtergrond ontwikkel ik materialen die mensen helpen stil te staan bij hun eigen levensreis. Materialen die uitnodigen tot reflectie, betekenisgeving en een diepere verbinding met Allah.</p>
+        <p class="body">Die ervaringen vormen vandaag de dag de inspiratie achter Rihlaturruh. Vanuit mijn achtergrond ontwikkel ik materialen die mensen helpen stil te staan bij hun eigen levensreis &mdash; materialen die uitnodigen tot reflectie, betekenisgeving en een diepere verbinding met Allah.</p>
         <p class="body" style="color:var(--gold);font-weight:600">Mijn verlangen is dat Rihlaturruh mag uitgroeien tot een plek waar mensen niet alleen kennis opdoen, maar ook rust vinden, hoop hervinden en met meer bewustzijn hun eigen reis van de ziel voortzetten.</p>
       </div>
     </div>
   </section>
 
   <!-- KERNWAARDEN -->
-  <section class="block band">
+  <section class="block">
     <div class="wrap">
       <div class="center"><h2 class="title" style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Onze kernwaarden</h2>
         <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
@@ -458,14 +484,13 @@
       <div class="valgrid">
         <div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/></svg></span><h3>Authentiek</h3><p>Geworteld in de Koran en de authentieke Soennah.</p></div>
         <div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20C6 20 4 15 4 11 4 7 6 4 12 4c-1 6-5 8-8 9"/><path d="M11 20c8 0 9-8 9-14-3 0-5 1-6 3"/></svg></span><h3>Diepgaand</h3><p>Ruimte voor bezinning, reflectie en betekenis.</p></div>
-        <div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/><path d="M8 9h1M15 9h1" opacity=".0"/></svg></span><h3>Toepasbaar</h3><p>Praktische materialen die aansluiten bij het dagelijks leven.</p></div>
+        <div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Toepasbaar</h3><p>Praktische materialen die aansluiten bij het dagelijks leven.</p></div>
         <div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 7.5 21 12 18.5 16.5 21 15 13.5"/></svg></span><h3>Professioneel</h3><p>Ontwikkeld vanuit islamitische theologie en geestelijke verzorging.</p></div>
         <div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c-1 3 1.6 6 8.8 11 7.2-5 9.8-8 8.8-11z"/></svg></span><h3>Barmhartig</h3><p>Met aandacht voor de mens achter het verhaal.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE -->
   <div class="quote">
     <span class="mk">&rdquo;</span>
     <p>Iedere ziel legt haar eigen reis af.</p>
@@ -473,19 +498,17 @@
   </div>
 </section>
 
-<!-- ===================== DIENSTEN & AANBOD ===================== -->
+<!-- ============================= DIENSTEN & AANBOD ============================= -->
 <section id="diensten" class="page">
-  <!-- INTRO -->
-  <section class="block">
-    <div class="wrap split alt">
-      <div>
+  <!-- INTRO (image right) -->
+  <section class="block" style="padding-top:60px">
+    <div class="wrap split">
+      <div class="copy">
         <h2 class="title" style="font-size:clamp(2.1rem,5vw,3.2rem)">Geestelijke begeleiding</h2>
-        <p class="body" style="font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.4rem;margin:4px 0 0">vanuit islamitisch perspectief</p>
-        <div class="flourish left" style="justify-content:flex-start;margin:14px 0 20px"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></div>
+        <div class="tagflourish"><span class="ln"></span><span class="eyebrow">vanuit islamitisch perspectief</span><span class="ln r"></span></div>
         <p class="body">Soms zijn er momenten waarop woorden moeilijk te vinden zijn. Een verlies, een ingrijpende gebeurtenis, geloofsvragen of een periode van innerlijke onrust kunnen maken dat u behoefte heeft aan een gesprek waarin ruimte is voor uw verhaal.</p>
         <p class="body">Rihlaturruh biedt geestelijke begeleiding vanuit een islamitisch perspectief, waarbij geloof, levensvragen en persoonlijke ervaringen op een respectvolle en zorgvuldige manier centraal staan.</p>
-        <p class="body">De begeleiding sluit aan bij de unieke situatie van iedere persoon en biedt ruimte voor bezinning, betekenisgeving en het versterken van de relatie met Allah.</p>
-        <div class="btns" style="margin-top:28px">
+        <div class="btns" style="margin-top:26px">
           <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een gesprek</a>
           <a class="btn ghost" href="#werkwijze-sec" onclick="event.preventDefault();document.getElementById('werkwijze-sec').scrollIntoView({behavior:'smooth'})">Meer over mijn werkwijze &rarr;</a>
         </div>
@@ -494,7 +517,7 @@
     </div>
   </section>
 
-  <!-- WAARVOOR KUNT U TERECHT -->
+  <!-- WAARVOOR -->
   <section class="block band">
     <div class="wrap">
       <div class="center"><h2 class="title" style="font-size:clamp(1.7rem,3.6vw,2.3rem)">Waarvoor kunt u terecht?</h2>
@@ -512,14 +535,13 @@
     </div>
   </section>
 
-  <!-- WERKWIJZE / OVER MIJ / TALEN -->
+  <!-- WERKWIJZE / OVER MIJ / TALEN (strakke tekstkolommen) -->
   <section class="block" id="werkwijze-sec">
-    <div class="wrap grid c3">
-      <div class="card plain">
-        <h3 style="font-size:1.5rem;margin-bottom:12px">Werkwijze</h3>
-        <p class="body">Een begeleidingsgesprek biedt een veilige en vertrouwelijke omgeving waarin ruimte is voor gesprek, reflectie en verdieping.</p>
-        <p class="body">Afhankelijk van uw hulpvraag kunnen tijdens de begeleiding ook reflectiematerialen of werkbladen van Rihlaturruh worden ingezet ter ondersteuning van het proces.</p>
-        <p class="body" style="font-weight:600;color:var(--ink);margin-top:14px">We maken gebruik van:</p>
+    <div class="wrap grid c3 plaincols">
+      <div class="txtcol">
+        <h3 style="font-size:1.5rem">Werkwijze</h3>
+        <p class="body">Een begeleidingsgesprek biedt een veilige en vertrouwelijke omgeving waarin ruimte is voor gesprek, reflectie en verdieping. Afhankelijk van uw hulpvraag kunnen ook reflectiematerialen of werkbladen van Rihlaturruh worden ingezet ter ondersteuning van het proces.</p>
+        <p class="body" style="font-weight:600;color:var(--ink);margin-top:12px">We maken gebruik van:</p>
         <ul class="checklist" style="max-width:none;margin:8px 0 0">
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>reflectievragen</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>islamitische bronnen</li>
@@ -527,15 +549,15 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>reflectiematerialen van Rihlaturruh</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>praktische oefeningen</li>
         </ul>
-        <p class="body" style="margin-top:14px">Alles wat we bespreken blijft vertrouwelijk en wordt met respect behandeld.</p>
+        <p class="body" style="margin-top:12px">Alles wat we bespreken blijft vertrouwelijk en wordt met respect behandeld.</p>
       </div>
-      <div class="card plain">
-        <h3 style="font-size:1.5rem;margin-bottom:12px">Over mij</h3>
+      <div class="txtcol">
+        <h3 style="font-size:1.5rem">Over mij</h3>
         <p class="body">De begeleiding wordt verzorgd door een islamitisch theoloog en islamitisch geestelijk verzorger, met ervaring binnen de geestelijke verzorging en een achtergrond in islamitische theologie.</p>
         <p class="body">Vanuit kennis, ervaring en oprechte aandacht is het mijn doel om samen ruimte te cre&euml;ren voor bezinning, heling en verbinding met Allah.</p>
       </div>
-      <div class="card plain">
-        <h3 style="font-size:1.5rem;margin-bottom:12px">Talen</h3>
+      <div class="txtcol">
+        <h3 style="font-size:1.5rem">Talen</h3>
         <p class="body">Begeleidingsgesprekken kunnen worden aangeboden in:</p>
         <ul class="langs">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Nederlands</li>
@@ -547,13 +569,13 @@
     </div>
   </section>
 
-  <!-- EEN AFSPRAAK MAKEN -->
+  <!-- AFSPRAAK -->
   <section class="block band">
     <div class="wrap">
-      <div class="callout" style="font-family:var(--body);font-style:normal;font-size:1rem;line-height:1.7;padding:34px 38px">
-        <h3 style="font-family:var(--display);color:#FBF7EE;font-size:1.7rem;margin-bottom:12px">Een afspraak maken</h3>
-        <p style="color:#E5E0D0;max-width:64ch">Wilt u een gesprek aanvragen of heeft u vragen? Neem gerust contact op via het contactformulier of stuur een e-mail. Samen bekijken we welke vorm van begeleiding het beste aansluit bij uw vraag.</p>
-        <div class="btns" style="margin-top:22px">
+      <div class="ctaband" style="text-align:center">
+        <h3 style="color:#FBF7EE;font-size:1.8rem;margin-bottom:10px">Een afspraak maken</h3>
+        <p style="color:#D9D2C0;max-width:60ch;margin:0 auto 22px">Wilt u een gesprek aanvragen of heeft u vragen? Neem gerust contact op via het contactformulier of stuur een e-mail. Samen bekijken we welke vorm van begeleiding het beste aansluit bij uw vraag.</p>
+        <div class="btns" style="justify-content:center">
           <a class="btn primary" data-go="contact" href="#contact" style="background:var(--gold);color:var(--green-deep)">Neem contact op</a>
           <a class="btn ghost" href="mailto:rihlaturruh@gmail.com" style="color:#EDE6D5;border-color:var(--gold-soft)">Of stuur een e-mail</a>
         </div>
@@ -561,7 +583,6 @@
     </div>
   </section>
 
-  <!-- QUOTE -->
   <div class="quote">
     <span class="mk">&rdquo;</span>
     <p>Iedere levensreis kent momenten waarop het helpend is om samen stil te staan.</p>
@@ -569,15 +590,14 @@
   </div>
 </section>
 
-<!-- ===================== MATERIALEN ===================== -->
+<!-- ============================= MATERIALEN ============================= -->
 <section id="materialen" class="page">
-  <!-- INTRO -->
-  <section class="block">
-    <div class="wrap split alt">
-      <div>
+  <!-- INTRO (image right) -->
+  <section class="block" style="padding-top:60px">
+    <div class="wrap split">
+      <div class="copy">
         <h2 class="title" style="font-size:clamp(2.4rem,6vw,3.6rem)">Materialen</h2>
-        <p class="body" style="font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.4rem;margin:6px 0 0">Materialen die uitnodigen tot bezinning</p>
-        <div class="flourish left" style="justify-content:flex-start;margin:14px 0 20px"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></div>
+        <p class="body" style="font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.4rem;margin:4px 0 12px">Materialen die uitnodigen tot bezinning</p>
         <p class="body">De reflectiematerialen van Rihlaturruh zijn ontwikkeld om ruimte te cre&euml;ren voor reflectie, bewustwording en betekenisgeving vanuit islamitisch perspectief.</p>
         <p class="body">Elke werkvorm is met zorg samengesteld en kan worden gebruikt voor persoonlijke bezinning, tijdens begeleiding of binnen een professionele context.</p>
       </div>
@@ -585,87 +605,64 @@
     </div>
   </section>
 
-  <!-- WAT RIHLATURRUH ONTWIKKELT -->
+  <!-- WAT ONTWIKKELT -->
   <section class="block band">
     <div class="wrap">
       <div class="center"><h2 class="title" style="font-size:clamp(1.7rem,3.6vw,2.3rem)">Wat Rihlaturruh ontwikkelt</h2>
         <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
       </div>
       <div class="grid c4" style="margin-top:30px">
-        <div class="card">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20C6 20 4 15 4 11 4 7 6 4 12 4c-1 6-5 8-8 9"/><path d="M11 20c8 0 9-8 9-14-3 0-5 1-6 3"/></svg></span>
-          <h3 class="up" style="text-transform:none;letter-spacing:0;font-size:1.35rem">Reflectiewerkbladen</h3>
-          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
-          <p class="body">Werkvormen die uitnodigen tot zelfreflectie en verdieping.</p>
-        </div>
-        <div class="card">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V9a6 6 0 0 1 12 0v12"/><path d="M6 21h12"/><path d="M12 21v-6"/></svg></span>
-          <h3 class="up" style="text-transform:none;letter-spacing:0;font-size:1.35rem">Posters</h3>
-          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
-          <p class="body">Visuele reminders voor inspiratie en bezinning in het dagelijks leven.</p>
-        </div>
-        <div class="card">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/></svg></span>
-          <h3 class="up" style="text-transform:none;letter-spacing:0;font-size:1.35rem">E-books</h3>
-          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
-          <p class="body">Verdiepende uitgaven over thema&rsquo;s die raken aan het hart en de ziel.</p>
-        </div>
-        <div class="card">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h4"/><path d="M15.5 13.5 18 16l-3 1 1-3z"/></svg></span>
-          <h3 class="up" style="text-transform:none;letter-spacing:0;font-size:1.35rem">Digitale hulpmiddelen</h3>
-          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
-          <p class="body">Digitale werkbladen, invulbare PDF&rsquo;s en reflectie-oefeningen voor flexibel gebruik.</p>
-        </div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20C6 20 4 15 4 11 4 7 6 4 12 4c-1 6-5 8-8 9"/><path d="M11 20c8 0 9-8 9-14-3 0-5 1-6 3"/></svg></span><h3 style="font-size:1.3rem">Reflectiewerkbladen</h3><span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span><p class="body">Werkvormen die uitnodigen tot zelfreflectie en verdieping.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V9a6 6 0 0 1 12 0v12"/><path d="M6 21h12"/><path d="M12 21v-6"/></svg></span><h3 style="font-size:1.3rem">Posters</h3><span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span><p class="body">Visuele reminders voor inspiratie en bezinning in het dagelijks leven.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/></svg></span><h3 style="font-size:1.3rem">E-books</h3><span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span><p class="body">Verdiepende uitgaven over thema&rsquo;s die raken aan het hart en de ziel.</p></div>
+        <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h4"/><path d="M15.5 13.5 18 16l-3 1 1-3z"/></svg></span><h3 style="font-size:1.3rem">Digitale hulpmiddelen</h3><span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span><p class="body">Digitale werkbladen, invulbare PDF&rsquo;s en reflectie-oefeningen voor flexibel gebruik.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PERSOONLIJK / MET ZORG -->
+  <!-- PERSOONLIJK / MET ZORG (gecentreerd) -->
   <section class="block">
-    <div class="wrap split">
-      <div>
-        <div class="feat" style="margin-bottom:6px"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5M15.5 14.6c2.4.3 4.5 1.8 4.5 4.4"/></svg></span><h3>Voor persoonlijk &eacute;n professioneel gebruik</h3></div>
-        <p class="body">De materialen zijn geschikt voor persoonlijke reflectie en kunnen daarnaast worden ingezet door islamitisch geestelijk verzorgers, docenten, zorgprofessionals en begeleiders die werken met moslims.</p>
-        <p class="body">Afhankelijk van de inhoud zijn de materialen toepasbaar binnen onderwijs, geestelijke verzorging en de zorg.</p>
-        <p class="body">Om een bredere doelgroep te bereiken, worden de materialen geleidelijk beschikbaar in meerdere talen, waaronder Nederlands en Turks.</p>
-      </div>
-      <div>
-        <div class="feat" style="margin-bottom:6px"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-1-1.6-3.2-2-4.8-1S5 6.8 6 8.4L12 15l6-6.6c1-1.6.4-3.4-1.2-4.4S13 3.4 12 5z"/><path d="M3 13c1.5-1 3-1 4.5 0M16.5 13c1.5-1 3-1 4.5 0"/></svg></span><h3>Met zorg ontwikkeld</h3></div>
-        <p class="body">Iedere uitgave is gebaseerd op islamitische bronnen en geschreven met aandacht voor reflectie, toegankelijkheid en praktische toepasbaarheid.</p>
-        <p class="body">Het doel is niet alleen om kennis over te dragen, maar ook om stil te staan bij de vragen, ervaringen en momenten die deel uitmaken van de reis van de ziel.</p>
-        <p class="body">Wij geloven dat reflectie begint met vertragen. Daarom zijn de materialen van Rihlaturruh ontworpen om ruimte te cre&euml;ren voor stilte, bezinning en betekenis.</p>
+    <div class="wrap">
+      <div class="grid c2" style="max-width:920px;margin:0 auto">
+        <div class="centered-block">
+          <span class="fi" style="width:56px;height:56px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5M15.5 14.6c2.4.3 4.5 1.8 4.5 4.4"/></svg></span>
+          <h3 style="font-size:1.4rem;margin-bottom:10px">Voor persoonlijk &eacute;n professioneel gebruik</h3>
+          <p class="body">De materialen zijn geschikt voor persoonlijke reflectie en kunnen daarnaast worden ingezet door islamitisch geestelijk verzorgers, docenten, zorgprofessionals en begeleiders die werken met moslims. Afhankelijk van de inhoud zijn ze toepasbaar binnen onderwijs, geestelijke verzorging en de zorg &mdash; en worden ze geleidelijk beschikbaar in meerdere talen, waaronder Nederlands en Turks.</p>
+        </div>
+        <div class="centered-block">
+          <span class="fi" style="width:56px;height:56px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="M12 5c-1-1.6-3.2-2-4.8-1S5 6.8 6 8.4L12 15l6-6.6c1-1.6.4-3.4-1.2-4.4S13 3.4 12 5z"/><path d="M3 13c1.5-1 3-1 4.5 0M16.5 13c1.5-1 3-1 4.5 0"/></svg></span>
+          <h3 style="font-size:1.4rem;margin-bottom:10px">Met zorg ontwikkeld</h3>
+          <p class="body">Iedere uitgave is gebaseerd op islamitische bronnen en geschreven met aandacht voor reflectie, toegankelijkheid en praktische toepasbaarheid. Het doel is niet alleen om kennis over te dragen, maar ook om stil te staan bij de vragen, ervaringen en momenten die deel uitmaken van de reis van de ziel. Wij geloven dat reflectie begint met vertragen.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE -->
   <div class="quote">
     <span class="mk">&rdquo;</span>
     <p>Niet ieder antwoord begint met spreken. Soms begint het met stil durven staan.</p>
   </div>
 
   <!-- CTA -->
-  <section class="block">
+  <section class="block band">
     <div class="wrap">
-      <div class="ctaband" style="display:flex;align-items:center;justify-content:space-between;gap:24px;text-align:left;flex-wrap:wrap">
-        <div style="display:flex;align-items:center;gap:20px">
-          <svg width="52" height="52" viewBox="0 0 200 240" fill="none" stroke="var(--gold-soft)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M100 18 v14"/><path d="M84 32 h32"/><path d="M74 50 h52 l8 18 h-68 z"/><rect x="70" y="68" width="60" height="104" rx="10"/><path d="M70 100 h60 M70 140 h60"/><path d="M100 104 q-12 16 -1 34 q3 5 1 9 q-3 -4 -13 -16 q-7 -13 13 -27z" fill="var(--gold-soft)" stroke="none"/><path d="M64 172 h72 l-9 18 h-54 z"/></svg>
-          <h3 style="margin:0;font-size:1.5rem;max-width:22ch">Ontdek reflectiematerialen die je ondersteunen op jouw reis van de ziel.</h3>
-        </div>
-        <a class="btn primary" data-go="contact" href="#contact" style="background:var(--gold);color:var(--green-deep)">Bekijk de materialen &rarr;</a>
+      <div class="ctaband" style="text-align:center">
+        <h3 style="color:#FBF7EE;font-size:1.8rem;margin-bottom:10px">Ontdek de materialen</h3>
+        <p style="color:#D9D2C0;max-width:52ch;margin:0 auto 22px">Reflectiematerialen die je ondersteunen op jouw reis van de ziel. Interesse of vroege toegang?</p>
+        <a class="btn primary" data-go="contact" href="#contact" style="background:var(--gold);color:var(--green-deep)">Neem contact op</a>
       </div>
     </div>
   </section>
 </section>
 
-<!-- ===================== CONTACT ===================== -->
+<!-- ============================= CONTACT ============================= -->
 <section id="contact" class="page">
-  <!-- INTRO -->
-  <section class="block">
-    <div class="wrap split alt">
-      <div>
+  <!-- INTRO (image right) -->
+  <section class="block" style="padding-top:60px">
+    <div class="wrap split">
+      <div class="copy">
         <h2 class="title" style="font-size:clamp(2.6rem,6vw,4rem)">Contact</h2>
-        <div class="flourish left" style="justify-content:flex-start;margin:8px 0 22px"><span class="ln r"></span></div>
+        <div class="flourish left" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
         <p class="body">Heeft u een vraag, wilt u meer informatie of bent u benieuwd wat Rihlaturruh voor u of uw organisatie kan betekenen?</p>
         <p class="body">U bent van harte welkom om contact op te nemen. Ik neem de tijd om ieder bericht zorgvuldig te lezen en streef ernaar zo spoedig mogelijk te reageren.</p>
       </div>
@@ -674,13 +671,13 @@
   </section>
 
   <!-- CONTACTGEGEVENS + FORMULIER -->
-  <section class="block">
+  <section class="block band">
     <div class="wrap">
       <div class="panel">
         <div class="split">
           <div class="contactinfo">
             <h3 style="font-size:1.6rem">Contactgegevens</h3>
-            <div class="flourish left" style="justify-content:flex-start;margin:8px 0 26px"><span class="ln r"></span></div>
+            <div class="flourish left" style="justify-content:flex-start;margin:8px 0 24px"><span class="ln r"></span></div>
             <div class="row">
               <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span>
               <div><h3>E-mail</h3><p>Voor vragen, informatie of het aanvragen van een begeleidingsgesprek.</p><a href="mailto:rihlaturruh@gmail.com">rihlaturruh@gmail.com</a></div>
@@ -714,12 +711,12 @@
     </div>
   </section>
 
-  <!-- SAMENWERKEN -->
-  <section class="block band">
-    <div class="wrap split alt">
-      <div>
+  <!-- SAMENWERKEN (image left) -->
+  <section class="block">
+    <div class="wrap split reverse">
+      <div class="copy">
         <h2 class="title" style="font-size:clamp(1.9rem,4vw,2.6rem)">Samenwerken</h2>
-        <div class="flourish left" style="justify-content:flex-start;margin:8px 0 20px"><span class="ln r"></span></div>
+        <div class="flourish left" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
         <p class="body">Rihlaturruh werkt graag samen met organisaties en professionals die zich inzetten voor zingeving, educatie, geestelijke verzorging en de ontwikkeling van islamitische reflectiematerialen.</p>
         <p class="body" style="font-weight:600;color:var(--ink)">Samenwerkingen zijn onder andere mogelijk met:</p>
         <ul class="dotlist">
@@ -736,7 +733,6 @@
     </div>
   </section>
 
-  <!-- QUOTE -->
   <div class="quote">
     <span class="mk">&rdquo;</span>
     <p>Iedere ontmoeting begint met een eerste stap.</p>
@@ -744,8 +740,8 @@
   </div>
 </section>
 
-
 </main>
+
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
