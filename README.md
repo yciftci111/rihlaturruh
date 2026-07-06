@@ -2,7 +2,7 @@
 
 Een premium, fotografisch geïnspireerde website met tabbladen, opgebouwd als **één bestand** (`index.html`). Gratis te testen via **GitHub Pages**.
 
-Tabbladen: **Home · Over mij · Diensten & Aanbod · Materialen · Contact** + knop **Plan een consult**.
+Tabbladen (hoofdmenu): **Home · Over mij · Diensten & Aanbod · Contact** + knop **Plan een consult**. Materialen staat in de footer.
 Onderaan elke pagina: social-icons (Instagram, TikTok, YouTube, e-mail).
 Merkbelofte in de teksten: **Authentiek · Diepgaand · Toepasbaar**.
 
