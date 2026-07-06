@@ -6,15 +6,19 @@ Tabbladen: **Home · Over mij · Diensten & Aanbod · Materialen · Contact** + 
 Onderaan elke pagina: monochrome social-icons (Instagram, TikTok, YouTube, e-mail) passend bij de stijl.
 Merkbelofte in de teksten: **Authentiek · Diepgaand · Toepasbaar**.
 
-## Wat zit erin
-- `index.html` — de hele website (menu, alle tabbladen, formulieren)
-- `logo.png` — je nieuwe logo (volledig, incl. woordmerk; deel-afbeelding)
-- `logo-mark.png` — de ronde logo-versie (header, footer, favicon)
+## Wat zit erin — ALLES uploaden naar GitHub
+Upload deze bestanden (in de hoofdmap van de repo):
+- `index.html` — de hele website
+- `logo.png` — nieuw logo (volledig, deel-afbeelding)
+- `logo-mark.png` — ronde logo-versie (header, footer, favicon)
+- De 10 foto's:
+  - `p-home-hero.jpg`, `p-home-reflect.jpg`, `p-home-visie.jpg` (Home)
+  - `p-over-intro.jpg`, `p-over-wie.jpg`, `p-over-achter.jpg` (Over mij)
+  - `p-diensten.jpg` (Diensten & Aanbod)
+  - `p-materialen.jpg` (Materialen)
+  - `p-contact.jpg`, `p-samenwerken.jpg` (Contact)
 
-**Belangrijk:** upload alle drie de bestanden naar GitHub (`index.html`, `logo.png`, `logo-mark.png`).
-
-## Nog toe te voegen: foto's
-Deze versie is ontworpen om er compleet uit te zien zonder foto's (logo + ornamenten). Wil je de volledige fotografische look uit je mockups (moskee-hero, lantaarns, journals, olijftakken, fauteuil)? Lever die beelden aan, dan plaats ik ze op de juiste plekken in de secties.
+Alle foto's zijn geoptimaliseerd voor snelle laadtijd. Wil je een foto vervangen? Upload een nieuwe met dezelfde bestandsnaam.
 
 ## Bewust nog NIET op de site (gericht op focus)
 Volgens je 90-dagenplan bouw je eerst een sterk fundament. Daarom:

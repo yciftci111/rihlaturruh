@@ -183,9 +183,9 @@
   .hero2 .hero-tag{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:14px 0 0}
   .hero2 .hero-sub{max-width:44ch;margin:22px 0 0;color:var(--ink-soft);font-size:1.1rem}
   .hero2 .btns{margin-top:32px}
-  .hero2 .right{background:linear-gradient(140deg,#EEDDC4 0%,#E7C9A5 55%,#DDBE9A 100%);display:grid;place-items:center;min-height:540px;position:relative;overflow:hidden;padding:44px}
-  .hero2 .right img{width:min(82%,450px);aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:0 28px 66px -22px rgba(24,50,38,.65),0 0 0 1px var(--gold-line)}
-  @media(max-width:900px){.hero2{grid-template-columns:1fr}.hero2 .left{padding:60px 26px 38px;text-align:center;align-items:center}.hero2 .hero-sub{margin-left:auto;margin-right:auto}.hero2 .btns{justify-content:center}.hero2 .right{min-height:340px;padding:34px}}
+  .hero2 .right{background:var(--green-tint);display:grid;place-items:center;min-height:540px;position:relative;overflow:hidden;padding:0}
+  .hero2 .right img{width:100%;height:100%;min-height:540px;object-fit:cover;display:block}
+  @media(max-width:900px){.hero2{grid-template-columns:1fr}.hero2 .left{padding:60px 26px 38px;text-align:center;align-items:center}.hero2 .hero-sub{margin-left:auto;margin-right:auto}.hero2 .btns{justify-content:center}.hero2 .right{min-height:300px;padding:0}}
   /* uppercase serif heading + art panels */
   h2.title.up{text-transform:uppercase;letter-spacing:.07em;font-size:clamp(1.7rem,4vw,2.4rem)}
   .split.alt{align-items:center}
@@ -252,6 +252,8 @@
   .dotlist li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-soft);font-size:.96rem}
   .dotlist .db{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--gold);flex:0 0 auto;margin-top:5px;position:relative}
   .dotlist .db::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:var(--gold)}
+  .imgpanel{border-radius:6px;overflow:hidden;border:1px solid var(--line);min-height:420px;background:var(--green-tint)}
+  .imgpanel img{width:100%;height:100%;min-height:420px;object-fit:cover;display:block}
   @media(prefers-reduced-motion:reduce){.page{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -303,7 +305,7 @@
         <a class="btn ghost" data-go="materialen" href="#materialen">Ontdek de materialen &rarr;</a>
       </div>
     </div>
-    <div class="right"><img src="logo-mark.png" alt="De Profetenmoskee bij zonsondergang"></div>
+    <div class="right"><img src="p-home-hero.jpg" alt="De Profetenmoskee in Medina bij zonsondergang"></div>
   </div>
 
   <!-- IEDERE ZIEL KENT HAAR EIGEN REIS -->
@@ -317,25 +319,7 @@
         <p class="body" style="text-align:center">Ge&iuml;nspireerd door de Koran en de authentieke Soennah biedt Rihlaturruh een plek waar geloof, bezinning en geestelijke begeleiding samenkomen.</p>
         <p class="body" style="text-align:center">Niet om alle antwoorden te geven, maar om mensen te ondersteunen in hun persoonlijke reis naar Allah.</p>
       </div>
-      <div class="artpanel" aria-hidden="true">
-        <svg viewBox="0 0 240 210" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M40 185 C90 165 130 130 165 92 C182 74 196 56 210 34"/>
-          <g fill="currentColor" stroke="none">
-            <ellipse cx="150" cy="96" rx="15" ry="7" transform="rotate(-38 150 96)"/>
-            <ellipse cx="176" cy="70" rx="14" ry="6.5" transform="rotate(-42 176 70)"/>
-            <ellipse cx="120" cy="122" rx="15" ry="7" transform="rotate(-30 120 122)"/>
-            <ellipse cx="196" cy="46" rx="12" ry="6" transform="rotate(-46 196 46)"/>
-            <ellipse cx="92" cy="150" rx="14" ry="6.5" transform="rotate(-24 92 150)"/>
-          </g>
-          <g fill="none">
-            <path d="M150 96 c14 -6 26 -2 32 8" opacity=".55"/>
-            <path d="M120 122 c14 -6 26 -2 32 8" opacity=".55"/>
-          </g>
-          <circle cx="134" cy="112" r="5.5" fill="currentColor" stroke="none"/>
-          <circle cx="162" cy="86" r="5.5" fill="currentColor" stroke="none"/>
-          <path d="M64 190 q30 -6 44 6" opacity=".5"/>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-home-reflect.jpg" alt="Rust en reflectie bij het raam" loading="lazy"></div>
     </div>
   </section>
 
@@ -389,19 +373,7 @@
         <p class="body">Rihlaturruh wil bijdragen aan die reis door kennis, bezinning en praktische hulpmiddelen aan te bieden die mensen ondersteunen in het dagelijks leven, zowel persoonlijk als professioneel.</p>
         <div class="btns" style="margin-top:22px"><a class="btn ghost" data-go="over" href="#over">Meer over onze visie &rarr;</a></div>
       </div>
-      <div class="artpanel" aria-hidden="true">
-        <svg viewBox="0 0 200 230" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M100 16 v14"/>
-          <path d="M88 30 h24"/>
-          <path d="M80 48 h40 l7 16 h-54 z"/>
-          <rect x="76" y="64" width="48" height="98" rx="9"/>
-          <path d="M76 92 h48 M76 134 h48"/>
-          <path d="M100 96 q-11 14 -1 30 q3 5 1 8 q-2 -3 -12 -14 q-6 -12 12 -24z" fill="currentColor" stroke="none" opacity=".92"/>
-          <path d="M72 162 h56 l-8 16 h-40 z"/>
-          <path d="M86 178 h28 v10 h-28 z"/>
-          <path d="M62 196 q38 -8 76 0" opacity=".45"/>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-home-visie.jpg" alt="Gebedskleed in het zonlicht" loading="lazy"></div>
     </div>
   </section>
 
@@ -426,7 +398,7 @@
         <p class="body" style="color:var(--gold);font-weight:600">Vanuit die gedachte is Rihlaturruh ontstaan: een plek waar islamitische reflectie en geestelijke verzorging samenkomen.</p>
         <p class="body">Het doel is om ruimte te bieden voor bezinning, verdieping en bewust leven, door middel van zorgvuldig ontwikkelde materialen en &ndash; in de toekomst &ndash; geestelijke begeleiding.</p>
       </div>
-      <div class="photopanel"><img src="logo-mark.png" alt="De Profetenmoskee bij zonsondergang"></div>
+      <div class="imgpanel"><img src="p-over-intro.jpg" alt="De Profetenmoskee in Medina" loading="lazy"></div>
     </div>
   </section>
 
@@ -456,41 +428,14 @@
         </ul>
         <p class="body" style="margin-top:16px">Om zoveel mogelijk mensen te bereiken, zullen de materialen geleidelijk beschikbaar worden in meerdere talen, waaronder Nederlands, Turks en &ndash; waar passend &ndash; Arabisch.</p>
       </div>
-      <div class="artpanel" aria-hidden="true">
-        <svg viewBox="0 0 240 300" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M120 285 C120 210 118 150 150 92 C165 66 182 44 200 24"/>
-          <g fill="currentColor" stroke="none">
-            <ellipse cx="150" cy="96" rx="15" ry="7" transform="rotate(-40 150 96)"/>
-            <ellipse cx="176" cy="66" rx="14" ry="6.5" transform="rotate(-44 176 66)"/>
-            <ellipse cx="132" cy="128" rx="15" ry="7" transform="rotate(-30 132 128)"/>
-            <ellipse cx="196" cy="42" rx="12" ry="6" transform="rotate(-48 196 42)"/>
-            <ellipse cx="126" cy="168" rx="14" ry="6.5" transform="rotate(-16 126 168)"/>
-            <ellipse cx="150" cy="128" rx="13" ry="6" transform="rotate(20 150 128)"/>
-          </g>
-          <circle cx="140" cy="150" r="5" fill="currentColor" stroke="none"/>
-          <circle cx="164" cy="112" r="5" fill="currentColor" stroke="none"/>
-          <path d="M96 288 h48" opacity=".5"/>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-over-wie.jpg" alt="Poort van de Profetenmoskee" loading="lazy"></div>
     </div>
   </section>
 
   <!-- ACHTER RIHLATURRUH -->
   <section class="block">
     <div class="wrap split">
-      <div class="artpanel" aria-hidden="true" style="min-height:420px">
-        <svg viewBox="0 0 200 240" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M100 18 v14"/><path d="M88 32 h24"/>
-          <path d="M80 50 h40 l7 16 h-54 z"/>
-          <rect x="76" y="66" width="48" height="98" rx="9"/>
-          <path d="M76 94 h48 M76 136 h48"/>
-          <path d="M100 98 q-11 14 -1 30 q3 5 1 8 q-2 -3 -12 -14 q-6 -12 12 -24z" fill="currentColor" stroke="none" opacity=".92"/>
-          <path d="M72 164 h56 l-8 16 h-40 z"/><path d="M86 180 h28 v10 h-28 z"/>
-          <path d="M40 210 h120" opacity=".5"/>
-          <path d="M150 150 q22 -10 40 -4" opacity=".55"/>
-          <g fill="currentColor" stroke="none" opacity=".8"><ellipse cx="176" cy="146" rx="8" ry="4" transform="rotate(-30 176 146)"/></g>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-over-achter.jpg" alt="Een rustige plek voor bezinning" loading="lazy"></div>
       <div>
         <h2 class="title" style="font-size:clamp(2rem,4.4vw,2.7rem);margin-bottom:14px">Achter Rihlaturruh</h2>
         <p class="body" style="color:var(--gold);font-weight:700;font-size:1.15rem;margin-bottom:6px">Mijn naam is Havva.</p>
@@ -544,25 +489,7 @@
           <a class="btn ghost" href="#werkwijze-sec" onclick="event.preventDefault();document.getElementById('werkwijze-sec').scrollIntoView({behavior:'smooth'})">Meer over mijn werkwijze &rarr;</a>
         </div>
       </div>
-      <div class="artpanel" aria-hidden="true">
-        <svg viewBox="0 0 220 240" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M150 150 C150 108 148 82 166 52"/>
-          <g fill="currentColor" stroke="none">
-            <ellipse cx="164" cy="60" rx="13" ry="6" transform="rotate(-40 164 60)"/>
-            <ellipse cx="184" cy="40" rx="12" ry="5.5" transform="rotate(-44 184 40)"/>
-            <ellipse cx="150" cy="88" rx="13" ry="6" transform="rotate(-28 150 88)"/>
-            <ellipse cx="148" cy="118" rx="12" ry="5.5" transform="rotate(-10 148 118)"/>
-            <ellipse cx="170" cy="92" rx="12" ry="5.5" transform="rotate(22 170 92)"/>
-          </g>
-          <path d="M128 150 q22 8 44 0 v42 a8 8 0 0 1 -8 8 h-28 a8 8 0 0 1 -8 -8z"/>
-          <path d="M46 96 h12"/><path d="M40 108 h24"/>
-          <path d="M36 120 h32 l5 12 h-42 z"/>
-          <rect x="40" y="132" width="28" height="66" rx="6"/>
-          <path d="M40 152 h28 M40 178 h28"/>
-          <path d="M54 158 q-7 9 -1 19 q2 3 1 5 q-2 -2 -8 -10 q-4 -8 8 -14z" fill="currentColor" stroke="none" opacity=".85"/>
-          <path d="M100 210 h96" opacity=".4"/>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-diensten.jpg" alt="Bogen en hemel van de moskee" loading="lazy"></div>
     </div>
   </section>
 
@@ -653,25 +580,7 @@
         <p class="body">De reflectiematerialen van Rihlaturruh zijn ontwikkeld om ruimte te cre&euml;ren voor reflectie, bewustwording en betekenisgeving vanuit islamitisch perspectief.</p>
         <p class="body">Elke werkvorm is met zorg samengesteld en kan worden gebruikt voor persoonlijke bezinning, tijdens begeleiding of binnen een professionele context.</p>
       </div>
-      <div class="artpanel" aria-hidden="true">
-        <svg viewBox="0 0 220 240" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M70 18 v12"/><path d="M60 30 h20"/>
-          <path d="M54 46 h32 l6 14 h-44 z"/>
-          <rect x="52" y="60" width="36" height="82" rx="8"/>
-          <path d="M52 84 h36 M52 118 h36"/>
-          <path d="M70 90 q-9 12 -1 25 q2 4 1 6 q-2 -2 -10 -12 q-5 -10 10 -19z" fill="currentColor" stroke="none" opacity=".9"/>
-          <path d="M50 142 h40 l-6 14 h-28 z"/><path d="M62 156 h16 v8 h-16 z"/>
-          <path d="M150 160 C150 120 148 96 165 66" />
-          <g fill="currentColor" stroke="none">
-            <ellipse cx="164" cy="72" rx="12" ry="5.5" transform="rotate(-40 164 72)"/>
-            <ellipse cx="182" cy="52" rx="11" ry="5" transform="rotate(-44 182 52)"/>
-            <ellipse cx="150" cy="98" rx="12" ry="5.5" transform="rotate(-28 150 98)"/>
-            <ellipse cx="148" cy="128" rx="11" ry="5" transform="rotate(-12 148 128)"/>
-          </g>
-          <path d="M132 160 q18 6 36 0 v40 a6 6 0 0 1 -6 6 h-24 a6 6 0 0 1 -6 -6z"/>
-          <path d="M118 214 h96" opacity=".45"/>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-materialen.jpg" alt="Studeren en reflecteren" loading="lazy"></div>
     </div>
   </section>
 
@@ -759,25 +668,7 @@
         <p class="body">Heeft u een vraag, wilt u meer informatie of bent u benieuwd wat Rihlaturruh voor u of uw organisatie kan betekenen?</p>
         <p class="body">U bent van harte welkom om contact op te nemen. Ik neem de tijd om ieder bericht zorgvuldig te lezen en streef ernaar zo spoedig mogelijk te reageren.</p>
       </div>
-      <div class="artpanel" aria-hidden="true">
-        <svg viewBox="0 0 220 240" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M64 22 v12"/><path d="M54 34 h20"/>
-          <path d="M48 50 h32 l6 14 h-44 z"/>
-          <rect x="46" y="64" width="36" height="84" rx="8"/>
-          <path d="M46 90 h36 M46 124 h36"/>
-          <path d="M64 96 q-9 12 -1 25 q2 4 1 6 q-2 -2 -10 -12 q-5 -10 10 -19z" fill="currentColor" stroke="none" opacity=".9"/>
-          <path d="M44 148 h40 l-6 14 h-28 z"/><path d="M56 162 h16 v8 h-16 z"/>
-          <path d="M150 150 C150 112 148 86 166 56"/>
-          <g fill="currentColor" stroke="none">
-            <ellipse cx="164" cy="64" rx="12" ry="5.5" transform="rotate(-40 164 64)"/>
-            <ellipse cx="184" cy="44" rx="11" ry="5" transform="rotate(-44 184 44)"/>
-            <ellipse cx="150" cy="92" rx="12" ry="5.5" transform="rotate(-28 150 92)"/>
-            <ellipse cx="152" cy="120" rx="11" ry="5" transform="rotate(14 152 120)"/>
-          </g>
-          <path d="M132 150 q18 6 36 0 v38 a7 7 0 0 1 -7 7 h-22 a7 7 0 0 1 -7 -7z"/>
-          <path d="M100 210 h96" opacity=".4"/>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-contact.jpg" alt="Olijftak in het zonlicht" loading="lazy"></div>
     </div>
   </section>
 
@@ -840,22 +731,7 @@
         </ul>
         <p class="body">Voor samenwerkingen of zakelijke vragen kunt u vrijblijvend contact opnemen.</p>
       </div>
-      <div class="artpanel" aria-hidden="true">
-        <svg viewBox="0 0 220 220" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M100 150 C100 108 98 82 116 52"/>
-          <g fill="currentColor" stroke="none">
-            <ellipse cx="114" cy="60" rx="13" ry="6" transform="rotate(-40 114 60)"/>
-            <ellipse cx="134" cy="40" rx="12" ry="5.5" transform="rotate(-44 134 40)"/>
-            <ellipse cx="100" cy="88" rx="13" ry="6" transform="rotate(-28 100 88)"/>
-            <ellipse cx="98" cy="116" rx="12" ry="5.5" transform="rotate(-10 98 116)"/>
-            <ellipse cx="120" cy="92" rx="12" ry="5.5" transform="rotate(22 120 92)"/>
-          </g>
-          <path d="M78 150 q22 8 44 0 v40 a8 8 0 0 1 -8 8 h-28 a8 8 0 0 1 -8 -8z"/>
-          <rect x="150" y="150" width="46" height="34" rx="3"/>
-          <path d="M150 160 h46 M162 150 v34" opacity=".7"/>
-          <path d="M40 198 h150" opacity=".4"/>
-        </svg>
-      </div>
+      <div class="imgpanel"><img src="p-samenwerken.jpg" alt="Werkplek voor samenwerking" loading="lazy"></div>
     </div>
   </section>
 
