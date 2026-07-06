@@ -171,9 +171,9 @@
   .site-footer .flourish{color:var(--gold-soft);margin:10px 0 22px}
   .site-footer .flourish .ln,.site-footer .flourish .ln.r{background:linear-gradient(90deg,transparent,var(--gold-soft))}
   .socials{display:flex;justify-content:center;gap:16px;margin:6px 0 22px}
-  .socials a{width:46px;height:46px;border-radius:50%;display:block;transition:transform .2s}
-  .socials a:hover{transform:translateY(-3px)}
-  .socials svg{width:46px;height:46px;display:block}
+  .socials a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(241,234,218,.28);color:#D9D0BC;transition:transform .2s,color .2s,border-color .2s}
+  .socials a:hover{transform:translateY(-3px);color:var(--gold-soft);border-color:var(--gold-soft)}
+  .socials svg{width:22px;height:22px;display:block}
   .fsmall{font-size:.8rem;color:#9C947F;letter-spacing:.04em}
 
   /* ---- split hero (home) ---- */
@@ -237,6 +237,21 @@
   .langs{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:10px}
   .langs li{display:flex;align-items:center;gap:12px;color:var(--ink-soft)}
   .langs svg{width:22px;height:22px;color:var(--green);flex:0 0 auto}
+  .panel{background:var(--band);border:1px solid var(--line);border-radius:12px;padding:clamp(26px,4vw,46px)}
+  .contactinfo h3{font-size:1.15rem;margin-bottom:4px}
+  .contactinfo .row{display:flex;gap:16px;align-items:flex-start;padding:6px 0}
+  .contactinfo .cic{width:52px;height:52px;border-radius:50%;background:var(--green);color:#F1EADA;display:grid;place-items:center;flex:0 0 auto}
+  .contactinfo .cic svg{width:24px;height:24px}
+  .contactinfo p{font-size:.92rem;color:var(--ink-soft);margin-bottom:4px}
+  .contactinfo a{color:var(--gold);font-weight:600;text-decoration:none}
+  .contactinfo .divider{height:1px;background:var(--line);margin:20px 0}
+  .form select{font:inherit;font-size:1rem;padding:14px 16px;border:1px solid var(--line);border-radius:3px;background:var(--card);color:var(--ink)}
+  .form select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(41,76,59,.12)}
+  .form .btn.primary{justify-content:center}
+  .dotlist{list-style:none;display:flex;flex-direction:column;gap:9px;margin:8px 0 14px}
+  .dotlist li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-soft);font-size:.96rem}
+  .dotlist .db{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--gold);flex:0 0 auto;margin-top:5px;position:relative}
+  .dotlist .db::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:var(--gold)}
   @media(prefers-reduced-motion:reduce){.page{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -735,47 +750,123 @@
 
 <!-- ===================== CONTACT ===================== -->
 <section id="contact" class="page">
+  <!-- INTRO -->
   <section class="block">
-    <div class="wrap center">
-      <p class="eyebrow">Contact</p>
-      <h2 class="title" style="margin-top:12px">Neem gerust contact op</h2>
-      <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-      <p class="lead" style="margin-top:6px">Voor consulten, vragen of samenwerkingen — ik hoor graag van je.</p>
-    </div>
-  </section>
-
-  <section class="block band">
-    <div class="wrap split">
-      <form class="form" id="contactForm">
-        <label for="cName">Naam</label>
-        <input type="text" id="cName" required>
-        <label for="cEmail">E-mail</label>
-        <input type="email" id="cEmail" required>
-        <label for="cMsg">Bericht</label>
-        <textarea id="cMsg" required></textarea>
-        <button class="btn primary" type="submit" style="align-self:flex-start">Verstuur bericht</button>
-      </form>
+    <div class="wrap split alt">
       <div>
-        <div class="info-row">
-          <svg class="ci" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75L35 40h7c1.657 0 3-1.343 3-3V16.2z"/><path fill="#1e88e5" d="M3 16.2l3.614 1.71L13 23.7V40H6c-1.657 0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3 12.298V16.2l10 7.5V11.2L9.876 8.859C9.132 8.301 8.228 8 7.298 8 4.924 8 3 9.924 3 12.298z"/><path fill="#fbc02d" d="M45 12.298V16.2l-10 7.5V11.2l3.124-2.341C38.868 8.301 39.772 8 40.702 8 43.076 8 45 9.924 45 12.298z"/></svg>
-          <a href="mailto:rihlaturruh@gmail.com">rihlaturruh@gmail.com</a>
-        </div>
-        <div class="info-row">
-          <svg class="ci" viewBox="0 0 48 48" aria-hidden="true"><defs><radialGradient id="igC" cx="30%" cy="107%" r="135%"><stop offset="0" stop-color="#fdf497"/><stop offset=".05" stop-color="#fdf497"/><stop offset=".45" stop-color="#fd5949"/><stop offset=".6" stop-color="#d6249f"/><stop offset=".9" stop-color="#285AEB"/></radialGradient></defs><rect width="48" height="48" rx="13" fill="url(#igC)"/><g fill="none" stroke="#fff" stroke-width="2.6"><rect x="14" y="14" width="20" height="20" rx="6"/><circle cx="24" cy="24" r="5.4"/></g><circle cx="31.6" cy="16.4" r="1.7" fill="#fff"/></svg>
-          <a href="https://www.instagram.com/rihlaturruh" target="_blank" rel="noopener">@rihlaturruh op Instagram</a>
-        </div>
-        <div class="btns" style="margin-top:22px">
-          <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
-        </div>
-        <div class="callout small" style="font-family:var(--body);font-style:normal;font-size:.95rem;margin-top:24px;color:#EAE3D2">
-          <b style="font-family:var(--display);font-size:1.2rem;display:block;margin-bottom:6px">Samenwerkingen</b>
-          Ben je een moskee, zorginstelling of organisatie en wil je samenwerken rond geestelijke verzorging of educatie? Stuur gerust een bericht.
-        </div>
-        <p class="body" style="margin-top:18px;font-size:.95rem">Wekelijkse reflecties ontvangen? <a href="https://brief-aan-de-ziel.kit.com/955c0af13d" target="_blank" rel="noopener" style="color:var(--green-deep);font-weight:700">Schrijf je in op Brief aan de Ziel</a>.</p>
+        <h2 class="title" style="font-size:clamp(2.6rem,6vw,4rem)">Contact</h2>
+        <div class="flourish left" style="justify-content:flex-start;margin:8px 0 22px"><span class="ln r"></span></div>
+        <p class="body">Heeft u een vraag, wilt u meer informatie of bent u benieuwd wat Rihlaturruh voor u of uw organisatie kan betekenen?</p>
+        <p class="body">U bent van harte welkom om contact op te nemen. Ik neem de tijd om ieder bericht zorgvuldig te lezen en streef ernaar zo spoedig mogelijk te reageren.</p>
+      </div>
+      <div class="artpanel" aria-hidden="true">
+        <svg viewBox="0 0 220 240" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M64 22 v12"/><path d="M54 34 h20"/>
+          <path d="M48 50 h32 l6 14 h-44 z"/>
+          <rect x="46" y="64" width="36" height="84" rx="8"/>
+          <path d="M46 90 h36 M46 124 h36"/>
+          <path d="M64 96 q-9 12 -1 25 q2 4 1 6 q-2 -2 -10 -12 q-5 -10 10 -19z" fill="currentColor" stroke="none" opacity=".9"/>
+          <path d="M44 148 h40 l-6 14 h-28 z"/><path d="M56 162 h16 v8 h-16 z"/>
+          <path d="M150 150 C150 112 148 86 166 56"/>
+          <g fill="currentColor" stroke="none">
+            <ellipse cx="164" cy="64" rx="12" ry="5.5" transform="rotate(-40 164 64)"/>
+            <ellipse cx="184" cy="44" rx="11" ry="5" transform="rotate(-44 184 44)"/>
+            <ellipse cx="150" cy="92" rx="12" ry="5.5" transform="rotate(-28 150 92)"/>
+            <ellipse cx="152" cy="120" rx="11" ry="5" transform="rotate(14 152 120)"/>
+          </g>
+          <path d="M132 150 q18 6 36 0 v38 a7 7 0 0 1 -7 7 h-22 a7 7 0 0 1 -7 -7z"/>
+          <path d="M100 210 h96" opacity=".4"/>
+        </svg>
       </div>
     </div>
   </section>
+
+  <!-- CONTACTGEGEVENS + FORMULIER -->
+  <section class="block">
+    <div class="wrap">
+      <div class="panel">
+        <div class="split">
+          <div class="contactinfo">
+            <h3 style="font-size:1.6rem">Contactgegevens</h3>
+            <div class="flourish left" style="justify-content:flex-start;margin:8px 0 26px"><span class="ln r"></span></div>
+            <div class="row">
+              <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span>
+              <div><h3>E-mail</h3><p>Voor vragen, informatie of het aanvragen van een begeleidingsgesprek.</p><a href="mailto:rihlaturruh@gmail.com">rihlaturruh@gmail.com</a></div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <span class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span>
+              <div><h3>Instagram</h3><p>Dagelijkse inspiratie, reflecties en updates.</p><a href="https://www.instagram.com/rihlaturruh" target="_blank" rel="noopener">@rihlaturruh</a></div>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size:1.6rem">Contactformulier</h3>
+            <p class="body" style="margin:8px 0 20px">Heeft u een vraag of wilt u meer informatie? Vul onderstaand formulier in. Ik neem zo spoedig mogelijk contact met u op.</p>
+            <form class="form" id="contactForm">
+              <input type="text" id="cName" placeholder="Naam" required>
+              <input type="email" id="cEmail" placeholder="E-mailadres" required>
+              <select id="cSubject" required>
+                <option value="" disabled selected>Onderwerp</option>
+                <option>Algemene vraag</option>
+                <option>Begeleidingsgesprek</option>
+                <option>Materialen</option>
+                <option>Samenwerking</option>
+                <option>Anders</option>
+              </select>
+              <textarea id="cMsg" placeholder="Bericht" required></textarea>
+              <button class="btn primary" type="submit">Verzenden &nbsp;&#9992;</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMENWERKEN -->
+  <section class="block band">
+    <div class="wrap split alt">
+      <div>
+        <h2 class="title" style="font-size:clamp(1.9rem,4vw,2.6rem)">Samenwerken</h2>
+        <div class="flourish left" style="justify-content:flex-start;margin:8px 0 20px"><span class="ln r"></span></div>
+        <p class="body">Rihlaturruh werkt graag samen met organisaties en professionals die zich inzetten voor zingeving, educatie, geestelijke verzorging en de ontwikkeling van islamitische reflectiematerialen.</p>
+        <p class="body" style="font-weight:600;color:var(--ink)">Samenwerkingen zijn onder andere mogelijk met:</p>
+        <ul class="dotlist">
+          <li><span class="db"></span>zorginstellingen;</li>
+          <li><span class="db"></span>onderwijsinstellingen;</li>
+          <li><span class="db"></span>moskee&euml;n;</li>
+          <li><span class="db"></span>maatschappelijke organisaties;</li>
+          <li><span class="db"></span>islamitische geestelijk verzorgers;</li>
+          <li><span class="db"></span>andere professionals binnen het sociale domein.</li>
+        </ul>
+        <p class="body">Voor samenwerkingen of zakelijke vragen kunt u vrijblijvend contact opnemen.</p>
+      </div>
+      <div class="artpanel" aria-hidden="true">
+        <svg viewBox="0 0 220 220" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M100 150 C100 108 98 82 116 52"/>
+          <g fill="currentColor" stroke="none">
+            <ellipse cx="114" cy="60" rx="13" ry="6" transform="rotate(-40 114 60)"/>
+            <ellipse cx="134" cy="40" rx="12" ry="5.5" transform="rotate(-44 134 40)"/>
+            <ellipse cx="100" cy="88" rx="13" ry="6" transform="rotate(-28 100 88)"/>
+            <ellipse cx="98" cy="116" rx="12" ry="5.5" transform="rotate(-10 98 116)"/>
+            <ellipse cx="120" cy="92" rx="12" ry="5.5" transform="rotate(22 120 92)"/>
+          </g>
+          <path d="M78 150 q22 8 44 0 v40 a8 8 0 0 1 -8 8 h-28 a8 8 0 0 1 -8 -8z"/>
+          <rect x="150" y="150" width="46" height="34" rx="3"/>
+          <path d="M150 160 h46 M162 150 v34" opacity=".7"/>
+          <path d="M40 198 h150" opacity=".4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote">
+    <span class="mk">&rdquo;</span>
+    <p>Iedere ontmoeting begint met een eerste stap.</p>
+    <p class="sub">Ik zie ernaar uit om kennis met u te maken en samen te verkennen wat Rihlaturruh voor u kan betekenen.</p>
+  </div>
 </section>
+
 
 </main>
 
@@ -795,18 +886,10 @@
       <button data-go="contact">Contact</button>
     </nav>
     <div class="socials">
-      <a href="https://www.instagram.com/rihlaturruh" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 48 48"><defs><radialGradient id="ig" cx="30%" cy="107%" r="135%"><stop offset="0" stop-color="#fdf497"/><stop offset=".05" stop-color="#fdf497"/><stop offset=".45" stop-color="#fd5949"/><stop offset=".6" stop-color="#d6249f"/><stop offset=".9" stop-color="#285AEB"/></radialGradient></defs><circle cx="24" cy="24" r="24" fill="url(#ig)"/><g fill="none" stroke="#fff" stroke-width="2.6"><rect x="14" y="14" width="20" height="20" rx="6"/><circle cx="24" cy="24" r="5.4"/></g><circle cx="31.6" cy="16.4" r="1.7" fill="#fff"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@rihlaturruh" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#010101"/><g fill="none" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" transform="translate(13,13)"><path d="M9 9.5a4 4 0 1 0 4 4V4c.6 2.2 2.3 3.6 4.5 3.8" stroke="#25F4EE" transform="translate(-1,-1)"/><path d="M9 9.5a4 4 0 1 0 4 4V4c.6 2.2 2.3 3.6 4.5 3.8" stroke="#FE2C55" transform="translate(1,1)"/><path d="M9 9.5a4 4 0 1 0 4 4V4c.6 2.2 2.3 3.6 4.5 3.8" stroke="#fff"/></g></svg>
-      </a>
-      <a href="https://youtube.com/@rihlaturruh" target="_blank" rel="noopener" aria-label="YouTube">
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FF0000"/><path d="M20 17l11 7-11 7z" fill="#fff"/></svg>
-      </a>
-      <a href="mailto:rihlaturruh@gmail.com" aria-label="E-mail">
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#fff"/><g transform="translate(24,24) scale(.62) translate(-24,-24)"><path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75L35 40h7c1.657 0 3-1.343 3-3V16.2z"/><path fill="#1e88e5" d="M3 16.2l3.614 1.71L13 23.7V40H6c-1.657 0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3 12.298V16.2l10 7.5V11.2L9.876 8.859C9.132 8.301 8.228 8 7.298 8 4.924 8 3 9.924 3 12.298z"/><path fill="#fbc02d" d="M45 12.298V16.2l-10 7.5V11.2l3.124-2.341C38.868 8.301 39.772 8 40.702 8 43.076 8 45 9.924 45 12.298z"/></g></svg>
-      </a>
+      <a href="https://www.instagram.com/rihlaturruh" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.tiktok.com/@rihlaturruh" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9.5a4 4 0 1 0 4 4V4c.6 2.2 2.3 3.6 4.5 3.8"/></svg></a>
+      <a href="https://youtube.com/@rihlaturruh" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10.5 9.5v5l4-2.5z" fill="currentColor" stroke="none"/></svg></a>
+      <a href="mailto:rihlaturruh@gmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a>
     </div>
     <p class="fsmall">© <span id="year"></span> Rihlaturruh · De reis van de ziel</p>
   </div>
@@ -831,7 +914,8 @@
   document.getElementById('contactForm').addEventListener('submit',function(e){
     e.preventDefault();
     var n=document.getElementById('cName').value,em=document.getElementById('cEmail').value,m=document.getElementById('cMsg').value;
-    window.location.href='mailto:rihlaturruh@gmail.com?subject='+encodeURIComponent('Bericht via website — '+n)+'&body='+('Naam: '+n+'%0AE-mail: '+em+'%0A%0A'+encodeURIComponent(m));
+    var subEl=document.getElementById('cSubject');var sub=subEl?subEl.value:'';
+    window.location.href='mailto:rihlaturruh@gmail.com?subject='+encodeURIComponent('Contact via website'+(sub?' — '+sub:'')+' — '+n)+'&body='+('Naam: '+n+'%0AE-mail: '+em+'%0AOnderwerp: '+encodeURIComponent(sub)+'%0A%0A'+encodeURIComponent(m));
   });
   document.getElementById('year').textContent=new Date().getFullYear();
   go((location.hash||'#home').replace('#',''));
