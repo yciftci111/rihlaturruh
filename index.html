@@ -262,8 +262,8 @@
   .split > *{min-width:0}
   .split.reverse .imgpanel{order:-1}
   .imgpanel{aspect-ratio:4/3;min-height:0;border:0;box-shadow:none;background:none;border-radius:0;overflow:visible}
-  .imgpanel img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
-  .hero-wm{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:clamp(2.6rem,5.4vw,4.2rem);color:var(--green-deep);line-height:1;margin:0}
+  .imgpanel img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%),linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%),linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%);mask-composite:intersect}
+  .hero-wm{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(2.3rem,4.4vw,3.6rem);color:var(--green-deep);line-height:1;margin:0}
   .hero-tag{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:14px 0 0}
   .hero-sub{margin:20px 0 0;color:var(--ink-soft);font-size:1.1rem;max-width:46ch}
   .copy .lead,.copy .body{max-width:52ch}
@@ -287,6 +287,29 @@
   @media(max-width:900px){
     .imgpanel.portrait{aspect-ratio:3/4;max-width:340px}
     .imgpanel.portrait img{aspect-ratio:3/4}
+  }
+  /* ===== FULL-BLEED foto met overloop richting tekst (zoals mockup) ===== */
+  .bleed{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;overflow:hidden;position:relative}
+  .bleed.reverse{grid-template-columns:.95fr 1.05fr}
+  .bleed.band{background:var(--band)}
+  .bleed .copy{padding:76px 54px 76px max(28px,calc((100vw - var(--wrap))/2 + 28px));display:flex;flex-direction:column;justify-content:center}
+  .bleed.reverse .copy{padding:76px max(28px,calc((100vw - var(--wrap))/2 + 28px)) 76px 54px}
+  .bleed .media{position:relative;min-height:440px}
+  .bleed.reverse .media{order:-1}
+  .bleed .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%);
+    mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%)}
+  .bleed.reverse .media img{
+    -webkit-mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%);
+    mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%)}
+  @media(max-width:900px){
+    .bleed,.bleed.reverse{grid-template-columns:1fr}
+    .bleed.reverse .media{order:0}
+    .bleed .copy,.bleed.reverse .copy{padding:46px 26px 26px}
+    .bleed .media{min-height:300px}
+    .bleed .media img,.bleed.reverse .media img{
+      -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%);
+      mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%)}
   }
 </style>
 </head>
@@ -330,8 +353,7 @@
 <!-- ============================= HOME ============================= -->
 <section id="home" class="page active">
   <!-- HERO -->
-  <section class="block" style="padding-top:60px">
-    <div class="wrap split">
+  <section class="bleed">
       <div class="copy">
         <h1 class="hero-wm">Rihlaturruh</h1>
         <p class="hero-tag">&#8250;&nbsp; De reis van de ziel &nbsp;&#8249;</p>
@@ -339,11 +361,9 @@
         <div class="btns" style="margin-top:30px">
           <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
           <a class="btn ghost" data-go="publicaties" href="#publicaties">Bekijk de publicaties &rarr;</a>
-        </div>
-      </div>
-      <div class="imgpanel"><img src="p-home-hero.jpg" alt="De Profetenmoskee in Medina bij zonsondergang" loading="eager"></div>
-    </div>
-  </section>
+        </div></div>
+      <div class="media"><img src="p-home-hero.jpg" alt="De Profetenmoskee in Medina bij zonsondergang" loading="eager"></div>
+    </section>
 
   <!-- WAT JE HIER KUNT VINDEN (grid) -->
   <section class="block">
@@ -379,17 +399,14 @@
   </section>
 
   <!-- ONZE VISIE (image right) -->
-  <section class="block band">
-    <div class="wrap split">
+  <section class="bleed band">
       <div class="copy">
         <p class="eyebrow">Onze visie</p>
         <h2 class="visie-h">Wij geloven dat geestelijke groei begint wanneer er ruimte ontstaat voor stilte, reflectie en oprechte verbinding met Allah.</h2>
         <p class="body">Rihlaturruh wil bijdragen aan die reis door kennis, bezinning en praktische hulpmiddelen aan te bieden die mensen ondersteunen in het dagelijks leven, zowel persoonlijk als professioneel.</p>
-        <div class="btns" style="margin-top:22px"><a class="btn ghost" data-go="over" href="#over">Meer over onze visie &rarr;</a></div>
-      </div>
-      <div class="imgpanel"><img src="p-home-visie.jpg" alt="Een rustige leeshoek voor bezinning" loading="lazy"></div>
-    </div>
-  </section>
+        <div class="btns" style="margin-top:22px"><a class="btn ghost" data-go="over" href="#over">Meer over onze visie &rarr;</a></div></div>
+      <div class="media"><img src="p-home-visie.jpg" alt="Een rustige leeshoek voor bezinning" loading="lazy"></div>
+    </section>
 
   <div class="quote">
     <span class="mk">&rdquo;</span>
@@ -400,37 +417,30 @@
 <!-- ============================= OVER MIJ ============================= -->
 <section id="over" class="page">
   <!-- INTRO (image right) -->
-  <section class="block" style="padding-top:60px">
-    <div class="wrap split">
+  <section class="bleed">
       <div class="copy">
         <h2 class="title" style="font-size:clamp(2.2rem,5vw,3.2rem)">Over Rihlaturruh</h2>
         <div class="tagflourish"><span class="ln"></span><span class="eyebrow">De reis van de ziel</span><span class="ln r"></span></div>
         <p class="body" style="color:var(--green-deep);font-weight:700;font-size:1.05rem">Rihlaturruh betekent de reis van de ziel.</p>
         <p class="body">Iedere mens bewandelt een eigen weg. Een weg die wordt gekenmerkt door momenten van vreugde en verdriet, hoop en onzekerheid, groei en beproeving. Tijdens deze reis staan we soms stil bij levensvragen, zoeken we naar betekenis of verlangen we naar innerlijke rust en nabijheid tot Allah.</p>
         <p class="body" style="color:var(--gold);font-weight:600">Vanuit die gedachte is Rihlaturruh ontstaan: een plek waar islamitische reflectie en geestelijke verzorging samenkomen.</p>
-        <p class="body">Het doel is om ruimte te bieden voor bezinning, verdieping en bewust leven, door middel van zorgvuldig ontwikkelde materialen en &ndash; in de toekomst &ndash; geestelijke begeleiding.</p>
-      </div>
-      <div class="imgpanel portrait"><img src="p-over-intro.jpg" alt="De Profetenmoskee in Medina" loading="lazy"></div>
-    </div>
-  </section>
+        <p class="body">Het doel is om ruimte te bieden voor bezinning, verdieping en bewust leven, door middel van zorgvuldig ontwikkelde materialen en &ndash; in de toekomst &ndash; geestelijke begeleiding.</p></div>
+      <div class="media"><img src="p-over-intro.jpg" alt="De Profetenmoskee in Medina" loading="lazy"></div>
+    </section>
 
   <!-- ONZE VISIE (image left) -->
-  <section class="block band">
-    <div class="wrap split reverse">
+  <section class="bleed reverse band">
       <div class="copy">
         <p class="eyebrow">Onze visie</p>
         <h3 style="margin:10px 0 14px;font-size:1.6rem">Waar verandering begint</h3>
         <p class="body">Wij geloven dat ware verandering begint in het hart. Wanneer we bewust leren stilstaan bij onze ervaringen, onze relatie met Allah en onze plaats in het leven, ontstaat ruimte voor innerlijke rust, veerkracht en betekenis.</p>
         <p class="body">Daarom ontwikkelt Rihlaturruh zorgvuldig vormgegeven materialen die uitnodigen tot reflectie en bewustwording. Op termijn zal dit worden uitgebreid met islamitische geestelijke begeleiding voor mensen die behoefte hebben aan persoonlijke ondersteuning.</p>
-        <p class="body">Alles wat binnen Rihlaturruh wordt ontwikkeld, vindt zijn inspiratie in de Koran, de authentieke Soennah en de rijke islamitische traditie van zielzorg <em>(tazkiyat an-nafs)</em>.</p>
-      </div>
-      <div class="imgpanel portrait"><img src="p-over-wie.jpg" alt="Poort van de Profetenmoskee" loading="lazy"></div>
-    </div>
-  </section>
+        <p class="body">Alles wat binnen Rihlaturruh wordt ontwikkeld, vindt zijn inspiratie in de Koran, de authentieke Soennah en de rijke islamitische traditie van zielzorg <em>(tazkiyat an-nafs)</em>.</p></div>
+      <div class="media"><img src="p-over-wie.jpg" alt="Poort van de Profetenmoskee" loading="lazy"></div>
+    </section>
 
   <!-- VOOR WIE (image right) -->
-  <section class="block">
-    <div class="wrap split">
+  <section class="bleed">
       <div class="copy">
         <p class="eyebrow">Voor wie is Rihlaturruh?</p>
         <h3 style="margin:10px 0 14px;font-size:1.6rem">Voor iedereen die verdieping zoekt</h3>
@@ -442,11 +452,9 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>zorg- en welzijnsinstellingen</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>professionals die werken met moslims</li>
         </ul>
-        <p class="body" style="margin-top:16px">Om zoveel mogelijk mensen te bereiken, worden de materialen geleidelijk beschikbaar in meerdere talen, waaronder Nederlands, Turks en &ndash; waar passend &ndash; Arabisch.</p>
-      </div>
-      <div class="imgpanel portrait"><img src="p-over-achter.jpg" alt="Een rustige plek voor bezinning" loading="lazy"></div>
-    </div>
-  </section>
+        <p class="body" style="margin-top:16px">Om zoveel mogelijk mensen te bereiken, worden de materialen geleidelijk beschikbaar in meerdere talen, waaronder Nederlands, Turks en &ndash; waar passend &ndash; Arabisch.</p></div>
+      <div class="media"><img src="p-over-achter.jpg" alt="Een rustige plek voor bezinning" loading="lazy"></div>
+    </section>
 
   <!-- ACHTER RIHLATURRUH (tekst, gecentreerd contained) -->
   <section class="block band">
@@ -491,8 +499,7 @@
 <!-- ============================= DIENSTEN & AANBOD ============================= -->
 <section id="diensten" class="page">
   <!-- INTRO (image right) -->
-  <section class="block" style="padding-top:60px">
-    <div class="wrap split">
+  <section class="bleed">
       <div class="copy">
         <h2 class="title" style="font-size:clamp(2.1rem,5vw,3.2rem)">Geestelijke begeleiding</h2>
         <div class="tagflourish"><span class="ln"></span><span class="eyebrow">vanuit islamitisch perspectief</span><span class="ln r"></span></div>
@@ -501,11 +508,9 @@
         <div class="btns" style="margin-top:26px">
           <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een gesprek</a>
           <a class="btn ghost" href="#werkwijze-sec" onclick="event.preventDefault();document.getElementById('werkwijze-sec').scrollIntoView({behavior:'smooth'})">Meer over mijn werkwijze &rarr;</a>
-        </div>
-      </div>
-      <div class="imgpanel portrait"><img src="p-diensten.jpg" alt="Bogen en hemel van de moskee" loading="lazy"></div>
-    </div>
-  </section>
+        </div></div>
+      <div class="media"><img src="p-diensten.jpg" alt="Bogen en hemel van de moskee" loading="lazy"></div>
+    </section>
 
   <!-- WAARVOOR -->
   <section class="block band">
@@ -583,17 +588,14 @@
 <!-- ============================= MATERIALEN ============================= -->
 <section id="materialen" class="page">
   <!-- INTRO (image right) -->
-  <section class="block" style="padding-top:60px">
-    <div class="wrap split">
+  <section class="bleed">
       <div class="copy">
         <h2 class="title" style="font-size:clamp(2.4rem,6vw,3.6rem)">Materialen</h2>
         <p class="body" style="font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.4rem;margin:4px 0 12px">Materialen die uitnodigen tot bezinning</p>
         <p class="body">De reflectiematerialen van Rihlaturruh zijn ontwikkeld om ruimte te cre&euml;ren voor reflectie, bewustwording en betekenisgeving vanuit islamitisch perspectief.</p>
-        <p class="body">Elke werkvorm is met zorg samengesteld en kan worden gebruikt voor persoonlijke bezinning, tijdens begeleiding of binnen een professionele context.</p>
-      </div>
-      <div class="imgpanel"><img src="p-materialen.jpg" alt="Studeren en reflecteren" loading="lazy"></div>
-    </div>
-  </section>
+        <p class="body">Elke werkvorm is met zorg samengesteld en kan worden gebruikt voor persoonlijke bezinning, tijdens begeleiding of binnen een professionele context.</p></div>
+      <div class="media"><img src="p-materialen.jpg" alt="Studeren en reflecteren" loading="lazy"></div>
+    </section>
 
   <!-- WAT ONTWIKKELT -->
   <section class="block band">
@@ -648,17 +650,14 @@
 <!-- ============================= CONTACT ============================= -->
 <section id="contact" class="page">
   <!-- INTRO (image right) -->
-  <section class="block" style="padding-top:60px">
-    <div class="wrap split">
+  <section class="bleed">
       <div class="copy">
         <h2 class="title" style="font-size:clamp(2.6rem,6vw,4rem)">Contact</h2>
         <div class="flourish left" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
         <p class="body">Heeft u een vraag, wilt u meer informatie of bent u benieuwd wat Rihlaturruh voor u of uw organisatie kan betekenen?</p>
-        <p class="body">U bent van harte welkom om contact op te nemen. Ik neem de tijd om ieder bericht zorgvuldig te lezen en streef ernaar zo spoedig mogelijk te reageren.</p>
-      </div>
-      <div class="imgpanel"><img src="p-contact.jpg" alt="Olijftak in het zonlicht" loading="lazy"></div>
-    </div>
-  </section>
+        <p class="body">U bent van harte welkom om contact op te nemen. Ik neem de tijd om ieder bericht zorgvuldig te lezen en streef ernaar zo spoedig mogelijk te reageren.</p></div>
+      <div class="media"><img src="p-contact.jpg" alt="Olijftak in het zonlicht" loading="lazy"></div>
+    </section>
 
   <!-- CONTACTGEGEVENS + FORMULIER -->
   <section class="block band">
@@ -702,8 +701,7 @@
   </section>
 
   <!-- SAMENWERKEN (image left) -->
-  <section class="block">
-    <div class="wrap split reverse">
+  <section class="bleed reverse">
       <div class="copy">
         <h2 class="title" style="font-size:clamp(1.9rem,4vw,2.6rem)">Samenwerken</h2>
         <div class="flourish left" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
@@ -717,11 +715,9 @@
           <li><span class="db"></span>islamitische geestelijk verzorgers;</li>
           <li><span class="db"></span>andere professionals binnen het sociale domein.</li>
         </ul>
-        <p class="body">Voor samenwerkingen of zakelijke vragen kunt u vrijblijvend contact opnemen.</p>
-      </div>
-      <div class="imgpanel"><img src="p-samenwerken.jpg" alt="Werkplek voor samenwerking" loading="lazy"></div>
-    </div>
-  </section>
+        <p class="body">Voor samenwerkingen of zakelijke vragen kunt u vrijblijvend contact opnemen.</p></div>
+      <div class="media"><img src="p-samenwerken.jpg" alt="Werkplek voor samenwerking" loading="lazy"></div>
+    </section>
 
   <div class="quote">
     <span class="mk">&rdquo;</span>
