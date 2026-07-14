@@ -52,11 +52,11 @@
   .brand .wm span{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px}
 
   .nav{margin-left:auto;display:flex;align-items:center;gap:2px}
-  .nav button{font:inherit;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);background:none;border:0;padding:10px 14px;cursor:pointer;transition:color .2s;white-space:nowrap;position:relative}
+  .nav button{font:inherit;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);background:none;border:0;padding:9px 10px;cursor:pointer;transition:color .2s;white-space:nowrap;position:relative}
   .nav button:hover{color:var(--green-deep)}
   .nav button.active{color:var(--green-deep)}
   .nav button.active::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:1.5px;background:var(--gold)}
-  .nav .cta{margin-left:12px;background:var(--green);color:#F3EEE0;border-radius:2px;padding:12px 20px;letter-spacing:.14em}
+  .nav .cta{margin-left:10px;background:var(--green);color:#F3EEE0;border-radius:2px;padding:11px 16px;letter-spacing:.1em}
   .nav .cta:hover{background:var(--green-deep);color:#fff}
   .nav .cta::after{display:none}
 
@@ -65,7 +65,7 @@
   .mobile-menu button{font:inherit;font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-align:left;background:none;border:0;padding:15px 4px;color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line)}
   .mobile-menu button.active{color:var(--green-deep)}
   .mobile-menu .cta{color:#fff;background:var(--green);border-radius:2px;margin-top:14px;text-align:center;border-bottom:0}
-  @media(max-width:940px){ .nav{display:none} .menu-toggle{display:grid;place-items:center} .mobile-menu.open{display:flex} }
+  @media(max-width:1080px){ .nav{display:none} .menu-toggle{display:grid;place-items:center} .mobile-menu.open{display:flex} }
 
   /* ---------------- PAGES ---------------- */
   .page{display:none;animation:fade .55s ease}
@@ -261,8 +261,8 @@
   .split.alt{align-items:center}
   .split > *{min-width:0}
   .split.reverse .imgpanel{order:-1}
-  .imgpanel{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;min-height:0;box-shadow:0 24px 56px -32px rgba(24,50,38,.5)}
-  .imgpanel img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .imgpanel{aspect-ratio:4/3;min-height:0;border:0;box-shadow:none;background:none;border-radius:0;overflow:visible}
+  .imgpanel img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
   .hero-wm{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:clamp(2.6rem,5.4vw,4.2rem);color:var(--green-deep);line-height:1;margin:0}
   .hero-tag{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:14px 0 0}
   .hero-sub{margin:20px 0 0;color:var(--ink-soft);font-size:1.1rem;max-width:46ch}
@@ -305,6 +305,7 @@
         <button data-go="over">Over mij</button>
         <button data-go="diensten">Diensten &amp; Aanbod</button>
         <button data-go="materialen">Materialen</button>
+        <button data-go="publicaties">Publicaties</button>
         <button data-go="contact">Contact</button>
         <a class="cta" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
       </nav>
@@ -317,6 +318,7 @@
       <button data-go="over">Over mij</button>
       <button data-go="diensten">Diensten &amp; Aanbod</button>
       <button data-go="materialen">Materialen</button>
+        <button data-go="publicaties">Publicaties</button>
       <button data-go="contact">Contact</button>
       <a class="cta" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
     </nav>
@@ -333,27 +335,13 @@
       <div class="copy">
         <h1 class="hero-wm">Rihlaturruh</h1>
         <p class="hero-tag">&#8250;&nbsp; De reis van de ziel &nbsp;&#8249;</p>
-        <p class="hero-sub">Een plek voor islamitische reflectie, geestelijke verzorging en materialen die uitnodigen tot bezinning, betekenis en innerlijke rust.</p>
+        <p class="hero-sub">Een plek voor islamitische reflectie, geestelijke begeleiding, publicaties en zorgvuldig ontwikkelde materialen die bijdragen aan bezinning, betekenis en innerlijke rust.</p>
         <div class="btns" style="margin-top:30px">
           <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
-          <a class="btn ghost" data-go="materialen" href="#materialen">Ontdek de materialen &rarr;</a>
+          <a class="btn ghost" data-go="publicaties" href="#publicaties">Bekijk de publicaties &rarr;</a>
         </div>
       </div>
       <div class="imgpanel"><img src="p-home-hero.jpg" alt="De Profetenmoskee in Medina bij zonsondergang" loading="eager"></div>
-    </div>
-  </section>
-
-  <!-- IEDERE ZIEL (image left) -->
-  <section class="block band">
-    <div class="wrap split reverse">
-      <div class="copy">
-        <h2 class="title up" style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Iedere ziel kent haar eigen reis</h2>
-        <div class="flourish left" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-        <p class="body">Soms brengt het leven rust en dankbaarheid. Soms brengt het verlies, onzekerheid of vragen waarop geen eenvoudig antwoord bestaat.</p>
-        <p class="body">Rihlaturruh is ontstaan vanuit de overtuiging dat juist in zulke momenten ruimte nodig is om stil te staan, te reflecteren en opnieuw richting te vinden.</p>
-        <p class="body">Ge&iuml;nspireerd door de Koran en de authentieke Soennah biedt Rihlaturruh een plek waar geloof, bezinning en geestelijke begeleiding samenkomen &mdash; om mensen te ondersteunen in hun persoonlijke reis naar Allah.</p>
-      </div>
-      <div class="imgpanel"><img src="p-home-reflect.jpg" alt="Rust en reflectie bij het raam" loading="lazy"></div>
     </div>
   </section>
 
@@ -365,31 +353,26 @@
         <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
       </div>
       <div class="grid c3" style="margin-top:30px">
+        <a class="card" data-go="diensten" href="#diensten">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-1-1.6-3.2-2-4.8-1S5 6.8 6 8.4L12 15l6-6.6c1-1.6.4-3.4-1.2-4.4S13 3.4 12 5z"/><path d="M3 13c1.5-1 3-1 4.5 0M16.5 13c1.5-1 3-1 4.5 0"/></svg></span>
+          <h3 class="up">Begeleiding</h3>
+          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
+          <p class="body">Persoonlijke geestelijke begeleiding vanuit islamitisch perspectief.</p>
+          <span class="arrow-link">Lees meer &rarr;</span>
+        </a>
         <a class="card" data-go="materialen" href="#materialen">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
           <h3 class="up">Materialen</h3>
           <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
-          <ul class="checklist">
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Werkbladen</li>
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Posters</li>
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Digitale werkbladen</li>
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Persoonlijk en professioneel gebruik</li>
-          </ul>
+          <p class="body">Werkbladen, posters en digitale hulpmiddelen voor persoonlijk en professioneel gebruik.</p>
           <span class="arrow-link">Ontdek de materialen &rarr;</span>
         </a>
-        <a class="card" data-go="diensten" href="#diensten">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-1-1.6-3.2-2-4.8-1S5 6.8 6 8.4L12 15l6-6.6c1-1.6.4-3.4-1.2-4.4S13 3.4 12 5z"/><path d="M3 13c1.5-1 3-1 4.5 0M16.5 13c1.5-1 3-1 4.5 0"/></svg></span>
-          <h3 class="up">Consulten</h3>
-          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
-          <p class="body">Geestelijke begeleiding vanuit islamitisch perspectief. Deze mogelijkheid wordt stap voor stap verder uitgewerkt.</p>
-          <span class="arrow-link">Lees meer &rarr;</span>
-        </a>
-        <a class="card" data-go="over" href="#over">
+        <a class="card" data-go="publicaties" href="#publicaties">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/></svg></span>
-          <h3 class="up">Over Rihlaturruh</h3>
+          <h3 class="up">Publicaties</h3>
           <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
-          <p class="body">Lees meer over de betekenis achter de naam, de visie en de achtergrond van dit initiatief.</p>
-          <span class="arrow-link">Meer over Rihlaturruh &rarr;</span>
+          <p class="body">Samenvattingen van scripties, onderzoek en het dashboard van het masteronderzoek.</p>
+          <span class="arrow-link">Bekijk de publicaties &rarr;</span>
         </a>
       </div>
     </div>
@@ -404,7 +387,7 @@
         <p class="body">Rihlaturruh wil bijdragen aan die reis door kennis, bezinning en praktische hulpmiddelen aan te bieden die mensen ondersteunen in het dagelijks leven, zowel persoonlijk als professioneel.</p>
         <div class="btns" style="margin-top:22px"><a class="btn ghost" data-go="over" href="#over">Meer over onze visie &rarr;</a></div>
       </div>
-      <div class="imgpanel"><img src="p-home-visie.jpg" alt="Gebedskleed in het zonlicht" loading="lazy"></div>
+      <div class="imgpanel"><img src="p-home-visie.jpg" alt="Een rustige leeshoek voor bezinning" loading="lazy"></div>
     </div>
   </section>
 
@@ -747,6 +730,59 @@
   </div>
 </section>
 
+
+<!-- ============================= PUBLICATIES ============================= -->
+<section id="publicaties" class="page">
+  <section class="block" style="padding-top:60px">
+    <div class="wrap center">
+      <p class="eyebrow">Publicaties</p>
+      <h2 class="title" style="margin-top:10px">Kennis delen, verdieping brengen</h2>
+      <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
+      <p class="lead" style="margin:0 auto">Toegankelijke samenvattingen van scripties en onderzoek, en het dashboard van het masteronderzoek &mdash; om kennis te delen en bij te dragen aan bezinning, betekenis en bewustwording.</p>
+    </div>
+  </section>
+
+  <section class="block band">
+    <div class="wrap">
+      <div class="grid c3">
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
+          <h3 class="up" style="font-size:1.3rem">Scriptie-samenvattingen</h3>
+          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
+          <p class="body">Heldere, toegankelijke samenvattingen van scripties, gemaakt voor een breder publiek.</p>
+        </div>
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <h3 class="up" style="font-size:1.3rem">Onderzoek</h3>
+          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
+          <p class="body">Inzichten en bevindingen uit onderzoek rond geloof, zingeving en geestelijke verzorging.</p>
+        </div>
+        <div class="card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span>
+          <h3 class="up" style="font-size:1.3rem">Dashboard masteronderzoek</h3>
+          <span class="titleorn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l1.8 5.6L20 10l-6.2 1.4L12 17l-1.8-5.6L4 10l6.2-1.4z"/></svg></span>
+          <p class="body">Een overzichtelijk dashboard met de resultaten van het masteronderzoek.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="ctaband" style="text-align:center">
+        <h3 style="color:#FBF7EE;font-size:1.8rem;margin-bottom:10px">Binnenkort beschikbaar</h3>
+        <p style="color:#D9D2C0;max-width:56ch;margin:0 auto 22px">De publicaties en het dashboard worden hier stap voor stap toegevoegd. Heeft u interesse of een vraag? Neem gerust contact op.</p>
+        <a class="btn primary" data-go="contact" href="#contact" style="background:var(--gold);color:var(--green-deep)">Neem contact op</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote">
+    <span class="mk">&rdquo;</span>
+    <p>Kennis raakt pas werkelijk als zij het hart bereikt.</p>
+  </div>
+</section>
+
 </main>
 
 
@@ -763,6 +799,7 @@
       <button data-go="over">Over mij</button>
       <button data-go="diensten">Diensten &amp; Aanbod</button>
       <button data-go="materialen">Materialen</button>
+        <button data-go="publicaties">Publicaties</button>
       <button data-go="contact">Contact</button>
     </nav>
     <div class="socials">
