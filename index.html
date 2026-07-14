@@ -289,12 +289,12 @@
     .imgpanel.portrait img{aspect-ratio:3/4}
   }
   /* ===== FULL-BLEED foto met overloop richting tekst (zoals mockup) ===== */
-  .bleed{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;overflow:hidden;position:relative}
+  .bleed{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:hidden;position:relative;padding-block:clamp(50px,6vw,84px)}
   .bleed.reverse{grid-template-columns:.95fr 1.05fr}
   .bleed.band{background:var(--band)}
-  .bleed .copy{padding:76px 54px 76px max(28px,calc((100vw - var(--wrap))/2 + 28px));display:flex;flex-direction:column;justify-content:center}
-  .bleed.reverse .copy{padding:76px max(28px,calc((100vw - var(--wrap))/2 + 28px)) 76px 54px}
-  .bleed .media{position:relative;min-height:440px}
+  .bleed .copy{padding:0 54px 0 max(28px,calc((100vw - var(--wrap))/2 + 28px));display:flex;flex-direction:column;justify-content:center}
+  .bleed.reverse .copy{padding:0 max(28px,calc((100vw - var(--wrap))/2 + 28px)) 0 54px}
+  .bleed .media{position:relative;min-height:300px;align-self:stretch}
   .bleed.reverse .media{order:-1}
   .bleed .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
     -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%);
@@ -303,7 +303,7 @@
     -webkit-mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%);
     mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%)}
   @media(max-width:900px){
-    .bleed,.bleed.reverse{grid-template-columns:1fr}
+    .bleed,.bleed.reverse{grid-template-columns:1fr;padding-block:0}
     .bleed.reverse .media{order:0}
     .bleed .copy,.bleed.reverse .copy{padding:46px 26px 26px}
     .bleed .media{min-height:300px}
