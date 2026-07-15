@@ -24,6 +24,7 @@
     --display:"Cormorant Garamond", Georgia, serif;
     --body:"Mulish", system-ui, sans-serif;
     --wrap:1120px;
+    --stage:1500px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -289,12 +290,12 @@
     .imgpanel.portrait img{aspect-ratio:3/4}
   }
   /* ===== FULL-BLEED foto met overloop richting tekst (zoals mockup) ===== */
-  .bleed{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:hidden;position:relative;padding-block:clamp(50px,6vw,84px)}
+  .bleed{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:visible;position:relative;padding-block:clamp(50px,6vw,84px);max-width:var(--stage);margin-inline:auto}
   .bleed.reverse{grid-template-columns:.95fr 1.05fr}
-  .bleed.band{background:var(--band)}
-  .bleed .copy{padding:0 54px 0 max(28px,calc((100vw - var(--wrap))/2 + 28px));display:flex;flex-direction:column;justify-content:center}
-  .bleed.reverse .copy{padding:0 max(28px,calc((100vw - var(--wrap))/2 + 28px)) 0 54px}
-  .bleed .media{position:relative;min-height:300px;align-self:stretch}
+  .bleed.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:var(--band);z-index:-1}
+  .bleed .copy{padding-top:0;padding-bottom:0;padding-right:54px;padding-left:calc(max(28px, (100vw - var(--wrap))/2 + 28px) - max(0px, (100vw - var(--stage))/2));display:flex;flex-direction:column;justify-content:center}
+  .bleed.reverse .copy{padding-top:0;padding-bottom:0;padding-left:54px;padding-right:calc(max(28px, (100vw - var(--wrap))/2 + 28px) - max(0px, (100vw - var(--stage))/2))}
+  .bleed .media{position:relative;aspect-ratio:3/2;align-self:center}
   .bleed.reverse .media{order:-1}
   .bleed .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
     -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%);
@@ -306,7 +307,7 @@
     .bleed,.bleed.reverse{grid-template-columns:1fr;padding-block:0}
     .bleed.reverse .media{order:0}
     .bleed .copy,.bleed.reverse .copy{padding:46px 26px 26px}
-    .bleed .media{min-height:300px}
+    .bleed .media{height:auto;aspect-ratio:4/3}
     .bleed .media img,.bleed.reverse .media img{
       -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%);
       mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%)}
