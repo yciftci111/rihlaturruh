@@ -312,8 +312,6 @@
       -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%);
       mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%)}
   }
-  .bleed .media.portrait-fit{width:min(430px,86%);aspect-ratio:3/4;height:auto;align-self:center;margin-inline:auto}
-  .bleed .media.portrait-fit img{object-fit:cover;-webkit-mask-image:radial-gradient(135% 135% at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(135% 135% at 50% 50%,#000 58%,transparent 100%)}
 </style>
 </head>
 <body>
@@ -513,7 +511,7 @@
           <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
           <a class="btn ghost" href="#werkwijze-sec" onclick="event.preventDefault();document.getElementById('werkwijze-sec').scrollIntoView({behavior:'smooth'})">Meer over mijn werkwijze &rarr;</a>
         </div></div>
-      <div class="media portrait-fit"><img src="p-diensten.jpg" alt="Een warme, rustige ruimte voor een gesprek" loading="lazy"></div>
+      <div class="media"><img src="p-diensten.jpg" alt="Een warme, rustige ruimte voor een gesprek" loading="lazy" style="object-position:50% 50%"></div>
     </section>
 
   <!-- WAARVOOR -->
