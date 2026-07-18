@@ -15,358 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-  :root{
-    --paper:#F1E8D8; --paper-2:#E9DEC9; --band:#FBF7EE; --card:#FCF9F1;
-    --green:#294C3B; --green-deep:#183226; --green-tint:#E1E8DF;
-    --gold:#B18F4B; --gold-soft:#CBAB6C; --gold-line:#C9AE7A;
-    --ink:#33302A; --ink-soft:#6B6455; --line:rgba(51,48,42,.14);
-    --display:"Cormorant Garamond", Georgia, serif;
-    --body:"Mulish", system-ui, sans-serif;
-    --wrap:1120px;
-    --stage:1500px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  body::before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,#F5EEE0 0%,var(--paper) 42%,var(--paper-2) 100%);z-index:-2}
-  a{color:inherit}
-  img{max-width:100%;display:block}
-  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 26px}
-
-  /* ---------------- ORNAMENTS ---------------- */
-  .flourish{display:flex;align-items:center;justify-content:center;gap:13px;color:var(--gold);margin:14px 0}
-  .flourish.left{justify-content:flex-start}
-  .flourish .ln{height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--gold-line))}
-  .flourish.left .ln:first-child{display:none}
-  .flourish .ln.r{background:linear-gradient(90deg,var(--gold-line),transparent)}
-  .flourish svg{width:26px;height:26px;flex:0 0 auto}
-  .eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}
-
-  /* ---------------- HEADER ---------------- */
-  .site-header{position:sticky;top:0;z-index:60;background:rgba(241,232,216,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .bar{display:flex;align-items:center;gap:20px;height:82px}
-  .brand{display:flex;align-items:center;gap:13px;cursor:pointer;background:none;border:0;color:inherit}
-  .brand img{width:52px;height:52px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--gold-line)}
-  .brand .wm{display:flex;flex-direction:column;line-height:1;text-align:left}
-  .brand .wm b{font-family:var(--display);font-weight:600;font-size:1.35rem;letter-spacing:.16em;color:var(--green-deep)}
-  .brand .wm span{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px}
-
-  .nav{margin-left:auto;display:flex;align-items:center;gap:2px}
-  .nav button{font:inherit;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);background:none;border:0;padding:9px 10px;cursor:pointer;transition:color .2s;white-space:nowrap;position:relative}
-  .nav button:hover{color:var(--green-deep)}
-  .nav button.active{color:var(--green-deep)}
-  .nav button.active::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:1.5px;background:var(--gold)}
-  .nav .cta{margin-left:14px;background:var(--green);color:#F3EEE0;border-radius:3px;padding:12px 20px;letter-spacing:.1em;font-size:.72rem;font-weight:700;text-transform:uppercase;white-space:nowrap;flex:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 20px -10px rgba(24,50,38,.55);transition:transform .2s,box-shadow .2s,background .2s}
-  .nav .cta:hover{background:var(--green-deep);color:#fff;transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(24,50,38,.7)}
-  .nav .cta::after{display:none}
-
-  .menu-toggle{margin-left:auto;display:none;background:none;border:1px solid var(--line);border-radius:4px;width:46px;height:46px;cursor:pointer;color:var(--green-deep)}
-  .mobile-menu{display:none;flex-direction:column;padding:6px 0 18px;border-top:1px solid var(--line)}
-  .mobile-menu button{font:inherit;font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-align:left;background:none;border:0;padding:15px 4px;color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line)}
-  .mobile-menu button.active{color:var(--green-deep)}
-  .mobile-menu .cta{color:#fff;background:var(--green);border-radius:2px;margin-top:14px;text-align:center;border-bottom:0}
-  @media(max-width:1180px){ .nav{display:none} .menu-toggle{display:grid;place-items:center} .mobile-menu.open{display:flex} }
-
-  /* ---------------- PAGES ---------------- */
-  .page{display:none;animation:fade .55s ease}
-  .page.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-
-  section.block{padding:70px 0}
-  .band{background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  h1,h2,h3{font-family:var(--display);font-weight:500;color:var(--green-deep);line-height:1.12}
-  h2.title{font-size:clamp(2.1rem,5vw,3.1rem);letter-spacing:.01em}
-  h3{font-size:1.5rem;letter-spacing:.01em}
-  .lead{font-size:1.1rem;color:var(--ink-soft);max-width:60ch}
-  .center{text-align:center}
-  .center .lead{margin-left:auto;margin-right:auto}
-  .measure{max-width:66ch}
-  p.body{color:var(--ink-soft)}
-  p.body+p.body{margin-top:15px}
-
-  /* ---------------- HERO ---------------- */
-  .hero{position:relative;text-align:center;padding:86px 0 62px}
-  .hero::before{content:"";position:absolute;inset:-30px 0 auto;height:420px;z-index:-1;
-    background:radial-gradient(70% 100% at 50% 0,rgba(203,171,108,.34) 0,rgba(203,171,108,0) 62%)}
-  .hero .mark{width:132px;height:132px;border-radius:50%;object-fit:cover;margin:0 auto 26px;box-shadow:0 18px 46px -20px rgba(24,50,38,.6),0 0 0 1px var(--gold-line)}
-  .hero h1{font-size:clamp(3rem,10vw,5rem);letter-spacing:.14em;text-transform:uppercase;font-weight:600}
-  .hero .sub{max-width:52ch;margin:22px auto 0;color:var(--ink-soft);font-size:1.12rem}
-  .hero .btns{margin-top:34px}
-
-  /* ---------------- BUTTONS ---------------- */
-  .btns{display:flex;gap:15px;flex-wrap:wrap}
-  .center .btns,.hero .btns{justify-content:center}
-  .btn{font:inherit;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:15px 28px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s,color .2s;text-decoration:none;display:inline-flex;align-items:center;gap:9px}
-  .btn.primary{background:var(--green);color:#F3EEE0}
-  .btn.primary:hover{background:var(--green-deep);color:#fff;transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(24,50,38,.7)}
-  .btn.ghost{background:transparent;color:var(--green-deep);border-color:var(--gold-line)}
-  .btn.ghost:hover{background:rgba(41,76,59,.06);transform:translateY(-2px)}
-
-  /* ---------------- CARDS ---------------- */
-  .grid{display:grid;gap:22px}
-  .grid.c2{grid-template-columns:repeat(2,1fr)}
-  .grid.c3{grid-template-columns:repeat(3,1fr)}
-  .grid.c4{grid-template-columns:repeat(4,1fr)}
-  @media(max-width:900px){.grid.c3,.grid.c4{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:620px){.grid.c2,.grid.c3,.grid.c4{grid-template-columns:1fr}}
-
-  .card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:32px 28px;transition:transform .25s,box-shadow .25s,border-color .25s;text-align:center}
-  a.card{text-decoration:none;display:block}
-  a.card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 22px 40px -24px rgba(24,50,38,.5)}
-  .ic{width:62px;height:62px;border-radius:50%;background:var(--green);color:var(--gold-soft);display:grid;place-items:center;margin:0 auto 18px;box-shadow:0 0 0 6px rgba(41,76,59,.08)}
-  .ic svg{width:28px;height:28px}
-  .card h3{margin-bottom:10px}
-  .card .body{font-size:.98rem;color:var(--ink-soft)}
-  .card .more{margin-top:16px;display:inline-block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
-
-  .card.plain{text-align:left;padding:30px}
-  .card.plain .ic{margin:0 0 16px}
-
-  /* ---------------- STATS DASHBOARD ---------------- */
-  .stats-dash{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  @media(max-width:900px){.stats-dash{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:520px){.stats-dash{grid-template-columns:1fr}}
-  .stat-tile{background:var(--green-deep);border-radius:6px;padding:30px 20px;text-align:center;color:#F3EEE0;position:relative;overflow:hidden}
-  .stat-tile::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 100% at 50% -10%,rgba(203,171,108,.28),transparent 60%)}
-  .stat-tile .num{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.6rem);font-weight:600;color:var(--gold-soft);position:relative;line-height:1}
-  .stat-tile .lbl{margin-top:9px;font-size:.76rem;letter-spacing:.03em;color:#D9D2C0;position:relative;line-height:1.4}
-
-  /* ---------------- SUBNAV PILLS ---------------- */
-  .subnav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:38px 0 6px}
-  .subnav button{font:inherit;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:11px 22px;cursor:pointer;transition:all .2s}
-  .subnav button:hover{border-color:var(--gold-line);color:var(--gold)}
-  .subhead{padding-top:26px}
-  .subhead .flourish{margin-top:8px}
-
-  /* ---------------- FLYER GRID / LIGHTBOX ---------------- */
-  .flyer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  @media(max-width:1000px){.flyer-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:700px){.flyer-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:420px){.flyer-grid{grid-template-columns:1fr}}
-  .flyer-tile{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;text-align:left;font:inherit;padding:0;display:block;width:100%}
-  .flyer-tile:hover{transform:translateY(-4px);border-color:var(--gold-line);box-shadow:0 18px 34px -22px rgba(24,50,38,.5)}
-  .flyer-tile .fimgwrap{aspect-ratio:4/5;overflow:hidden;background:#EFE7D5}
-  .flyer-tile img{width:100%;height:100%;object-fit:cover;display:block}
-  .flyer-tile .fcap{padding:12px 14px}
-  .flyer-tile .fcap .fdate{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700}
-  .flyer-tile .fcap .ftitle{font-family:var(--display);font-size:1rem;color:var(--green-deep);margin-top:3px;line-height:1.25}
-
-  .lightbox{position:fixed;inset:0;background:rgba(24,26,20,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:40px 20px}
-  .lightbox.open{display:flex}
-  .lightbox .lb-inner{max-width:min(92vw,720px);max-height:88vh;text-align:center}
-  .lightbox img{max-width:100%;max-height:74vh;border-radius:4px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);margin:0 auto;display:block}
-  .lightbox .lb-cap{color:#F3EEE0;margin-top:16px;font-family:var(--display);font-size:1.1rem}
-  .lightbox .lb-close{position:absolute;top:22px;right:26px;background:none;border:0;color:#F3EEE0;font-size:2.2rem;cursor:pointer;line-height:1}
-
-  /* ---------------- WORKSHOP CARDS ---------------- */
-  .workshop-card{display:grid;grid-template-columns:200px 1fr;gap:26px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px;align-items:start;margin-bottom:22px}
-  @media(max-width:700px){.workshop-card{grid-template-columns:1fr}}
-  .workshop-card.noimg{grid-template-columns:1fr}
-  .workshop-card .wimgs{display:flex;gap:8px}
-  .workshop-card .wimgs button{padding:0;border:0;background:none;cursor:pointer;flex:1;font:inherit}
-  .workshop-card .wimgs img{width:100%;border-radius:4px;aspect-ratio:3/4;object-fit:cover;transition:transform .2s;display:block}
-  .workshop-card .wimgs img:hover{transform:scale(1.03)}
-  .workshop-card h3{font-size:1.35rem;margin-bottom:8px}
-  .workshop-card .wtag{display:inline-block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
-
-  /* checklist */
-  .checklist{list-style:none;display:flex;flex-direction:column;gap:14px}
-  .checklist li{display:flex;gap:13px;align-items:flex-start;color:var(--ink-soft)}
-  .checklist svg{width:22px;height:22px;flex:0 0 auto;color:var(--green);margin-top:3px}
-
-  /* callout */
-  .callout{background:var(--green);color:#EAE3D2;border-radius:4px;padding:30px 34px;font-family:var(--display);font-size:1.5rem;line-height:1.4;font-style:italic}
-  .callout.small{font-size:1.15rem}
-
-  /* quote band */
-  .quote{background:var(--band);color:var(--ink);text-align:center;padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .quote .mk{color:var(--gold);font-family:var(--display);font-size:3rem;line-height:0;display:block;height:26px}
-  .quote p{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3.4vw,2rem);max-width:44ch;margin:20px auto 0;color:var(--green-deep)}
-
-  /* two-col feature */
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch}
-  .split > *:not(.imgpanel){display:flex;flex-direction:column;justify-content:center;min-width:0}
-  @media(max-width:900px){.split{grid-template-columns:1fr;gap:28px}.split > *:not(.imgpanel){display:block}.imgpanel,.imgpanel img{min-height:300px}}
-
-  /* small feature list (waarvoor) */
-  .feat{display:flex;gap:15px;align-items:flex-start}
-  .feat .fi{width:48px;height:48px;border-radius:50%;background:var(--green-tint);color:var(--green);display:grid;place-items:center;flex:0 0 auto}
-  .feat .fi svg{width:24px;height:24px}
-  .feat h3{font-size:1.15rem;margin-bottom:4px}
-  .feat p{font-size:.95rem;color:var(--ink-soft)}
-
-  /* newsletter / CTA band */
-  .ctaband{background:var(--green);color:#EDE6D5;border-radius:6px;text-align:center;padding:52px 34px}
-  .ctaband h3{color:#FBF7EE;font-size:2rem;margin-bottom:10px}
-  .ctaband p{color:#D9D2C0;max-width:52ch;margin:0 auto 26px}
-  .ctaband .btn.primary{background:var(--gold);color:var(--green-deep)}
-  .ctaband .btn.primary:hover{background:var(--gold-soft)}
-
-  /* contact */
-  .form{display:flex;flex-direction:column;gap:16px}
-  .form label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-bottom:-8px}
-  .form input,.form textarea{font:inherit;font-size:1rem;padding:14px 16px;border:1px solid var(--line);border-radius:3px;background:var(--card);color:var(--ink)}
-  .form input:focus,.form textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(41,76,59,.12)}
-  .form textarea{min-height:140px;resize:vertical}
-  .info-row{display:flex;align-items:center;gap:13px;margin-top:14px;color:var(--ink-soft)}
-  .info-row .ci{width:44px;height:44px;flex:0 0 auto}
-  .info-row a{color:var(--green-deep);font-weight:600;text-decoration:none}
-
-  /* ---------------- FOOTER ---------------- */
-  .site-footer{background:var(--green-deep);color:#CFC7B4;padding:56px 0 44px;text-align:center}
-  .site-footer .fmark{width:76px;height:76px;border-radius:50%;object-fit:cover;margin:0 auto 16px;box-shadow:0 0 0 1px var(--gold-line)}
-  .site-footer .fwm{font-family:var(--display);font-size:1.7rem;letter-spacing:.18em;text-transform:uppercase;color:#F1EADA;font-weight:600}
-  .site-footer .flourish{color:var(--gold-soft);margin:10px 0 22px}
-  .site-footer .flourish .ln,.site-footer .flourish .ln.r{background:linear-gradient(90deg,transparent,var(--gold-soft))}
-  .socials{display:flex;justify-content:center;gap:16px;margin:6px 0 22px}
-  .socials a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(241,234,218,.28);color:#D9D0BC;transition:transform .2s,color .2s,border-color .2s}
-  .socials a:hover{transform:translateY(-3px);color:var(--gold-soft);border-color:var(--gold-soft)}
-  .socials svg{width:22px;height:22px;display:block}
-  .fsmall{font-size:.8rem;color:#9C947F;letter-spacing:.04em}
-
-  /* ---- split hero (home) ---- */
-  .hero2{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch;border-bottom:1px solid var(--line)}
-  .hero2 .left{padding:80px 40px 80px max(26px,calc((100vw - var(--wrap))/2 + 26px));display:flex;flex-direction:column;justify-content:center}
-  .hero2 .hero-wm{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:clamp(2.7rem,6vw,4.4rem);color:var(--green-deep);line-height:1;margin:0}
-  .hero2 .hero-tag{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:14px 0 0}
-  .hero2 .hero-sub{max-width:44ch;margin:22px 0 0;color:var(--ink-soft);font-size:1.1rem}
-  .hero2 .btns{margin-top:32px}
-  .hero2 .right{background:var(--green-tint);display:grid;place-items:center;min-height:540px;position:relative;overflow:hidden;padding:0}
-  .hero2 .right img{width:100%;height:100%;min-height:540px;object-fit:cover;display:block}
-  @media(max-width:900px){.hero2{grid-template-columns:1fr}.hero2 .left{padding:60px 26px 38px;text-align:center;align-items:center}.hero2 .hero-sub{margin-left:auto;margin-right:auto}.hero2 .btns{justify-content:center}.hero2 .right{min-height:300px;padding:0}}
-  /* uppercase serif heading + art panels */
-  h2.title.up{text-transform:uppercase;letter-spacing:.07em;font-size:clamp(1.7rem,4vw,2.4rem)}
-  .split.alt{align-items:stretch}
-  .artpanel{border-radius:6px;background:linear-gradient(140deg,var(--green-tint),#EFE3CC);min-height:360px;display:grid;place-items:center;border:1px solid var(--line);overflow:hidden;padding:34px}
-  .artpanel svg{width:80%;max-width:270px;color:var(--green);opacity:.9}
-  .ie-text .flourish{justify-content:center}
-  .visie-h{font-family:var(--display);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.24;color:var(--green-deep);margin:12px 0 16px}
-  /* card upgrades */
-  .card h3.up{text-transform:uppercase;letter-spacing:.09em;font-size:1.3rem}
-  .card .titleorn{color:var(--gold);margin:6px 0 14px;display:flex;justify-content:center}
-  .card .titleorn svg{width:22px;height:22px}
-  .card .checklist{max-width:240px;margin:0 auto;text-align:left;gap:12px}
-  .card .checklist li{color:var(--ink-soft);font-size:.98rem;align-items:center}
-  .card .checklist .ck{width:20px;height:20px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;flex:0 0 auto}
-  .card .checklist .ck svg{width:12px;height:12px}
-  .card .arrow-link{margin-top:20px;display:inline-flex;align-items:center;gap:9px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
-  .brand .wm .arw{color:var(--gold)}
-  /* ---- over mij ---- */
-  .tagflourish{display:inline-flex;align-items:center;gap:14px;color:var(--gold);margin:8px 0 14px}
-  .tagflourish .ln{height:1px;width:44px;background:linear-gradient(90deg,var(--gold-line),transparent)}
-  .tagflourish .ln.r{background:linear-gradient(90deg,transparent,var(--gold-line))}
-  .tagflourish .eyebrow{margin:0}
-  .photopanel{background:linear-gradient(140deg,#EEDDC4,#E7C9A5 60%,#DDBE9A);border-radius:6px;display:grid;place-items:center;min-height:460px;overflow:hidden;padding:34px;border:1px solid var(--line)}
-  .photopanel img{width:min(88%,400px);aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:0 24px 58px -20px rgba(24,50,38,.6),0 0 0 1px var(--gold-line)}
-  .trio{display:grid;grid-template-columns:1fr 1fr .95fr;gap:40px;align-items:stretch}
-  .trio .artpanel{min-height:100%}
-  @media(max-width:900px){.trio{grid-template-columns:1fr;gap:32px}}
-  .center-icon{color:var(--gold);display:flex;justify-content:center;margin-bottom:10px}
-  .center-icon svg{width:34px;height:34px}
-  .valgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;text-align:center;margin-top:32px}
-  @media(max-width:980px){.valgrid{grid-template-columns:repeat(3,1fr);row-gap:36px}}
-  @media(max-width:560px){.valgrid{grid-template-columns:repeat(2,1fr)}}
-  .val .vi{color:var(--green);display:flex;justify-content:center;margin-bottom:12px}
-  .val .vi svg{width:40px;height:40px}
-  .val h3{font-size:1.15rem;margin-bottom:6px}
-  .val p{font-size:.85rem;color:var(--ink-soft);line-height:1.5;max-width:22ch;margin:0 auto}
-  .quote .sub{font-family:var(--body);font-style:normal;font-size:.98rem;color:var(--ink-soft);max-width:70ch;margin:14px auto 0;line-height:1.65}
-  /* footer nav */
-  .fnav{display:flex;justify-content:center;gap:6px 22px;flex-wrap:wrap;margin-bottom:20px}
-  .fnav button{font:inherit;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#CFC7B4;background:none;border:0;cursor:pointer;padding:5px}
-  .fnav button:hover{color:#F1EADA}
-  .waarvoor{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;text-align:center;margin-top:30px}
-  @media(max-width:1000px){.waarvoor{grid-template-columns:repeat(3,1fr);row-gap:38px}}
-  @media(max-width:600px){.waarvoor{grid-template-columns:repeat(2,1fr)}}
-  .wv .wic{width:64px;height:64px;border-radius:50%;background:#EFE6D6;color:var(--green-deep);display:grid;place-items:center;margin:0 auto 14px;border:1px solid var(--line)}
-  .wv .wic svg{width:28px;height:28px}
-  .wv h3{font-size:1.08rem;margin-bottom:8px;line-height:1.22}
-  .wv p{font-size:.84rem;color:var(--ink-soft);line-height:1.5;max-width:24ch;margin:0 auto}
-  .langs{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:10px}
-  .langs li{display:flex;align-items:center;gap:12px;color:var(--ink-soft)}
-  .langs svg{width:22px;height:22px;color:var(--green);flex:0 0 auto}
-  .panel{background:var(--band);border:1px solid var(--line);border-radius:12px;padding:clamp(26px,4vw,46px)}
-  .contactinfo h3{font-size:1.15rem;margin-bottom:4px}
-  .contactinfo .row{display:flex;gap:16px;align-items:flex-start;padding:6px 0}
-  .contactinfo .cic{width:52px;height:52px;border-radius:50%;background:var(--green);color:#F1EADA;display:grid;place-items:center;flex:0 0 auto}
-  .contactinfo .cic svg{width:24px;height:24px}
-  .contactinfo p{font-size:.92rem;color:var(--ink-soft);margin-bottom:4px}
-  .contactinfo a{color:var(--gold);font-weight:600;text-decoration:none}
-  .contactinfo .divider{height:1px;background:var(--line);margin:20px 0}
-  .form select{font:inherit;font-size:1rem;padding:14px 16px;border:1px solid var(--line);border-radius:3px;background:var(--card);color:var(--ink)}
-  .form select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(41,76,59,.12)}
-  .form .btn.primary{justify-content:center}
-  .dotlist{list-style:none;display:flex;flex-direction:column;gap:9px;margin:8px 0 14px}
-  .dotlist li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-soft);font-size:.96rem}
-  .dotlist .db{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--gold);flex:0 0 auto;margin-top:5px;position:relative}
-  .dotlist .db::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:var(--gold)}
-  .imgpanel{border-radius:6px;overflow:hidden;border:1px solid var(--line);min-height:380px;background:var(--green-tint)}
-  .imgpanel img{width:100%;height:100%;min-height:380px;object-fit:cover;display:block}
-  @media(prefers-reduced-motion:reduce){.page{animation:none}html{scroll-behavior:auto}}
-  /* ================= PROFESSIONEEL LAYOUT-SYSTEEM ================= */
-  .split{grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .split.alt{align-items:center}
-  .split > *{min-width:0}
-  .split.reverse .imgpanel{order:-1}
-  .imgpanel{aspect-ratio:4/3;min-height:0;border:0;box-shadow:none;background:none;border-radius:0;overflow:visible}
-  .imgpanel img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%),linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%),linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 7%,#000 20%,#000 80%,rgba(0,0,0,.35) 93%,transparent 100%);mask-composite:intersect}
-  .hero-wm{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(2.3rem,4.4vw,3.6rem);color:var(--green-deep);line-height:1;margin:0}
-  .hero-tag{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:14px 0 0}
-  .hero-sub{margin:20px 0 0;color:var(--ink-soft);font-size:1.1rem;max-width:46ch}
-  .copy .lead,.copy .body{max-width:52ch}
-  .centered-block{text-align:center;max-width:42ch;margin:0 auto}
-  .centered-block .fi{width:56px;height:56px;border-radius:50%;background:var(--green-tint);color:var(--green);display:grid;place-items:center;margin:0 auto 14px}
-  .centered-block .fi svg{width:26px;height:26px}
-  .centered-block .body{max-width:none}
-  .plaincols{align-items:start;gap:44px}
-  .plaincols .txtcol h3{margin-bottom:12px}
-  .biocol{max-width:70ch;margin:0 auto}
-  @media(max-width:900px){
-    .split{grid-template-columns:1fr;gap:30px}
-    .split.reverse .imgpanel{order:0}
-    .imgpanel,.imgpanel img{aspect-ratio:16/10}
-    .plaincols{gap:32px}
-  }
-
-  /* portret-beelden (poort & bogen) */
-  .imgpanel.portrait{aspect-ratio:3/4;max-width:430px;margin-left:auto;margin-right:auto}
-  .imgpanel.portrait img{aspect-ratio:3/4}
-  @media(max-width:900px){
-    .imgpanel.portrait{aspect-ratio:3/4;max-width:340px}
-    .imgpanel.portrait img{aspect-ratio:3/4}
-  }
-  /* ===== FULL-BLEED foto met overloop richting tekst (zoals mockup) ===== */
-  .bleed{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:visible;position:relative;padding-block:clamp(50px,6vw,84px);max-width:var(--stage);margin-inline:auto}
-  .bleed.reverse{grid-template-columns:.95fr 1.05fr}
-  .bleed.band::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:var(--band);z-index:-1}
-  .bleed .copy{padding-top:0;padding-bottom:0;padding-right:54px;padding-left:calc(max(28px, (100vw - var(--wrap))/2 + 28px) - max(0px, (100vw - var(--stage))/2));display:flex;flex-direction:column;justify-content:center}
-  .bleed.reverse .copy{padding-top:0;padding-bottom:0;padding-left:54px;padding-right:calc(max(28px, (100vw - var(--wrap))/2 + 28px) - max(0px, (100vw - var(--stage))/2))}
-  .bleed .media{position:relative;aspect-ratio:3/2;align-self:center}
-  .bleed.reverse .media{order:-1}
-  .bleed .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%);
-    mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%)}
-  .bleed.reverse .media img{
-    -webkit-mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%);
-    mask-image:linear-gradient(to left,transparent 0%,rgba(0,0,0,.5) 22%,#000 46%)}
-  @media(max-width:900px){
-    .bleed,.bleed.reverse{grid-template-columns:1fr;padding-block:0}
-    .bleed.reverse .media{order:0}
-    .bleed .copy,.bleed.reverse .copy{padding:46px 26px 26px}
-    .bleed .media{height:auto;aspect-ratio:4/3}
-    .bleed .media img,.bleed.reverse .media img{
-      -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%);
-      mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%)}
-  }
-  .langsw{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card);flex:none}
-  .langsw button{font:inherit;font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:5px 9px;border:0;background:none;color:var(--ink-soft);border-radius:999px;cursor:pointer;transition:.18s}
-  .langsw button:hover{color:var(--green)}
-  .langsw button.active{background:var(--green);color:#F3EEE0}
-  .nav .langsw{margin-left:12px;flex-direction:column;gap:1px;border-radius:8px;padding:2px;flex:none}
-  .nav .langsw button{padding:2px 10px;border-radius:5px;font-size:.6rem;line-height:1.5}
-  .mobile-menu .langsw{align-self:center;margin-top:6px}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -379,12 +28,12 @@
         <span class="wm"><b>Rihlaturruh</b><span><span class="arw">&#8250;</span> De reis van de ziel <span class="arw">&#8249;</span></span></span>
       </button>
       <nav class="nav" aria-label="Hoofdmenu">
-        <button data-go="home" class="active">Home</button>
-        <button data-go="over">Over mij</button>
-        <button data-go="diensten">Diensten &amp; Aanbod</button>
-        <button data-go="materialen">Materialen</button>
-        <button data-go="publicaties">Publicaties</button>
-        <button data-go="contact">Contact</button>
+        <button data-go="home" class="navlink active">Home</button>
+        <button data-go="over" class="navlink">Over mij</button>
+        <button data-go="diensten" class="navlink">Diensten &amp; Aanbod</button>
+        <button data-go="materialen" class="navlink">Materialen</button>
+        <button data-go="publicaties" class="navlink">Publicaties</button>
+        <button data-go="contact" class="navlink">Contact</button>
         <a class="cta" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Plan een consult</a>
         <div class="langsw" role="group" aria-label="Taal"><button type="button" data-lang="nl" class="active">NL</button><button type="button" data-lang="tr">TR</button><button type="button" data-lang="en">EN</button></div>
       </nav>
@@ -393,12 +42,12 @@
       </button>
     </div>
     <nav class="mobile-menu" id="mobileMenu">
-      <button data-go="home" class="active">Home</button>
-      <button data-go="over">Over mij</button>
-      <button data-go="diensten">Diensten &amp; Aanbod</button>
-      <button data-go="materialen">Materialen</button>
-        <button data-go="publicaties">Publicaties</button>
-      <button data-go="contact">Contact</button>
+      <button data-go="home" class="navlink active">Home</button>
+      <button data-go="over" class="navlink">Over mij</button>
+      <button data-go="diensten" class="navlink">Diensten &amp; Aanbod</button>
+      <button data-go="materialen" class="navlink">Materialen</button>
+        <button data-go="publicaties" class="navlink">Publicaties</button>
+      <button data-go="contact" class="navlink">Contact</button>
       <a class="cta" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
       <div class="langsw" role="group" aria-label="Taal"><button type="button" data-lang="nl" class="active">NL</button><button type="button" data-lang="tr">TR</button><button type="button" data-lang="en">EN</button></div>
     </nav>
@@ -555,208 +204,59 @@
 
 <!-- ============================= DIENSTEN & AANBOD ============================= -->
 <section id="diensten" class="page">
-  <!-- OVERZICHT: TITEL + STATS DASHBOARD + SUBNAV -->
-  <section class="block" style="padding-bottom:10px">
+  <section class="block" style="padding-top:60px">
     <div class="wrap center">
-      <span class="eyebrow">Wat Rihlaturruh biedt</span>
-      <h1 class="title" style="font-size:clamp(2.3rem,6vw,3.6rem);margin-top:10px">Diensten &amp; Aanbod</h1>
+      <p class="eyebrow">Diensten &amp; Aanbod</p>
+      <h2 class="title" style="margin-top:10px">Wat Rihlaturruh biedt</h2>
       <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-      <p class="body lead" style="max-width:64ch;margin:0 auto 40px">Vanuit een islamitisch-theologische achtergrond biedt Rihlaturruh persoonlijke begeleiding, lessen, lezingen en workshops &mdash; met aandacht voor geloof, reflectie en verdieping.</p>
+      <p class="lead" style="margin:0 auto">Vanuit een islamitisch-theologische achtergrond biedt Rihlaturruh persoonlijke begeleiding, lessen, lezingen en workshops &mdash; met aandacht voor geloof, reflectie en verdieping.</p>
+    </div>
+  </section>
 
+  <!-- STATS DASHBOARD -->
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
       <div class="stats-dash">
         <div class="stat-tile"><div class="num" data-count="50" data-suffix="+">0</div><div class="lbl">Personen begeleid<br>sinds 2020</div></div>
         <div class="stat-tile"><div class="num">Tientallen</div><div class="lbl">Lessen gegeven<br>Arabisch &amp; Tadjwied</div></div>
         <div class="stat-tile"><div class="num" data-count="20" data-suffix="+">0</div><div class="lbl">Lezingen<br>gegeven</div></div>
         <div class="stat-tile"><div class="num" data-count="2" data-suffix="">0</div><div class="lbl">Workshops<br>ontwikkeld</div></div>
       </div>
-
-      <nav class="subnav" aria-label="Onderdelen van diensten en aanbod">
-        <button type="button" onclick="document.getElementById('dienst-begeleiding').scrollIntoView({behavior:'smooth'})">Begeleiding</button>
-        <button type="button" onclick="document.getElementById('dienst-lessen').scrollIntoView({behavior:'smooth'})">Lessen</button>
-        <button type="button" onclick="document.getElementById('dienst-lezingen').scrollIntoView({behavior:'smooth'})">Lezingen</button>
-        <button type="button" onclick="document.getElementById('dienst-workshops').scrollIntoView({behavior:'smooth'})">Workshops</button>
-      </nav>
     </div>
   </section>
 
-  <!-- 01 BEGELEIDING — INTRO (image right) -->
-  <section class="bleed" id="dienst-begeleiding" style="padding-top:20px">
-      <div class="copy">
-        <span class="eyebrow">Dienst 01 &mdash; Begeleiding</span>
-        <h2 class="title" style="font-size:clamp(2.1rem,5vw,3.2rem);margin-top:8px">Geestelijke Verzorging</h2>
-        <div class="tagflourish"><span class="ln"></span><span class="eyebrow">Vanuit islamitisch perspectief</span><span class="ln r"></span></div>
-        <p class="body">Soms brengt het leven momenten met zich mee waarop woorden moeilijk te vinden zijn. Een verlies, een ingrijpende gebeurtenis, geloofsvragen of een periode van innerlijke onrust kunnen het verlangen oproepen naar een gesprek waarin ruimte is voor uw verhaal.</p>
-        <p class="body">Rihlaturruh biedt geestelijke verzorging vanuit een islamitisch perspectief. In een veilige en respectvolle omgeving is er aandacht voor geloof, levensvragen en persoonlijke ervaringen. Samen zoeken we naar betekenis, veerkracht en een bewuste verbinding met Allah.</p>
-        <p class="body">Iedere begeleiding is maatwerk en sluit aan bij uw persoonlijke situatie, behoeften en levensfase.</p>
-        <div class="btns" style="margin-top:26px">
-          <a class="btn primary" href="https://cal.eu/rihlaturruh" target="_blank" rel="noopener">Plan een consult</a>
-          <a class="btn ghost" href="#werkwijze-sec" onclick="event.preventDefault();document.getElementById('werkwijze-sec').scrollIntoView({behavior:'smooth'})">Meer over mijn werkwijze &rarr;</a>
-        </div></div>
-      <div class="media"><img src="p-diensten.jpg" alt="Een warme, rustige ruimte voor een gesprek" loading="lazy" style="object-position:50% 50%"></div>
-    </section>
-
-  <!-- WAARVOOR -->
+  <!-- VIER GROTE TEGELS -->
   <section class="block band">
     <div class="wrap">
-      <div class="center"><h2 class="title" style="font-size:clamp(1.7rem,3.6vw,2.3rem)">Waarvoor kunt u terecht?</h2>
-        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-      </div>
-      <div class="waarvoor">
-        <div class="wv"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20C6 20 4 15 4 11 4 7 6 4 12 4c-1 6-5 8-8 9"/><path d="M11 20c8 0 9-8 9-14-3 0-5 1-6 3"/></svg></span><h3>Zingeving en levensvragen</h3><p>Samen stilstaan bij vragen over het leven, geloof en de zoektocht naar betekenis.</p></div>
-        <div class="wv"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c-1 3 1.6 6 8.8 11 7.2-5 9.8-8 8.8-11z"/></svg></span><h3>Geloofsbeleving en spiritualiteit</h3><p>Verdieping van de relatie met Allah en het versterken van een bewuste geloofsbeleving.</p></div>
-        <div class="wv"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span><h3>Persoonlijke ontwikkeling</h3><p>Ruimte voor zelfreflectie, persoonlijke groei en het maken van bewuste keuzes.</p></div>
-        <div class="wv"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-8"/><path d="M12 14c-4 0-6-3-6-7 4 0 6 3 6 7z"/><path d="M12 12c1-3 4-4 7-4 0 3-2 6-7 6z"/></svg></span><h3>Verlies en ingrijpende gebeurtenissen</h3><p>Begeleiding bij verlies, ziekte, veranderingen of andere ingrijpende levensmomenten.</p></div>
-        <div class="wv"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="7" rx="5" ry="2.5"/><ellipse cx="12" cy="13" rx="6" ry="2.5"/><ellipse cx="12" cy="19" rx="4" ry="2"/></svg></span><h3>Innerlijke rust en veerkracht</h3><p>Samen zoeken naar meer rust, balans en veerkracht vanuit islamitisch perspectief.</p></div>
-        <div class="wv"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V10a7 7 0 0 1 14 0v11"/><path d="M5 21h14"/></svg></span><h3>Identiteit en levensfase</h3><p>Vragen rondom identiteit, levensfasen en de uitdagingen die daarbij kunnen ontstaan.</p></div>
-      </div>
-      <p class="body" style="text-align:center;margin:36px auto 0;max-width:74ch">Iedere begeleiding is maatwerk en wordt afgestemd op uw persoonlijke situatie, hulpvraag en behoeften.</p>
-      <p class="body" style="text-align:center;margin:10px auto 0;max-width:74ch">Staat uw vraag hier niet tussen? Ook dan bent u van harte welkom voor een vrijblijvend kennismakingsgesprek. Samen bekijken we welke vorm van begeleiding het beste aansluit bij uw situatie.</p>
-    </div>
-  </section>
-
-  <!-- WERKWIJZE / OVER MIJ / TALEN -->
-  <section class="block" id="werkwijze-sec">
-    <div class="wrap grid c3 plaincols">
-      <div class="txtcol">
-        <h3 style="font-size:1.5rem">Werkwijze</h3>
-        <p class="body">Een begeleidingsgesprek biedt een veilige en vertrouwelijke omgeving waarin ruimte is voor uw verhaal, reflectie en bezinning.</p>
-        <p class="body">Wanneer dit passend is bij uw hulpvraag, kunnen reflectiewerkbladen en andere materialen van Rihlaturruh worden ingezet ter ondersteuning van het gesprek.</p>
-        <p class="body" style="font-weight:600;color:var(--ink);margin-top:12px">Tijdens de begeleiding kan onder andere gebruik worden gemaakt van:</p>
-        <ul class="checklist" style="max-width:none;margin:8px 0 0">
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Reflectievragen</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Islamitische bronnen</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Koranverzen en authentieke ahadith</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Reflectiematerialen van Rihlaturruh</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Praktische oefeningen</li>
-        </ul>
-      </div>
-      <div class="txtcol">
-        <h3 style="font-size:1.5rem">Over mij</h3>
-        <p class="body">De begeleiding wordt verzorgd door mij, Havva, islamitisch theoloog en islamitisch geestelijk verzorger. Vanuit mijn academische achtergrond en praktijkervaring bied ik begeleiding waarin geloof, reflectie en persoonlijke aandacht samenkomen.</p>
-      </div>
-      <div class="txtcol">
-        <h3 style="font-size:1.5rem">Talen</h3>
-        <p class="body">Begeleidingsgesprekken kunnen worden aangeboden in:</p>
-        <ul class="langs">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Nederlands</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>T&uuml;rk&ccedil;e</li>
-        </ul>
-        <p class="body" style="margin-top:12px;font-size:.92rem">En eventueel Engels en Arabisch.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 02 LESSEN -->
-  <section class="block band subhead" id="dienst-lessen">
-    <div class="wrap">
-      <div class="center">
-        <span class="eyebrow">Dienst 02 &mdash; Lessen</span>
-        <h2 class="title" style="font-size:clamp(1.9rem,4.4vw,2.6rem);margin-top:8px">Arabisch &amp; Tadjwied</h2>
-        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-        <p class="body" style="max-width:66ch;margin:0 auto">Stap voor stap de Arabische taal leren lezen en de Koran leren reciteren volgens de regels van tadjwied &mdash; voor kinderen en volwassenen, beginners en gevorderden.</p>
-      </div>
-
-      <div class="grid c2" style="margin-top:38px">
-        <div class="card plain">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-          <h3>Arabisch lezen</h3>
-          <p class="body">De Arabische letters en klanken leren herkennen en verbinden tot woorden &mdash; de basis om zelfstandig de Koran te kunnen lezen.</p>
-        </div>
-        <div class="card plain">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c1.5-2 4-3 7-3s5.5 1 7 3M5 16c1.5 2 4 3 7 3s5.5-1 7-3"/></svg></span>
-          <h3>Tadjwied</h3>
-          <p class="body">Verdieping in de regels van correcte Koranrecitatie: uitspraak, uitrekking en de melodie van de recitatie zoals overgeleverd.</p>
-        </div>
-      </div>
-
-      <ul class="checklist" style="max-width:480px;margin:34px auto 0">
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Voor kinderen &eacute;n volwassenen</li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Individueel of in kleine groepen</li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Beginners en gevorderden welkom</li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Locatie in overleg, ook online mogelijk</li>
-      </ul>
-      <div class="btns" style="justify-content:center;margin-top:30px">
-        <a class="btn primary" data-go="contact" href="#contact">Interesse in een les? Neem contact op &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 LEZINGEN -->
-  <section class="block subhead" id="dienst-lezingen">
-    <div class="wrap">
-      <div class="center">
-        <span class="eyebrow">Dienst 03 &mdash; Lezingen</span>
-        <h2 class="title" style="font-size:clamp(1.9rem,4.4vw,2.6rem);margin-top:8px">Nederlandstalige lezingen voor dames</h2>
-        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-        <p class="body" style="max-width:66ch;margin:0 auto">Sinds 2020 verzorg ik geregeld lezingen en bijeenkomsten over thema&rsquo;s die het hart raken &mdash; van geloofsbeleving en dankbaarheid tot geduld en vertrouwen op Allah. Hieronder een overzicht van eerder gegeven lezingen, met de meest recente bovenaan. Klik op een flyer om deze te vergroten.</p>
-      </div>
-
-      <div class="flyer-grid" style="margin-top:38px">
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2025-06-26-ziekten-van-het-hart-en-de-weg-naar-genezing-deel-ii-full.jpg','Ziekten van het Hart en de Weg naar Genezing &mdash; Deel II (26 juni 2025)')"><span class="fimgwrap"><img src="l-2025-06-26-ziekten-van-het-hart-en-de-weg-naar-genezing-deel-ii-thumb.jpg" alt="Flyer: Ziekten van het Hart en de Weg naar Genezing, Deel II" loading="lazy"></span><span class="fcap"><span class="fdate">26 juni 2025</span><span class="ftitle">Ziekten van het Hart en de Weg naar Genezing &mdash; Deel II</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2025-05-29-ziekten-van-het-hart-en-de-weg-naar-genezing-deel-i-full.jpg','Ziekten van het Hart en de Weg naar Genezing &mdash; Deel I (29 mei 2025)')"><span class="fimgwrap"><img src="l-2025-05-29-ziekten-van-het-hart-en-de-weg-naar-genezing-deel-i-thumb.jpg" alt="Flyer: Ziekten van het Hart en de Weg naar Genezing, Deel I" loading="lazy"></span><span class="fcap"><span class="fdate">29 mei 2025</span><span class="ftitle">Ziekten van het Hart en de Weg naar Genezing &mdash; Deel I</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2025-04-17-het-hart-vrij-van-dunya-full.jpg','Het Hart Vrij van Dunya (17 april 2025)')"><span class="fimgwrap"><img src="l-2025-04-17-het-hart-vrij-van-dunya-thumb.jpg" alt="Flyer: Het Hart Vrij van Dunya" loading="lazy"></span><span class="fcap"><span class="fdate">17 april 2025</span><span class="ftitle">Het Hart Vrij van Dunya</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2025-04-10-vertrouwen-op-allah-tawakkul-full.jpg','Vertrouwen op Allah (Tawakkul) (10 april 2025)')"><span class="fimgwrap"><img src="l-2025-04-10-vertrouwen-op-allah-tawakkul-thumb.jpg" alt="Flyer: Vertrouwen op Allah (Tawakkul)" loading="lazy"></span><span class="fcap"><span class="fdate">10 april 2025</span><span class="ftitle">Vertrouwen op Allah (Tawakkul)</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-03-14-iftar-voor-dames-full.jpg','Iftar voor Dames (14 maart 2024)')"><span class="fimgwrap"><img src="l-2024-03-14-iftar-voor-dames-thumb.jpg" alt="Flyer: Iftar voor Dames" loading="lazy"></span><span class="fcap"><span class="fdate">14 maart 2024</span><span class="ftitle">Iftar voor Dames</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-02-29-de-zuivere-aanbidding-en-de-aanwezigheid-van-de-intentie-full.jpg','De Zuivere Aanbidding en de Aanwezigheid van de Intentie (29 februari 2024)')"><span class="fimgwrap"><img src="l-2024-02-29-de-zuivere-aanbidding-en-de-aanwezigheid-van-de-intentie-thumb.jpg" alt="Flyer: De Zuivere Aanbidding en de Aanwezigheid van de Intentie" loading="lazy"></span><span class="fcap"><span class="fdate">29 februari 2024</span><span class="ftitle">De Zuivere Aanbidding en de Aanwezigheid van de Intentie</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-02-27-de-kracht-van-geduld-sabr-full.jpg','De Kracht van Geduld (Sabr) (27 februari 2024)')"><span class="fimgwrap"><img src="l-2024-02-27-de-kracht-van-geduld-sabr-thumb.jpg" alt="Flyer: De Kracht van Geduld (Sabr)" loading="lazy"></span><span class="fcap"><span class="fdate">27 februari 2024</span><span class="ftitle">De Kracht van Geduld (Sabr)</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-02-19-de-kracht-van-dankbaarheid-full.jpg','De Kracht van Dankbaarheid (19 februari 2024)')"><span class="fimgwrap"><img src="l-2024-02-19-de-kracht-van-dankbaarheid-thumb.jpg" alt="Flyer: De Kracht van Dankbaarheid" loading="lazy"></span><span class="fcap"><span class="fdate">19 februari 2024</span><span class="ftitle">De Kracht van Dankbaarheid</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-02-15-houden-van-de-profeet-mohammed-vzmh-full.jpg','Houden van de Profeet Mohammed (vzmh) (15 februari 2024)')"><span class="fimgwrap"><img src="l-2024-02-15-houden-van-de-profeet-mohammed-vzmh-thumb.jpg" alt="Flyer: Houden van de Profeet Mohammed" loading="lazy"></span><span class="fcap"><span class="fdate">15 februari 2024</span><span class="ftitle">Houden van de Profeet Mohammed (vzmh)</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-02-12-betrouwbaarheid-het-nakomen-van-beloftes-full.jpg','Betrouwbaarheid &amp; Het Nakomen van Beloftes (12 februari 2024)')"><span class="fimgwrap"><img src="l-2024-02-12-betrouwbaarheid-het-nakomen-van-beloftes-thumb.jpg" alt="Flyer: Betrouwbaarheid &amp; Het Nakomen van Beloftes" loading="lazy"></span><span class="fcap"><span class="fdate">12 februari 2024</span><span class="ftitle">Betrouwbaarheid &amp; Het Nakomen van Beloftes</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-02-08-zusteravond-islam-quiz-full.jpg','Zusteravond &mdash; Islam Quiz (8 februari 2024)')"><span class="fimgwrap"><img src="l-2024-02-08-zusteravond-islam-quiz-thumb.jpg" alt="Flyer: Zusteravond, Islam Quiz" loading="lazy"></span><span class="fcap"><span class="fdate">8 februari 2024</span><span class="ftitle">Zusteravond &mdash; Islam Quiz</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-01-25-leven-in-en-met-hoop-full.jpg','Leven in en met Hoop (25 januari 2024)')"><span class="fimgwrap"><img src="l-2024-01-25-leven-in-en-met-hoop-thumb.jpg" alt="Flyer: Leven in en met Hoop" loading="lazy"></span><span class="fcap"><span class="fdate">25 januari 2024</span><span class="ftitle">Leven in en met Hoop</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2024-01-18-godsvrees-full.jpg','Godsvrees (18 januari 2024)')"><span class="fimgwrap"><img src="l-2024-01-18-godsvrees-thumb.jpg" alt="Flyer: Godsvrees" loading="lazy"></span><span class="fcap"><span class="fdate">18 januari 2024</span><span class="ftitle">Godsvrees</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2023-12-28-houden-van-allah-full.jpg','Houden van Allah (28 december 2023)')"><span class="fimgwrap"><img src="l-2023-12-28-houden-van-allah-thumb.jpg" alt="Flyer: Houden van Allah" loading="lazy"></span><span class="fcap"><span class="fdate">28 december 2023</span><span class="ftitle">Houden van Allah</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2023-12-21-zusteravond-cigkofte-full.jpg','Zusteravond &mdash; &Ccedil;i&#287;k&ouml;fte (21 december 2023)')"><span class="fimgwrap"><img src="l-2023-12-21-zusteravond-cigkofte-thumb.jpg" alt="Flyer: Zusteravond, &Ccedil;i&#287;k&ouml;fte" loading="lazy"></span><span class="fcap"><span class="fdate">21 december 2023</span><span class="ftitle">Zusteravond &mdash; &Ccedil;i&#287;k&ouml;fte</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2023-12-14-ontbijt-voor-het-goede-doel-full.jpg','Ontbijt voor het Goede Doel (14 december 2023)')"><span class="fimgwrap"><img src="l-2023-12-14-ontbijt-voor-het-goede-doel-thumb.jpg" alt="Flyer: Ontbijt voor het Goede Doel" loading="lazy"></span><span class="fcap"><span class="fdate">14 december 2023</span><span class="ftitle">Ontbijt voor het Goede Doel</span></span></button>
-        <button type="button" class="flyer-tile" onclick="openLightbox('l-2023-11-30-geloven-in-het-lot-full.jpg','Geloven in het Lot (30 november 2023)')"><span class="fimgwrap"><img src="l-2023-11-30-geloven-in-het-lot-thumb.jpg" alt="Flyer: Geloven in het Lot" loading="lazy"></span><span class="fcap"><span class="fdate">30 november 2023</span><span class="ftitle">Geloven in het Lot</span></span></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 WORKSHOPS -->
-  <section class="block band subhead" id="dienst-workshops">
-    <div class="wrap">
-      <div class="center">
-        <span class="eyebrow">Dienst 04 &mdash; Workshops</span>
-        <h2 class="title" style="font-size:clamp(1.9rem,4.4vw,2.6rem);margin-top:8px">Praktijkgerichte workshops</h2>
-        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
-        <p class="body" style="max-width:66ch;margin:0 auto">Naast lezingen verzorg ik ook praktijkgerichte workshops, waarin kennis direct wordt vertaald naar de praktijk.</p>
-      </div>
-
-      <div style="margin-top:38px">
-        <div class="workshop-card">
-          <div class="wimgs">
-            <button type="button" onclick="openLightbox('w-2023-12-07-workshop-dodenwassing-deel-i-full.jpg','Workshop Dodenwassing &mdash; Deel I (7 december 2023)')"><img src="w-2023-12-07-workshop-dodenwassing-deel-i-thumb.jpg" alt="Flyer: Workshop Dodenwassing, Deel I" loading="lazy"></button>
-            <button type="button" onclick="openLightbox('w-2023-12-14-workshop-dodenwassing-deel-ii-uitvoering-certificaat-full.jpg','Workshop Dodenwassing &mdash; Deel II, Uitvoering &amp; Certificaat (14 december 2023)')"><img src="w-2023-12-14-workshop-dodenwassing-deel-ii-uitvoering-certificaat-thumb.jpg" alt="Flyer: Workshop Dodenwassing, Deel II" loading="lazy"></button>
-          </div>
-          <div>
-            <span class="wtag">Ladies only</span>
-            <h3>Workshop Dodenwassing</h3>
-            <p class="body">Een praktische workshop in twee delen waarin de dodenwassing (ghusl al-mayyit) stap voor stap wordt behandeld: van de islamitische grondslag tot de daadwerkelijke uitvoering. Bij aanwezigheid bij beide lessen wordt een certificaat uitgereikt.</p>
-          </div>
-        </div>
-
-        <div class="workshop-card noimg">
-          <div>
-            <span class="wtag">Voor kinderen</span>
-            <h3>Ik Leer Bidden voor Kinderen</h3>
-            <p class="body">Een laagdrempelige en speelse workshop die kinderen wegwijs maakt in het gebed (salaah) &mdash; van de betekenis van de bewegingen tot het aanleren van de korte soera&rsquo;s.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AFSPRAAK -->
-  <section class="block band">
-    <div class="wrap">
-      <div class="ctaband" style="text-align:center">
-        <h3 style="color:#FBF7EE;font-size:1.8rem;margin-bottom:10px">Een afspraak maken</h3>
-        <p style="color:#D9D2C0;max-width:60ch;margin:0 auto 22px">Wilt u een gesprek, les of workshop aanvragen, of heeft u vragen over een lezing? Neem gerust contact op via het contactformulier of stuur een e-mail. Samen bekijken we welke vorm van begeleiding het beste aansluit bij uw vraag.</p>
-        <div class="btns" style="justify-content:center">
-          <a class="btn primary" data-go="contact" href="#contact" style="background:var(--gold);color:var(--green-deep)">Neem contact op</a>
-          <a class="btn ghost" href="mailto:rihlaturruh@gmail.com" style="color:#EDE6D5;border-color:var(--gold-soft)">Of stuur een e-mail</a>
-        </div>
+      <div class="grid c2" style="align-items:stretch">
+        <a class="card" href="begeleiding.html" style="text-align:left;display:flex;flex-direction:column">
+          <span class="ic" style="margin:0 0 14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c-1 3 1.6 6 8.8 11 7.2-5 9.8-8 8.8-11z"/></svg></span>
+          <p class="eyebrow" style="margin:0">Dienst 01 &middot; Persoonlijke begeleiding</p>
+          <h3 style="font-size:clamp(1.25rem,2.6vw,1.5rem);margin:5px 0 10px">Begeleiding</h3>
+          <p class="body">Geestelijke verzorging vanuit een islamitisch perspectief &mdash; een veilige ruimte voor uw verhaal, levensvragen en reflectie.</p>
+          <span class="arrow-link" style="margin-top:auto;padding-top:16px">Lees meer over begeleiding &rarr;</span>
+        </a>
+        <a class="card" href="lessen.html" style="text-align:left;display:flex;flex-direction:column">
+          <span class="ic" style="margin:0 0 14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <p class="eyebrow" style="margin:0">Dienst 02 &middot; Onderwijs</p>
+          <h3 style="font-size:clamp(1.25rem,2.6vw,1.5rem);margin:5px 0 10px">Lessen &mdash; Arabisch &amp; Tadjwied</h3>
+          <p class="body">Arabisch leren lezen en de Koran leren reciteren, voor kinderen en volwassenen, individueel of in kleine groepen.</p>
+          <span class="arrow-link" style="margin-top:auto;padding-top:16px">Bekijk het lesaanbod &rarr;</span>
+        </a>
+        <a class="card" href="lezingen.html" style="text-align:left;display:flex;flex-direction:column">
+          <span class="ic" style="margin:0 0 14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 4.4-4 8-9 8-1.4 0-2.7-.2-3.9-.6L3 21l1.6-4.3C3.6 15.4 3 13.8 3 12c0-4.4 4-8 9-8s9 3.6 9 8z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></span>
+          <p class="eyebrow" style="margin:0">Dienst 03 &middot; Kennis &amp; verdieping</p>
+          <h3 style="font-size:clamp(1.25rem,2.6vw,1.5rem);margin:5px 0 10px">Lezingen voor dames</h3>
+          <p class="body">Nederlandstalige lezingen sinds 2020, over thema&rsquo;s die het hart raken. Bekijk het overzicht van eerder gegeven lezingen.</p>
+          <span class="arrow-link" style="margin-top:auto;padding-top:16px">Bekijk alle lezingen &rarr;</span>
+        </a>
+        <a class="card" href="workshops.html" style="text-align:left;display:flex;flex-direction:column">
+          <span class="ic" style="margin:0 0 14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2-2z"/></svg></span>
+          <p class="eyebrow" style="margin:0">Dienst 04 &middot; Praktijkgericht</p>
+          <h3 style="font-size:clamp(1.25rem,2.6vw,1.5rem);margin:5px 0 10px">Workshops</h3>
+          <p class="body">Praktijkgerichte workshops zoals Workshop Dodenwassing en Ik Leer Bidden voor Kinderen.</p>
+          <span class="arrow-link" style="margin-top:auto;padding-top:16px">Bekijk de workshops &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -766,16 +266,8 @@
     <p>Iedere levensreis kent momenten waarop het helpend is om samen stil te staan.</p>
     <p class="sub">Ik nodig u uit om contact op te nemen. Ik kijk ernaar uit om met u mee te denken.</p>
   </div>
-
-  <!-- LIGHTBOX voor flyers -->
-  <div class="lightbox" id="flyerLightbox" role="dialog" aria-modal="true" aria-label="Flyer vergroot">
-    <button type="button" class="lb-close" aria-label="Sluiten">&times;</button>
-    <div class="lb-inner">
-      <img id="lbImg" src="" alt="">
-      <p class="lb-cap" id="lbCap"></p>
-    </div>
-  </div>
 </section>
+
 
 
 <!-- ============================= MATERIALEN ============================= -->
@@ -983,12 +475,12 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
       <span class="ln r"></span></div>
     <nav class="fnav">
-      <button data-go="home">Home</button>
-      <button data-go="over">Over mij</button>
-      <button data-go="diensten">Diensten &amp; Aanbod</button>
-      <button data-go="materialen">Materialen</button>
-        <button data-go="publicaties">Publicaties</button>
-      <button data-go="contact">Contact</button>
+      <button data-go="home" class="navlink">Home</button>
+      <button data-go="over" class="navlink">Over mij</button>
+      <button data-go="diensten" class="navlink">Diensten &amp; Aanbod</button>
+      <button data-go="materialen" class="navlink">Materialen</button>
+        <button data-go="publicaties" class="navlink">Publicaties</button>
+      <button data-go="contact" class="navlink">Contact</button>
     </nav>
     <div class="socials">
       <a href="https://www.instagram.com/rihlaturruh" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -1025,23 +517,6 @@
   document.getElementById('year').textContent=new Date().getFullYear();
   go((location.hash||'#home').replace('#',''));
 
-  /* ---- Lightbox voor lezingen/workshop-flyers ---- */
-  var lb=document.getElementById('flyerLightbox');
-  var lbImg=document.getElementById('lbImg');
-  var lbCap=document.getElementById('lbCap');
-  window.openLightbox=function(src,caption){
-    if(!lb)return;
-    lbImg.src=src;lbImg.alt=caption;lbCap.textContent=caption;
-    lb.classList.add('open');
-  };
-  function closeLightbox(){if(lb)lb.classList.remove('open')}
-  if(lb){
-    lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox()});
-    var lbCloseBtn=lb.querySelector('.lb-close');
-    if(lbCloseBtn)lbCloseBtn.addEventListener('click',closeLightbox);
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
-  }
-
   /* ---- Tellers in het diensten-dashboard ---- */
   var counters=document.querySelectorAll('.stat-tile .num[data-count]');
   if(counters.length&&'IntersectionObserver' in window){
@@ -1066,67 +541,6 @@
     counters.forEach(function(el){el.textContent=el.getAttribute('data-count')+(el.getAttribute('data-suffix')||'')});
   }
 </script>
-<script>
-const I18N={"De reis van de ziel": {"tr": "Ruhun yolculuğu", "en": "The journey of the soul"}, "Home": {"tr": "Ana sayfa", "en": "Home"}, "Over mij": {"tr": "Hakkımda", "en": "About me"}, "Begeleiding": {"tr": "Manevi danışmanlık", "en": "Spiritual care"}, "Diensten & Aanbod": {"tr": "Hizmetlerimiz", "en": "Services & Offerings"}, "Materialen": {"tr": "Materyaller", "en": "Materials"}, "Publicaties": {"tr": "Yayınlar", "en": "Publications"}, "Contact": {"tr": "İletişim", "en": "Contact"}, "Plan een consult": {"tr": "Görüşme planlayın", "en": "Book a consultation"}, "› De reis van de ziel ‹": {"tr": "› Ruhun yolculuğu ‹", "en": "› The journey of the soul ‹"}, "Rihlaturruh · De reis van de ziel": {"tr": "Rihlaturruh · Ruhun yolculuğu", "en": "Rihlaturruh · The journey of the soul"}, "Een plek voor islamitische reflectie, geestelijke verzorging, publicaties en zorgvuldig ontwikkelde materialen die bijdragen aan bezinning, betekenis en innerlijke rust.": {"tr": "İslami tefekkür, manevi danışmanlık, yayınlar ve özenle hazırlanmış materyaller için bir alan; tefekküre, anlama ve iç huzura katkı sunar.", "en": "A place for Islamic reflection, spiritual care, publications and carefully developed materials that contribute to contemplation, meaning and inner peace."}, "Bekijk de publicaties →": {"tr": "Yayınlara göz atın →", "en": "View the publications →"}, "Wat je hier kunt vinden": {"tr": "Burada neler bulabilirsiniz", "en": "What you can find here"}, "Persoonlijke geestelijke verzorging vanuit islamitisch perspectief.": {"tr": "İslami perspektiften kişiye özel manevi danışmanlık.", "en": "Personal spiritual care from an Islamic perspective."}, "Lees meer →": {"tr": "Devamını okuyun →", "en": "Read more →"}, "Werkbladen, posters en digitale hulpmiddelen voor persoonlijk en professioneel gebruik.": {"tr": "Kişisel ve profesyonel kullanım için çalışma sayfaları, posterler ve dijital araçlar.", "en": "Worksheets, posters and digital tools for personal and professional use."}, "Ontdek de materialen →": {"tr": "Materyalleri keşfedin →", "en": "Discover the materials →"}, "Samenvattingen van scripties, onderzoek en het dashboard van het masteronderzoek.": {"tr": "Tez özetleri, araştırmalar ve yüksek lisans araştırmasının paneli.", "en": "Thesis summaries, research and the dashboard of the master's research."}, "Onze visie": {"tr": "Vizyonumuz", "en": "Our vision"}, "Wij geloven dat geestelijke groei begint wanneer er ruimte ontstaat voor stilte, reflectie en oprechte verbinding met Allah.": {"tr": "Manevi gelişimin; sükûnete, tefekküre ve Allah ile samimi bir bağa alan açıldığında başladığına inanıyoruz.", "en": "We believe that spiritual growth begins when there is room for stillness, reflection and a sincere connection with Allah."}, "Rihlaturruh wil bijdragen aan die reis door kennis, bezinning en praktische hulpmiddelen aan te bieden die mensen ondersteunen in het dagelijks leven, zowel persoonlijk als professioneel.": {"tr": "Rihlaturruh; bilgi, tefekkür ve pratik araçlar sunarak insanları hem kişisel hem de profesyonel olarak günlük hayatlarında desteklemeyi ve bu yolculuğa katkı sunmayı amaçlar.", "en": "Rihlaturruh aims to contribute to that journey by offering knowledge, contemplation and practical tools that support people in daily life, both personally and professionally."}, "Meer over onze visie →": {"tr": "Vizyonumuz hakkında daha fazlası →", "en": "More about our vision →"}, "Rihlaturruh betekent: de reis van de ziel. Een uitnodiging om niet alleen verder te gaan, maar ook stil te staan.": {"tr": "Rihlaturruh, ruhun yolculuğu demektir. Yalnızca yola devam etmeye değil, aynı zamanda durup düşünmeye de bir davet.", "en": "Rihlaturruh means: the journey of the soul. An invitation not only to move forward, but also to pause."}, "Over Rihlaturruh": {"tr": "Rihlaturruh hakkında", "en": "About Rihlaturruh"}, "Rihlaturruh betekent de reis van de ziel.": {"tr": "Rihlaturruh, ruhun yolculuğu demektir.", "en": "Rihlaturruh means the journey of the soul."}, "Iedere ziel bewandelt een eigen weg. Een weg waarop momenten van vreugde, beproeving, groei en bezinning elkaar afwisselen. Tijdens deze reis ontstaat soms de behoefte om stil te staan, richting te vinden of woorden te geven aan wat zich in het hart afspeelt.": {"tr": "Her ruh kendi yolunu yürür. Sevinç, imtihan, gelişim ve tefekkür anlarının birbirini izlediği bir yol. Bu yolculukta kimi zaman durup düşünme, yön bulma ya da kalpte olan biteni kelimelere dökme ihtiyacı doğar.", "en": "Every soul walks its own path — a path where moments of joy, trial, growth and contemplation alternate. Along this journey there sometimes arises a need to pause, to find direction, or to put into words what is happening in the heart."}, "Rihlaturruh is ontstaan vanuit de wens om ruimte te bieden voor die innerlijke reis. Vanuit een islamitisch-theologische achtergrond en professionele ervaring in de islamitische geestelijke verzorging ontwikkelt Rihlaturruh materialen, publicaties en begeleiding die bijdragen aan reflectie, betekenisgeving en een bewuste verbinding met Allah.": {"tr": "Rihlaturruh, bu içsel yolculuğa alan açma arzusundan doğdu. İslami ilahiyat altyapısı ve İslami manevi danışmanlık alanındaki profesyonel deneyimden hareketle Rihlaturruh; tefekküre, anlam kazandırmaya ve Allah ile bilinçli bir bağa katkı sunan materyaller, yayınlar ve danışmanlık geliştirir.", "en": "Rihlaturruh arose from the wish to create space for that inner journey. From a background in Islamic theology and professional experience in Islamic spiritual care, Rihlaturruh develops materials, publications and guidance that contribute to reflection, meaning-making and a conscious connection with Allah."}, "Waar verdieping begint": {"tr": "Derinleşmenin başladığı yer", "en": "Where depth begins"}, "Wij geloven dat ware groei begint in het hart. Wanneer we bewust leren stilstaan bij onze ervaringen, onze relatie met Allah en onze plaats in het leven, ontstaat ruimte voor innerlijke rust, veerkracht en betekenis.": {"tr": "Gerçek gelişimin kalpte başladığına inanıyoruz. Deneyimlerimiz, Allah ile ilişkimiz ve hayattaki yerimiz üzerine bilinçli biçimde durmayı öğrendiğimizde; iç huzura, dayanıklılığa ve anlama alan açılır.", "en": "We believe that true growth begins in the heart. When we consciously learn to pause and consider our experiences, our relationship with Allah and our place in life, room emerges for inner peace, resilience and meaning."}, "Vanuit deze overtuiging ontwikkelt Rihlaturruh zorgvuldig vormgegeven materialen, biedt het geestelijke verzorging en deelt het kennis en onderzoek die uitnodigen tot reflectie, bewustwording en verdieping. Elk onderdeel draagt bij aan hetzelfde doel: mensen ondersteunen tijdens hun eigen reis van de ziel.": {"tr": "Bu inançtan hareketle Rihlaturruh özenle hazırlanmış materyaller geliştirir, manevi danışmanlık sunar ve tefekküre, farkındalığa ve derinleşmeye davet eden bilgi ve araştırmaları paylaşır. Her bir unsur aynı amaca hizmet eder: insanları kendi ruh yolculuklarında desteklemek.", "en": "From this conviction, Rihlaturruh develops carefully designed materials, offers spiritual care, and shares knowledge and research that invite reflection, awareness and depth. Every part serves the same purpose: supporting people on their own journey of the soul."}, "Alles wat binnen Rihlaturruh wordt ontwikkeld, vindt zijn inspiratie in de Koran, de authentieke Soennah en de rijke islamitische traditie van": {"tr": "Rihlaturruh bünyesinde geliştirilen her şey ilhamını Kur'an'dan, sahih Sünnet'ten ve zengin İslami gelenekten alır:", "en": "Everything developed within Rihlaturruh draws its inspiration from the Qur'an, the authentic Sunnah and the rich Islamic tradition of"}, "(de zuivering van de ziel). Door geloof, wetenschap en praktijk met elkaar te verbinden, wil Rihlaturruh bijdragen aan een bewuste en betekenisvolle levenshouding.": {"tr": "(nefsin arındırılması). Rihlaturruh; imanı, ilmi ve pratiği birbirine bağlayarak bilinçli ve anlamlı bir hayat duruşuna katkı sunmayı amaçlar.", "en": "(the purification of the soul). By connecting faith, scholarship and practice, Rihlaturruh seeks to contribute to a conscious and meaningful way of living."}, "Voor wie is Rihlaturruh?": {"tr": "Rihlaturruh kimler için?", "en": "Who is Rihlaturruh for?"}, "Voor iedereen die verdieping zoekt": {"tr": "Derinleşme arayan herkes için", "en": "For everyone seeking depth"}, "Rihlaturruh is er voor iedereen die verlangt naar verdieping vanuit een islamitisch perspectief. Door middel van geestelijke verzorging, reflectiematerialen en publicaties wil Rihlaturruh bijdragen aan bezinning, kennis en persoonlijke groei.": {"tr": "Rihlaturruh, İslami perspektiften derinleşmeyi arzulayan herkes içindir. Manevi danışmanlık, tefekkür materyalleri ve yayınlar aracılığıyla Rihlaturruh; tefekküre, bilgiye ve kişisel gelişime katkı sunmayı amaçlar.", "en": "Rihlaturruh is for everyone who longs for depth from an Islamic perspective. Through spiritual care, reflection materials and publications, Rihlaturruh aims to contribute to contemplation, knowledge and personal growth."}, "Rihlaturruh richt zich onder andere op:": {"tr": "Rihlaturruh özellikle şunlara yöneliktir:", "en": "Rihlaturruh is aimed at, among others:"}, "Mensen die op zoek zijn naar persoonlijke reflectie en spirituele ontwikkeling": {"tr": "Kişisel tefekkür ve manevi gelişim arayan kişiler", "en": "People seeking personal reflection and spiritual development"}, "Islamitische geestelijke verzorgers en andere professionals": {"tr": "İslami manevi danışmanlar ve diğer profesyoneller", "en": "Islamic spiritual caregivers and other professionals"}, "Onderwijs- en educatieprofessionals": {"tr": "Eğitim ve öğretim profesyonelleri", "en": "Education professionals"}, "Zorg- en welzijnsinstellingen": {"tr": "Sağlık ve sosyal hizmet kurumları", "en": "Care and welfare institutions"}, "Iedereen die islamitische kennis wil verbinden met het dagelijks leven": {"tr": "İslami bilgiyi günlük hayatla buluşturmak isteyen herkes", "en": "Anyone who wishes to connect Islamic knowledge with daily life"}, "De materialen, publicaties en begeleiding worden geleidelijk beschikbaar in meerdere talen, waaronder Nederlands en Turks. Waar passend zullen onderdelen ook in het Arabisch worden aangeboden.": {"tr": "Materyaller, yayınlar ve danışmanlık hizmetleri kademeli olarak Hollandaca ve Türkçe başta olmak üzere birden fazla dilde sunulacaktır. Uygun olduğu yerlerde bazı bölümler Arapça olarak da sunulacaktır.", "en": "The materials, publications and guidance will gradually become available in several languages, including Dutch and Turkish. Where appropriate, parts will also be offered in Arabic."}, "Achter Rihlaturruh": {"tr": "Rihlaturruh'un ardındaki isim", "en": "Behind Rihlaturruh"}, "Mijn naam is Havva.": {"tr": "Adım Havva.", "en": "My name is Havva."}, "Ik ben islamitisch theoloog en islamitisch geestelijk verzorger.": {"tr": "İslam ilahiyatçısı ve İslami manevi danışmanım.", "en": "I am an Islamic theologian and Islamic spiritual caregiver."}, "Ik behaalde een Bachelor of Arts (BA) in Islamitische Theologie, gevolgd door een Master of Arts (MA) in Islamitische Geestelijke Verzorging.": {"tr": "İslami İlahiyat alanında Bachelor of Arts (BA), ardından İslami Manevi Danışmanlık alanında Master of Arts (MA) derecesi aldım.", "en": "I obtained a Bachelor of Arts (BA) in Islamic Theology, followed by a Master of Arts (MA) in Islamic Spiritual Care."}, "Een bijzonder vormende periode in mijn leven bracht ik door in Al-Madinah al-Munawwarah (Medina). Daar heb ik gewoond, gestudeerd en gewerkt. De nabijheid van de Masjid an-Nabawi, de dagelijkse omgang met kennis en de spirituele omgeving van Medina hebben mijn visie op geloof, zielzorg en geestelijke verzorging blijvend gevormd.": {"tr": "Hayatımın özellikle biçimlendirici bir dönemini Medine-i Münevvere'de geçirdim. Orada yaşadım, okudum ve çalıştım. Mescid-i Nebevî'nin yakınlığı, ilimle iç içe geçen günlük hayat ve Medine'nin manevi atmosferi; imana, gönül bakımına ve manevi danışmanlığa dair bakışımı kalıcı olarak şekillendirdi.", "en": "I spent a particularly formative period of my life in Al-Madinah al-Munawwarah (Medina), where I lived, studied and worked. The nearness of the Masjid an-Nabawi, the daily engagement with knowledge and the spiritual atmosphere of Medina have permanently shaped my view of faith, care of the soul and spiritual care."}, "Die ervaringen vormen vandaag de dag de inspiratie achter Rihlaturruh. Vanuit mijn achtergrond ontwikkel ik materialen die mensen helpen stil te staan bij hun eigen levensreis — materialen die uitnodigen tot reflectie, betekenisgeving en een diepere verbinding met Allah.": {"tr": "Bu deneyimler bugün Rihlaturruh'un ardındaki ilhamı oluşturuyor. Kendi altyapımdan hareketle, insanların kendi hayat yolculukları üzerine durup düşünmelerine yardımcı olan materyaller geliştiriyorum — tefekküre, anlam kazandırmaya ve Allah ile daha derin bir bağa davet eden materyaller.", "en": "Those experiences form the inspiration behind Rihlaturruh today. Drawing on my background, I develop materials that help people pause and reflect on their own life journey — materials that invite reflection, meaning-making and a deeper connection with Allah."}, "Mijn verlangen is dat Rihlaturruh mag uitgroeien tot een plek waar mensen niet alleen kennis opdoen, maar ook rust vinden, hoop hervinden en met meer bewustzijn hun eigen reis van de ziel voortzetten.": {"tr": "Dileğim, Rihlaturruh'un yalnızca bilgi edinilen değil; huzur bulunan, umudun yeniden keşfedildiği ve insanların daha bilinçli biçimde kendi ruh yolculuklarını sürdürdüğü bir yer hâline gelmesidir.", "en": "My hope is that Rihlaturruh may grow into a place where people not only gain knowledge, but also find peace, rediscover hope and continue their own journey of the soul with greater awareness."}, "Onze kernwaarden": {"tr": "Temel değerlerimiz", "en": "Our core values"}, "Authentiek": {"tr": "Özgün", "en": "Authentic"}, "Geworteld in de Koran en de authentieke Soennah.": {"tr": "Kur'an ve sahih Sünnet'e dayalı.", "en": "Rooted in the Qur'an and the authentic Sunnah."}, "Diepgaand": {"tr": "Derinlikli", "en": "Profound"}, "Ruimte voor bezinning, reflectie en betekenis.": {"tr": "Tefekküre, derin düşünmeye ve anlama alan açar.", "en": "Room for contemplation, reflection and meaning."}, "Toepasbaar": {"tr": "Uygulanabilir", "en": "Applicable"}, "Praktische materialen die aansluiten bij het dagelijks leven.": {"tr": "Günlük hayata uygun pratik materyaller.", "en": "Practical materials that fit into daily life."}, "Professioneel": {"tr": "Profesyonel", "en": "Professional"}, "Ontwikkeld vanuit islamitische theologie en geestelijke verzorging.": {"tr": "İslam ilahiyatı ve manevi danışmanlık temelinde geliştirilmiştir.", "en": "Developed from Islamic theology and spiritual care."}, "Barmhartig": {"tr": "Merhametli", "en": "Compassionate"}, "Met aandacht voor de mens achter het verhaal.": {"tr": "Hikâyenin ardındaki insana özenle yaklaşır.", "en": "With attention for the person behind the story."}, "Iedere ziel legt haar eigen reis af.": {"tr": "Her ruh kendi yolculuğunu tamamlar.", "en": "Every soul travels its own journey."}, "Mijn wens is dat Rihlaturruh een metgezel mag zijn op die reis: een plek waar kennis het hart raakt, waar reflectie leidt tot bewustwording en waar de verbinding met Allah steeds opnieuw mag worden versterkt.": {"tr": "Dileğim, Rihlaturruh'un bu yolculukta bir yoldaş olmasıdır: bilginin kalbe dokunduğu, tefekkürün farkındalığa dönüştüğü ve Allah ile bağın her defasında yeniden güçlendiği bir yer.", "en": "My wish is that Rihlaturruh may be a companion on that journey: a place where knowledge touches the heart, where reflection leads to awareness, and where the connection with Allah may be strengthened again and again."}, "Geestelijke Verzorging": {"tr": "Manevi Danışmanlık", "en": "Spiritual Care"}, "Vanuit islamitisch perspectief": {"tr": "İslami perspektiften", "en": "From an Islamic perspective"}, "Soms brengt het leven momenten met zich mee waarop woorden moeilijk te vinden zijn. Een verlies, een ingrijpende gebeurtenis, geloofsvragen of een periode van innerlijke onrust kunnen het verlangen oproepen naar een gesprek waarin ruimte is voor uw verhaal.": {"tr": "Hayat kimi zaman kelimelerin zor bulunduğu anlar getirir. Bir kayıp, sarsıcı bir olay, imana dair sorular ya da içsel huzursuzluk dönemi; hikâyenize alan açan bir sohbet arzusunu doğurabilir.", "en": "Life sometimes brings moments in which words are hard to find. A loss, a life-changing event, questions of faith or a period of inner unrest can awaken a longing for a conversation in which there is room for your story."}, "Rihlaturruh biedt geestelijke verzorging vanuit een islamitisch perspectief. In een veilige en respectvolle omgeving is er aandacht voor geloof, levensvragen en persoonlijke ervaringen. Samen zoeken we naar betekenis, veerkracht en een bewuste verbinding met Allah.": {"tr": "Rihlaturruh, İslami perspektiften manevi danışmanlık sunar. Güvenli ve saygılı bir ortamda imana, hayata dair sorulara ve kişisel deneyimlere yer verilir. Birlikte anlamı, dayanıklılığı ve Allah ile bilinçli bir bağı ararız.", "en": "Rihlaturruh offers spiritual care from an Islamic perspective. In a safe and respectful setting there is attention for faith, life questions and personal experiences. Together we search for meaning, resilience and a conscious connection with Allah."}, "Iedere begeleiding is maatwerk en sluit aan bij uw persoonlijke situatie, behoeften en levensfase.": {"tr": "Her danışmanlık süreci kişiye özeldir ve sizin durumunuza, ihtiyaçlarınıza ve hayat evrenize göre şekillenir.", "en": "Every guidance process is tailor-made and matches your personal situation, needs and stage of life."}, "Meer over mijn werkwijze →": {"tr": "Çalışma yöntemim hakkında →", "en": "More about my approach →"}, "Waarvoor kunt u terecht?": {"tr": "Hangi konularda başvurabilirsiniz?", "en": "What can you come for?"}, "Zingeving en levensvragen": {"tr": "Anlam arayışı ve hayata dair sorular", "en": "Meaning and life questions"}, "Samen stilstaan bij vragen over het leven, geloof en de zoektocht naar betekenis.": {"tr": "Hayat, iman ve anlam arayışına dair sorular üzerine birlikte düşünmek.", "en": "Pausing together on questions about life, faith and the search for meaning."}, "Geloofsbeleving en spiritualiteit": {"tr": "İman deneyimi ve maneviyat", "en": "Faith experience and spirituality"}, "Verdieping van de relatie met Allah en het versterken van een bewuste geloofsbeleving.": {"tr": "Allah ile ilişkinin derinleşmesi ve bilinçli bir iman deneyiminin güçlenmesi.", "en": "Deepening the relationship with Allah and strengthening a conscious experience of faith."}, "Persoonlijke ontwikkeling": {"tr": "Kişisel gelişim", "en": "Personal development"}, "Ruimte voor zelfreflectie, persoonlijke groei en het maken van bewuste keuzes.": {"tr": "Öz-tefekküre, kişisel gelişime ve bilinçli tercihler yapmaya alan açmak.", "en": "Room for self-reflection, personal growth and making conscious choices."}, "Verlies en ingrijpende gebeurtenissen": {"tr": "Kayıp ve sarsıcı olaylar", "en": "Loss and life-changing events"}, "Begeleiding bij verlies, ziekte, veranderingen of andere ingrijpende levensmomenten.": {"tr": "Kayıp, hastalık, değişim ya da diğer sarsıcı hayat anlarında danışmanlık.", "en": "Guidance in times of loss, illness, change or other significant life moments."}, "Innerlijke rust en veerkracht": {"tr": "İç huzur ve dayanıklılık", "en": "Inner peace and resilience"}, "Samen zoeken naar meer rust, balans en veerkracht vanuit islamitisch perspectief.": {"tr": "İslami perspektiften daha fazla huzur, denge ve dayanıklılık aramak.", "en": "Searching together for more peace, balance and resilience from an Islamic perspective."}, "Identiteit en levensfase": {"tr": "Kimlik ve hayat evresi", "en": "Identity and stage of life"}, "Vragen rondom identiteit, levensfasen en de uitdagingen die daarbij kunnen ontstaan.": {"tr": "Kimliğe, hayat evrelerine ve bunlarla gelen zorluklara dair sorular.", "en": "Questions around identity, stages of life and the challenges they may bring."}, "Iedere begeleiding is maatwerk en wordt afgestemd op uw persoonlijke situatie, hulpvraag en behoeften.": {"tr": "Her danışmanlık süreci kişiye özeldir; durumunuza, talebinize ve ihtiyaçlarınıza göre düzenlenir.", "en": "Every guidance process is tailor-made and adapted to your personal situation, question and needs."}, "Staat uw vraag hier niet tussen? Ook dan bent u van harte welkom voor een vrijblijvend kennismakingsgesprek. Samen bekijken we welke vorm van begeleiding het beste aansluit bij uw situatie.": {"tr": "Sorunuz burada yer almıyor mu? O hâlde de tanışma görüşmesi için gönülden davetlisiniz; herhangi bir yükümlülüğü yoktur. Durumunuza en uygun danışmanlık biçimini birlikte değerlendiririz.", "en": "Is your question not listed here? You are just as welcome for a no-obligation introductory conversation. Together we will look at which form of guidance best suits your situation."}, "Werkwijze": {"tr": "Çalışma yöntemi", "en": "Approach"}, "Een begeleidingsgesprek biedt een veilige en vertrouwelijke omgeving waarin ruimte is voor uw verhaal, reflectie en bezinning.": {"tr": "Bir danışmanlık görüşmesi; hikâyenize, tefekküre ve iç muhasebeye alan açan güvenli ve gizliliğe saygılı bir ortam sunar.", "en": "A guidance conversation offers a safe and confidential setting with room for your story, reflection and contemplation."}, "Wanneer dit passend is bij uw hulpvraag, kunnen reflectiewerkbladen en andere materialen van Rihlaturruh worden ingezet ter ondersteuning van het gesprek.": {"tr": "Talebinize uygun olduğunda, görüşmeyi desteklemek için Rihlaturruh'un tefekkür çalışma sayfaları ve diğer materyalleri kullanılabilir.", "en": "Where it suits your question, Rihlaturruh's reflection worksheets and other materials can be used to support the conversation."}, "Tijdens de begeleiding kan onder andere gebruik worden gemaakt van:": {"tr": "Danışmanlık sürecinde başlıca şunlardan yararlanılabilir:", "en": "During the guidance, use may be made of, among others:"}, "Reflectievragen": {"tr": "Tefekkür soruları", "en": "Reflection questions"}, "Islamitische bronnen": {"tr": "İslami kaynaklar", "en": "Islamic sources"}, "Koranverzen en authentieke ahadith": {"tr": "Kur'an ayetleri ve sahih hadisler", "en": "Qur'anic verses and authentic ahadith"}, "Reflectiematerialen van Rihlaturruh": {"tr": "Rihlaturruh'un tefekkür materyalleri", "en": "Reflection materials from Rihlaturruh"}, "Praktische oefeningen": {"tr": "Pratik alıştırmalar", "en": "Practical exercises"}, "De begeleiding wordt verzorgd door mij, Havva, islamitisch theoloog en islamitisch geestelijk verzorger. Vanuit mijn academische achtergrond en praktijkervaring bied ik begeleiding waarin geloof, reflectie en persoonlijke aandacht samenkomen.": {"tr": "Danışmanlık, İslam ilahiyatçısı ve İslami manevi danışman olarak benim, Havva, tarafından verilmektedir. Akademik altyapım ve saha deneyimimden hareketle; imanın, tefekkürün ve kişisel ilginin buluştuğu bir danışmanlık sunuyorum.", "en": "The guidance is provided by me, Havva, Islamic theologian and Islamic spiritual caregiver. Drawing on my academic background and practical experience, I offer guidance in which faith, reflection and personal attention come together."}, "Talen": {"tr": "Diller", "en": "Languages"}, "Begeleidingsgesprekken kunnen worden aangeboden in:": {"tr": "Danışmanlık görüşmeleri şu dillerde sunulabilir:", "en": "Guidance conversations can be offered in:"}, "Nederlands": {"tr": "Hollandaca", "en": "Dutch"}, "En eventueel Engels en Arabisch.": {"tr": "Ayrıca gerektiğinde İngilizce ve Arapça.", "en": "And, if needed, English and Arabic."}, "Een afspraak maken": {"tr": "Randevu almak", "en": "Making an appointment"}, "Wilt u een gesprek aanvragen of heeft u vragen? Neem gerust contact op via het contactformulier of stuur een e-mail. Samen bekijken we welke vorm van begeleiding het beste aansluit bij uw vraag.": {"tr": "Bir görüşme talep etmek ister misiniz ya da sorularınız mı var? İletişim formu üzerinden ulaşabilir veya e-posta gönderebilirsiniz. Talebinize en uygun danışmanlık biçimini birlikte değerlendiririz.", "en": "Would you like to request a conversation or do you have questions? Feel free to get in touch via the contact form or send an email. Together we will look at which form of guidance best suits your question."}, "Neem contact op": {"tr": "İletişime geçin", "en": "Get in touch"}, "Of stuur een e-mail": {"tr": "Ya da e-posta gönderin", "en": "Or send an email"}, "Iedere levensreis kent momenten waarop het helpend is om samen stil te staan.": {"tr": "Her hayat yolculuğunda, birlikte durup düşünmenin iyi geldiği anlar vardır.", "en": "Every life journey has moments in which it helps to pause together."}, "Ik nodig u uit om contact op te nemen. Ik kijk ernaar uit om met u mee te denken.": {"tr": "Sizi iletişime geçmeye davet ediyorum. Sizinle birlikte düşünmeyi dört gözle bekliyorum.", "en": "I invite you to get in touch. I look forward to thinking along with you."}, "Materialen die uitnodigen tot bezinning": {"tr": "Tefekküre davet eden materyaller", "en": "Materials that invite contemplation"}, "De reflectiematerialen van Rihlaturruh zijn ontwikkeld om ruimte te creëren voor reflectie, bewustwording en betekenisgeving vanuit islamitisch perspectief.": {"tr": "Rihlaturruh'un tefekkür materyalleri; İslami perspektiften tefekküre, farkındalığa ve anlam kazandırmaya alan açmak için geliştirilmiştir.", "en": "Rihlaturruh's reflection materials are developed to create space for reflection, awareness and meaning-making from an Islamic perspective."}, "Elke werkvorm is met zorg samengesteld en kan worden gebruikt voor persoonlijke bezinning, tijdens begeleiding of binnen een professionele context.": {"tr": "Her çalışma biçimi özenle hazırlanmıştır; kişisel tefekkür için, danışmanlık sürecinde ya da profesyonel bir bağlamda kullanılabilir.", "en": "Each format is carefully composed and can be used for personal contemplation, during guidance, or within a professional context."}, "Wat Rihlaturruh ontwikkelt": {"tr": "Rihlaturruh neler geliştiriyor", "en": "What Rihlaturruh develops"}, "Reflectiewerkbladen": {"tr": "Tefekkür çalışma sayfaları", "en": "Reflection worksheets"}, "Werkvormen die uitnodigen tot zelfreflectie en verdieping.": {"tr": "Öz-tefekküre ve derinleşmeye davet eden çalışma biçimleri.", "en": "Formats that invite self-reflection and depth."}, "Posters": {"tr": "Posterler", "en": "Posters"}, "Visuele reminders voor inspiratie en bezinning in het dagelijks leven.": {"tr": "Günlük hayatta ilham ve tefekkür için görsel hatırlatıcılar.", "en": "Visual reminders for inspiration and contemplation in daily life."}, "E-books": {"tr": "E-kitaplar", "en": "E-books"}, "Verdiepende uitgaven over thema’s die raken aan het hart en de ziel.": {"tr": "Kalbe ve ruha dokunan temalar üzerine derinlikli yayınlar.", "en": "In-depth publications on themes that touch the heart and the soul."}, "Digitale hulpmiddelen": {"tr": "Dijital araçlar", "en": "Digital tools"}, "Digitale werkbladen, invulbare PDF’s en reflectie-oefeningen voor flexibel gebruik.": {"tr": "Esnek kullanım için dijital çalışma sayfaları, doldurulabilir PDF'ler ve tefekkür alıştırmaları.", "en": "Digital worksheets, fillable PDFs and reflection exercises for flexible use."}, "Voor persoonlijk én professioneel gebruik": {"tr": "Hem kişisel hem profesyonel kullanım için", "en": "For personal and professional use"}, "De materialen zijn geschikt voor persoonlijke reflectie en kunnen daarnaast worden ingezet door islamitisch geestelijk verzorgers, docenten, zorgprofessionals en begeleiders die werken met moslims. Afhankelijk van de inhoud zijn ze toepasbaar binnen onderwijs, geestelijke verzorging en de zorg — en worden ze geleidelijk beschikbaar in meerdere talen, waaronder Nederlands en Turks.": {"tr": "Materyaller kişisel tefekkür için uygundur; ayrıca Müslümanlarla çalışan İslami manevi danışmanlar, öğretmenler, sağlık profesyonelleri ve rehberler tarafından da kullanılabilir. İçeriğine bağlı olarak eğitim, manevi danışmanlık ve sağlık alanlarında uygulanabilirler — ve kademeli olarak Hollandaca ve Türkçe başta olmak üzere birden fazla dilde sunulacaktır.", "en": "The materials are suitable for personal reflection and can also be used by Islamic spiritual caregivers, teachers, care professionals and mentors working with Muslims. Depending on the content, they are applicable within education, spiritual care and healthcare — and are gradually becoming available in several languages, including Dutch and Turkish."}, "Met zorg ontwikkeld": {"tr": "Özenle geliştirildi", "en": "Developed with care"}, "Iedere uitgave is gebaseerd op islamitische bronnen en geschreven met aandacht voor reflectie, toegankelijkheid en praktische toepasbaarheid. Het doel is niet alleen om kennis over te dragen, maar ook om stil te staan bij de vragen, ervaringen en momenten die deel uitmaken van de reis van de ziel. Wij geloven dat reflectie begint met vertragen.": {"tr": "Her yayın İslami kaynaklara dayanır ve tefekküre, erişilebilirliğe ve pratik uygulanabilirliğe özen gösterilerek yazılır. Amaç yalnızca bilgi aktarmak değil; ruhun yolculuğunun parçası olan sorular, deneyimler ve anlar üzerinde durup düşünmektir. Tefekkürün yavaşlamakla başladığına inanıyoruz.", "en": "Every publication is based on Islamic sources and written with attention to reflection, accessibility and practical applicability. The aim is not only to convey knowledge, but also to pause at the questions, experiences and moments that are part of the journey of the soul. We believe that reflection begins with slowing down."}, "Niet ieder antwoord begint met spreken. Soms begint het met stil durven staan.": {"tr": "Her cevap konuşmakla başlamaz. Kimi zaman durup düşünmeye cesaret etmekle başlar.", "en": "Not every answer begins with speaking. Sometimes it begins with daring to pause."}, "Ontdek de materialen": {"tr": "Materyalleri keşfedin", "en": "Discover the materials"}, "Reflectiematerialen die je ondersteunen op jouw reis van de ziel. Interesse of vroege toegang?": {"tr": "Ruh yolculuğunuzda sizi destekleyen tefekkür materyalleri. İlgileniyor musunuz ya da erken erişim ister misiniz?", "en": "Reflection materials that support you on your journey of the soul. Interested, or would you like early access?"}, "Heeft u een vraag, wilt u meer informatie of bent u benieuwd wat Rihlaturruh voor u of uw organisatie kan betekenen?": {"tr": "Bir sorunuz mu var, daha fazla bilgi mi almak istiyorsunuz ya da Rihlaturruh'un sizin veya kurumunuz için ne ifade edebileceğini mi merak ediyorsunuz?", "en": "Do you have a question, would you like more information, or are you curious what Rihlaturruh could mean for you or your organisation?"}, "U bent van harte welkom om contact op te nemen. Ik neem de tijd om ieder bericht zorgvuldig te lezen en streef ernaar zo spoedig mogelijk te reageren.": {"tr": "İletişime geçmeniz bizi mutlu eder. Her mesajı dikkatle okumaya zaman ayırıyor ve en kısa sürede yanıt vermeye özen gösteriyorum.", "en": "You are very welcome to get in touch. I take the time to read every message carefully and aim to respond as soon as possible."}, "Contactgegevens": {"tr": "İletişim bilgileri", "en": "Contact details"}, "E-mail": {"tr": "E-posta", "en": "Email"}, "Voor vragen, informatie of het aanvragen van een begeleidingsgesprek.": {"tr": "Sorular, bilgi talebi ya da danışmanlık görüşmesi randevusu için.", "en": "For questions, information or requesting a guidance conversation."}, "Dagelijkse inspiratie, reflecties en updates.": {"tr": "Günlük ilham, tefekkürler ve güncellemeler.", "en": "Daily inspiration, reflections and updates."}, "Contactformulier": {"tr": "İletişim formu", "en": "Contact form"}, "Heeft u een vraag of wilt u meer informatie? Vul onderstaand formulier in. Ik neem zo spoedig mogelijk contact met u op.": {"tr": "Bir sorunuz mu var ya da daha fazla bilgi mi istiyorsunuz? Aşağıdaki formu doldurun. En kısa sürede sizinle iletişime geçeceğim.", "en": "Do you have a question or would you like more information? Fill in the form below. I will contact you as soon as possible."}, "Onderwerp": {"tr": "Konu", "en": "Subject"}, "Algemene vraag": {"tr": "Genel soru", "en": "General question"}, "Begeleidingsgesprek": {"tr": "Danışmanlık görüşmesi", "en": "Guidance conversation"}, "Samenwerking": {"tr": "İş birliği", "en": "Collaboration"}, "Anders": {"tr": "Diğer", "en": "Other"}, "Verzenden ✈": {"tr": "Gönder ✈", "en": "Send ✈"}, "Samenwerken": {"tr": "İş birliği", "en": "Working together"}, "Rihlaturruh werkt graag samen met organisaties en professionals die zich inzetten voor zingeving, educatie, geestelijke verzorging en de ontwikkeling van islamitische reflectiematerialen.": {"tr": "Rihlaturruh; anlam arayışı, eğitim, manevi danışmanlık ve İslami tefekkür materyallerinin geliştirilmesi için çalışan kurum ve profesyonellerle iş birliği yapmaktan memnuniyet duyar.", "en": "Rihlaturruh is glad to work with organisations and professionals committed to meaning, education, spiritual care and the development of Islamic reflection materials."}, "Samenwerkingen zijn onder andere mogelijk met:": {"tr": "İş birlikleri başlıca şunlarla mümkündür:", "en": "Collaborations are possible with, among others:"}, "zorginstellingen;": {"tr": "sağlık kurumları;", "en": "care institutions;"}, "onderwijsinstellingen;": {"tr": "eğitim kurumları;", "en": "educational institutions;"}, "moskeeën;": {"tr": "camiler;", "en": "mosques;"}, "maatschappelijke organisaties;": {"tr": "sivil toplum kuruluşları;", "en": "civil society organisations;"}, "islamitische geestelijk verzorgers;": {"tr": "İslami manevi danışmanlar;", "en": "Islamic spiritual caregivers;"}, "andere professionals binnen het sociale domein.": {"tr": "sosyal alanda çalışan diğer profesyoneller.", "en": "other professionals within the social domain."}, "Voor samenwerkingen of zakelijke vragen kunt u vrijblijvend contact opnemen.": {"tr": "İş birlikleri veya kurumsal sorular için çekinmeden iletişime geçebilirsiniz.", "en": "For collaborations or business enquiries, please feel free to get in touch."}, "Iedere ontmoeting begint met een eerste stap.": {"tr": "Her karşılaşma ilk adımla başlar.", "en": "Every encounter begins with a first step."}, "Ik zie ernaar uit om kennis met u te maken en samen te verkennen wat Rihlaturruh voor u kan betekenen.": {"tr": "Sizinle tanışmayı ve Rihlaturruh'un sizin için ne ifade edebileceğini birlikte keşfetmeyi dört gözle bekliyorum.", "en": "I look forward to meeting you and exploring together what Rihlaturruh can mean for you."}, "Kennis delen, verdieping brengen": {"tr": "Bilgiyi paylaşmak, derinlik katmak", "en": "Sharing knowledge, bringing depth"}, "De onderzoeksresultaten van beide scripties zijn nu interactief te bekijken. Toegankelijke samenvattingen volgen stap voor stap.": {"tr": "Her iki tezin araştırma sonuçları artık etkileşimli olarak incelenebilir. Erişilebilir özetler adım adım eklenecektir.", "en": "The research results of both theses can now be explored interactively. Accessible summaries will follow step by step."}, "Masterscriptie · Onderzoeksresultaten": {"tr": "Yüksek lisans tezi · Araştırma sonuçları", "en": "Master's thesis · Research results"}, "Psycho-spirituele processen bij Nederlandse moslims": {"tr": "Hollandalı Müslümanlarda psiko-spiritüel süreçler", "en": "Psycho-spiritual processes among Dutch Muslims"}, "Een interactief overzicht van de resultaten van de enquête naar geloofsbeleving, zingeving en welbevinden.": {"tr": "İman deneyimi, anlam arayışı ve iyi oluş hâline dair anket sonuçlarının etkileşimli bir özeti.", "en": "An interactive overview of the survey results on faith experience, meaning and well-being."}, "Bekijk de resultaten →": {"tr": "Sonuçlara göz atın →", "en": "View the results →"}, "Bachelorscriptie · Onderzoeksresultaten": {"tr": "Lisans tezi · Araştırma sonuçları", "en": "Bachelor's thesis · Research results"}, "De Sportieve Moslimvrouwen": {"tr": "Sporcu Müslüman Kadınlar", "en": "The Sporting Muslim Women"}, "Een interactief overzicht van de resultaten van de enquête onder sportieve moslimvrouwen: beleving, motivatie en welbevinden.": {"tr": "Sporla ilgilenen Müslüman kadınlar arasında yapılan anketin etkileşimli özeti: deneyim, motivasyon ve iyi oluş hâli.", "en": "An interactive overview of the survey results among sporting Muslim women: experience, motivation and well-being."}, "Onderzoek & samenvattingen": {"tr": "Araştırma ve özetler", "en": "Research & summaries"}, "Toegankelijke samenvattingen en verdieping bij het onderzoek rond geloof, zingeving en geestelijke verzorging worden hier stap voor stap toegevoegd.": {"tr": "İman, anlam arayışı ve manevi danışmanlık üzerine yapılan araştırmalara dair erişilebilir özetler ve derinlikli içerikler burada adım adım eklenecektir.", "en": "Accessible summaries and further depth on the research around faith, meaning and spiritual care will be added here step by step."}, "Kennis raakt pas werkelijk als zij het hart bereikt.": {"tr": "Bilgi ancak kalbe ulaştığında gerçekten dokunur.", "en": "Knowledge truly touches only when it reaches the heart."}, "Naam": {"tr": "Ad", "en": "Name"}, "E-mailadres": {"tr": "E-posta adresi", "en": "Email address"}, "Bericht": {"tr": "Mesaj", "en": "Message"}};
-(function(){
-  var LANGS=['nl','tr','en'], cur='nl';
-  function norm(t){return t.replace(/\s+/g,' ').trim();}
-  function collect(){
-    var out=[], w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
-      var p=n.parentNode; if(!p) return NodeFilter.FILTER_REJECT;
-      var tag=p.nodeName.toLowerCase();
-      if(tag==='script'||tag==='style') return NodeFilter.FILTER_REJECT;
-      if(p.closest && p.closest('.langsw')) return NodeFilter.FILTER_REJECT;
-      return norm(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
-    }});
-    var n; while(n=w.nextNode()) out.push(n);
-    return out;
-  }
-  var nodes=null, orig=new WeakMap();
-  var attrEls=null, attrOrig=new WeakMap();
-  function init(){
-    nodes=collect();
-    nodes.forEach(function(n){orig.set(n,n.nodeValue);});
-    attrEls=Array.prototype.slice.call(document.querySelectorAll('[placeholder]'));
-    attrEls.forEach(function(e){attrOrig.set(e,e.getAttribute('placeholder'));});
-  }
-  function apply(lang){
-    if(!nodes) init();
-    cur=lang;
-    nodes.forEach(function(n){
-      var o=orig.get(n); if(o==null) return;
-      var key=norm(o);
-      if(lang==='nl'){ n.nodeValue=o; return; }
-      var e=I18N[key];
-      if(e&&e[lang]) n.nodeValue=o.replace(key,e[lang]);
-      else n.nodeValue=o;
-    });
-    attrEls.forEach(function(el){
-      var o=attrOrig.get(el); if(o==null) return;
-      if(lang==='nl'){ el.setAttribute('placeholder',o); return; }
-      var e=I18N[norm(o)];
-      el.setAttribute('placeholder', (e&&e[lang])?e[lang]:o);
-    });
-    document.documentElement.lang=lang;
-    document.querySelectorAll('.langsw button').forEach(function(b){
-      b.classList.toggle('active', b.getAttribute('data-lang')===lang);
-    });
-    try{localStorage.setItem('rr_lang',lang);}catch(err){}
-  }
-  document.addEventListener('click',function(ev){
-    var b=ev.target.closest && ev.target.closest('.langsw button');
-    if(!b) return;
-    ev.preventDefault();
-    apply(b.getAttribute('data-lang'));
-  });
-  function boot(){
-    init();
-    var saved=null; try{saved=localStorage.getItem('rr_lang');}catch(err){}
-    if(saved&&LANGS.indexOf(saved)>-1&&saved!=='nl') apply(saved);
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
-  window.__setLang=apply;
-})();
-</script>
+<script src="i18n.js"></script>
 </body>
 </html>
