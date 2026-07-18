@@ -94,9 +94,34 @@
     </div>
   </section>
 
+  <!-- ACTUEEL LESROOSTER -->
+  <section class="block band">
+    <div class="wrap">
+      <div class="center">
+        <span class="eyebrow">Actueel lesrooster</span>
+        <h2 class="title" style="font-size:clamp(1.7rem,3.6vw,2.2rem);margin-top:8px">Wekelijkse lessen</h2>
+        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
+        <p class="body" style="max-width:60ch;margin:0 auto">De actuele lestijden voor dames, wekelijks in de Ulu Moskee. Klik op een flyer om deze te vergroten.</p>
+      </div>
+      <div class="flyer-grid" style="margin-top:38px;max-width:700px;margin-left:auto;margin-right:auto">
+        <button type="button" class="flyer-tile" onclick="openLightbox('c-2023-10-09-quran-lessen-voor-dames-full.jpg','Qur&rsquo;an Lessen voor Dames &mdash; elke maandag, 10:00&ndash;14:00 uur')"><span class="fimgwrap"><img src="c-2023-10-09-quran-lessen-voor-dames-thumb.jpg" alt="Flyer: Qur'an Lessen voor Dames" loading="lazy"></span><span class="fcap"><span class="fdate">Elke maandag &middot; 10:00&ndash;14:00 uur</span><span class="ftitle">Qur&rsquo;an Lessen voor Dames</span></span></button>
+        <button type="button" class="flyer-tile" onclick="openLightbox('c-2023-10-11-arabisch-voor-dames-full.jpg','Arabisch voor Dames &mdash; elke donderdag, 10:30&ndash;13:30 uur')"><span class="fimgwrap"><img src="c-2023-10-11-arabisch-voor-dames-thumb.jpg" alt="Flyer: Arabisch voor Dames" loading="lazy"></span><span class="fcap"><span class="fdate">Elke donderdag &middot; 10:30&ndash;13:30 uur</span><span class="ftitle">Arabisch voor Dames</span></span></button>
+      </div>
+    </div>
+  </section>
+
     <div class="quote">
     <span class="mk">&rdquo;</span>
     <p>Wie de Koran leert lezen, opent een deur die nooit meer sluit.</p>
+  </div>
+
+  <!-- LIGHTBOX voor flyers -->
+  <div class="lightbox" id="flyerLightbox" role="dialog" aria-modal="true" aria-label="Flyer vergroot">
+    <button type="button" class="lb-close" aria-label="Sluiten">&times;</button>
+    <div class="lb-inner">
+      <img id="lbImg" src="" alt="">
+      <p class="lb-cap" id="lbCap"></p>
+    </div>
   </div>
 </main>
 
@@ -129,6 +154,23 @@
   var menuToggle=document.getElementById('menuToggle');
   menuToggle.addEventListener('click',function(){var o=mobileMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',o?'true':'false')});
   document.getElementById('year').textContent=new Date().getFullYear();
+
+  /* ---- Lightbox voor flyers ---- */
+  var lb=document.getElementById('flyerLightbox');
+  var lbImg=document.getElementById('lbImg');
+  var lbCap=document.getElementById('lbCap');
+  window.openLightbox=function(src,caption){
+    if(!lb)return;
+    lbImg.src=src;lbImg.alt=caption;lbCap.textContent=caption;
+    lb.classList.add('open');
+  };
+  function closeLightbox(){if(lb)lb.classList.remove('open')}
+  if(lb){
+    lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox()});
+    var lbCloseBtn=lb.querySelector('.lb-close');
+    if(lbCloseBtn)lbCloseBtn.addEventListener('click',closeLightbox);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
+  }
 </script>
 <script src="i18n.js"></script>
 </body>
