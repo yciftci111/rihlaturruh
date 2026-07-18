@@ -103,6 +103,12 @@
   .card .more{margin-top:16px;display:inline-block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
 
   .card.plain{text-align:left;padding:30px}
+
+  /* ---------------- "IN ONTWIKKELING" BADGE ---------------- */
+  .dev-badge{display:inline-flex;align-items:center;gap:7px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);background:var(--gold-soft);border-radius:999px;padding:8px 16px;align-self:flex-start}
+  .dev-badge svg{width:13px;height:13px;flex:none}
+  .card .dev-ribbon{position:absolute;top:16px;right:16px;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep);background:var(--gold-soft);border-radius:999px;padding:5px 11px}
+  .card{position:relative}
   .card.plain .ic{margin:0 0 16px}
 
   /* ---------------- STATS DASHBOARD ---------------- */
