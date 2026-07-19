@@ -94,6 +94,27 @@
     </div>
   </section>
 
+  <!-- GROEPSGESPREKKEN -->
+  <section class="block band">
+    <div class="wrap">
+      <div class="center">
+        <span class="eyebrow">Een indruk van de begeleiding</span>
+        <h2 class="title" style="font-size:clamp(1.7rem,3.6vw,2.3rem);margin-top:8px">Groepsgesprekken</h2>
+        <div class="flourish"><span class="ln"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg><span class="ln r"></span></div>
+        <p class="body" style="max-width:70ch;margin:0 auto">Naast individuele begeleiding verzorg ik ook interactieve groepsgesprekken over zingeving en existenti&euml;le vragen &mdash; voor gemeenten, moskee&euml;n, scholen, GGZ-instellingen, ziekenhuizen en justiti&euml;le inrichtingen. Hieronder een greep uit de thema&rsquo;s die aan bod kunnen komen, ter illustratie van de vorm en inhoud van deze gesprekken. Klik op een kaart om deze te vergroten.</p>
+      </div>
+      <div class="flyer-grid" style="margin-top:30px">
+        <button type="button" class="flyer-tile" onclick="openLightbox('g-destressoren-van-het-leven-full.jpg','Destressoren van het Leven &mdash; groepsgesprek over stressoren en islamitische coping')"><span class="fimgwrap"><img src="g-destressoren-van-het-leven-thumb.jpg" alt="Groepsgesprek: Destressoren van het Leven" loading="lazy"></span><span class="fcap"><span class="fdate">Omgaan met stress</span><span class="ftitle">Destressoren van het Leven</span></span></button>
+        <button type="button" class="flyer-tile" onclick="openLightbox('g-dhikr-het-gedenken-van-allah-full.jpg','Dhikr &mdash; Het Gedenken van Allah &mdash; groepsgesprek over rust en houvast door dhikr')"><span class="fimgwrap"><img src="g-dhikr-het-gedenken-van-allah-thumb.jpg" alt="Groepsgesprek: Dhikr, Het Gedenken van Allah" loading="lazy"></span><span class="fcap"><span class="fdate">Innerlijke rust</span><span class="ftitle">Dhikr &mdash; Het Gedenken van Allah</span></span></button>
+        <button type="button" class="flyer-tile" onclick="openLightbox('g-sabr-in-moeilijke-momenten-full.jpg','Sabr in Moeilijke Momenten &mdash; groepsgesprek over bewust kiezen in plaats van reageren')"><span class="fimgwrap"><img src="g-sabr-in-moeilijke-momenten-thumb.jpg" alt="Groepsgesprek: Sabr in Moeilijke Momenten" loading="lazy"></span><span class="fcap"><span class="fdate">Geduld &amp; bewuste keuzes</span><span class="ftitle">Sabr in Moeilijke Momenten</span></span></button>
+        <button type="button" class="flyer-tile" onclick="openLightbox('g-spiegel-aan-je-daden-zelfreflectie-muhasaba-full.jpg','Spiegel aan je Daden &mdash; Zelfreflectie (Muhasaba)')"><span class="fimgwrap"><img src="g-spiegel-aan-je-daden-zelfreflectie-muhasaba-thumb.jpg" alt="Groepsgesprek: Spiegel aan je Daden, Zelfreflectie (Muhasaba)" loading="lazy"></span><span class="fcap"><span class="fdate">Zelfreflectie</span><span class="ftitle">Spiegel aan je Daden &mdash; Muhasaba</span></span></button>
+        <button type="button" class="flyer-tile" onclick="openLightbox('g-dhul-hijjah-de-eerste-10-dagen-full.jpg','Dhul Hijjah &mdash; De Eerste 10 Dagen &mdash; groepsgesprek over de waarde van deze dagen')"><span class="fimgwrap"><img src="g-dhul-hijjah-de-eerste-10-dagen-thumb.jpg" alt="Groepsgesprek: Dhul Hijjah, De Eerste 10 Dagen" loading="lazy"></span><span class="fcap"><span class="fdate">Spirituele voorbereiding</span><span class="ftitle">Dhul Hijjah &mdash; De Eerste 10 Dagen</span></span></button>
+        <button type="button" class="flyer-tile" onclick="openLightbox('g-de-reis-van-de-hadj-full.jpg','De Reis van de Hadj &mdash; groepsgesprek over de fasen van de Hadj')"><span class="fimgwrap"><img src="g-de-reis-van-de-hadj-thumb.jpg" alt="Groepsgesprek: De Reis van de Hadj" loading="lazy"></span><span class="fcap"><span class="fdate">Fasen van de Hadj</span><span class="ftitle">De Reis van de Hadj</span></span></button>
+      </div>
+      <p class="body" style="text-align:center;margin:28px auto 0;max-width:70ch">Interesse in een groepsgesprek voor uw organisatie? Neem gerust contact op om de mogelijkheden te bespreken.</p>
+    </div>
+  </section>
+
   <!-- WERKWIJZE / OVER MIJ / TALEN -->
   <section class="block" id="werkwijze-sec">
     <div class="wrap grid c3 plaincols">
@@ -144,6 +165,14 @@
     <p>Iedere levensreis kent momenten waarop het helpend is om samen stil te staan.</p>
     <p class="sub">Ik nodig u uit om contact op te nemen. Ik kijk ernaar uit om met u mee te denken.</p>
   </div>
+  <div class="lightbox" id="flyerLightbox" role="dialog" aria-modal="true" aria-label="Flyer vergroot">
+    <button type="button" class="lb-close" aria-label="Sluiten">&times;</button>
+    <div class="lb-inner">
+      <img id="lbImg" src="" alt="">
+      <p class="lb-cap" id="lbCap"></p>
+    </div>
+  </div>
+
 </main>
 
 <footer class="site-footer">
@@ -175,6 +204,23 @@
   var menuToggle=document.getElementById('menuToggle');
   menuToggle.addEventListener('click',function(){var o=mobileMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',o?'true':'false')});
   document.getElementById('year').textContent=new Date().getFullYear();
+
+  /* ---- Lightbox voor flyers ---- */
+  var lb=document.getElementById('flyerLightbox');
+  var lbImg=document.getElementById('lbImg');
+  var lbCap=document.getElementById('lbCap');
+  window.openLightbox=function(src,caption){
+    if(!lb)return;
+    lbImg.src=src;lbImg.alt=caption;lbCap.textContent=caption;
+    lb.classList.add('open');
+  };
+  function closeLightbox(){if(lb)lb.classList.remove('open')}
+  if(lb){
+    lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox()});
+    var lbCloseBtn=lb.querySelector('.lb-close');
+    if(lbCloseBtn)lbCloseBtn.addEventListener('click',closeLightbox);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
+  }
 </script>
 <script src="i18n.js"></script>
 </body>
