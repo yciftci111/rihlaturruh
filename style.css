@@ -125,6 +125,19 @@
   .subhead .flourish{margin-top:8px}
 
   /* ---------------- FLYER GRID / LIGHTBOX ---------------- */
+  .year-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;margin:20px 0 0;padding:18px 22px;background:var(--card);border:1px solid var(--line);border-radius:14px;cursor:pointer;text-align:left;font-family:inherit;transition:border-color .2s,box-shadow .2s}
+  .year-toggle:first-of-type{margin-top:4px}
+  .year-toggle:hover{border-color:var(--gold-soft);box-shadow:var(--shadow)}
+  .year-toggle .yt-year{font-family:var(--display);font-size:clamp(1.5rem,4vw,2rem);font-weight:700;color:var(--green);white-space:nowrap}
+  .year-toggle .yt-right{display:flex;align-items:center;gap:12px;flex:none}
+  .year-toggle .yt-count{font-size:.74rem;letter-spacing:.05em;color:var(--ink-soft);background:var(--paper);border-radius:999px;padding:7px 15px;font-weight:600;white-space:nowrap}
+  .year-toggle .yt-chev{width:18px;height:18px;color:var(--gold);flex:none;transition:transform .3s ease}
+  .year-toggle[aria-expanded="true"] .yt-chev{transform:rotate(180deg)}
+  .year-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+  .year-panel.open{grid-template-rows:1fr}
+  .year-panel-inner{overflow:hidden}
+  .year-panel .flyer-grid{margin-top:18px}
+  @media(max-width:480px){.year-toggle{padding:15px 16px}.year-toggle .yt-count{padding:6px 11px;font-size:.68rem}}
   .flyer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   @media(max-width:1000px){.flyer-grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:700px){.flyer-grid{grid-template-columns:repeat(2,1fr)}}
