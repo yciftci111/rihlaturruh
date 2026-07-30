@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Workshops — Rihlaturruh · De reis van de ziel</title>
-<meta name="description" content="Praktijkgerichte workshops zoals Workshop Dodenwassing, Ik Leer Bidden voor Kinderen en Zaalvoetbal voor Meisjes.">
+<meta name="description" content="Praktijkgerichte workshops zoals Workshop Dodenwassing en Ik Leer Bidden voor Kinderen.">
 <meta property="og:title" content="Workshops — Rihlaturruh · De reis van de ziel">
-<meta property="og:description" content="Praktijkgerichte workshops zoals Workshop Dodenwassing, Ik Leer Bidden voor Kinderen en Zaalvoetbal voor Meisjes.">
+<meta property="og:description" content="Praktijkgerichte workshops zoals Workshop Dodenwassing en Ik Leer Bidden voor Kinderen.">
 <meta property="og:image" content="logo.png">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="logo-mark.png">
@@ -70,11 +70,7 @@
       </div>
 
       <div style="margin-top:38px">
-        <div class="workshop-card">
-          <div class="wimgs">
-            <button type="button" onclick="openLightbox('w-2023-12-07-workshop-dodenwassing-deel-i-full.jpg','Workshop Dodenwassing &mdash; Deel I (7 december 2023)')"><img src="w-2023-12-07-workshop-dodenwassing-deel-i-thumb.jpg" alt="Flyer: Workshop Dodenwassing, Deel I" loading="lazy"></button>
-            <button type="button" onclick="openLightbox('w-2023-12-14-workshop-dodenwassing-deel-ii-uitvoering-certificaat-full.jpg','Workshop Dodenwassing &mdash; Deel II, Uitvoering &amp; Certificaat (14 december 2023)')"><img src="w-2023-12-14-workshop-dodenwassing-deel-ii-uitvoering-certificaat-thumb.jpg" alt="Flyer: Workshop Dodenwassing, Deel II" loading="lazy"></button>
-          </div>
+        <div class="workshop-card text-only">
           <div>
             <span class="wtag">Ladies only</span>
             <h3>Workshop Dodenwassing</h3>
@@ -82,26 +78,11 @@
           </div>
         </div>
 
-        <div class="workshop-card">
-          <div class="wimgs">
-            <button type="button" onclick="openLightbox('w-2023-10-17-workshop-ik-leer-bidden-deel-1-full.jpg','Workshop &ldquo;Ik Leer Bidden&rdquo; &mdash; Deel 1 (17 oktober 2023)')"><img src="w-2023-10-17-workshop-ik-leer-bidden-deel-1-thumb.jpg" alt="Flyer: Workshop Ik Leer Bidden, Deel 1" loading="lazy"></button>
-            <button type="button" onclick="openLightbox('w-2023-10-20-workshop-ik-leer-bidden-deel-2-full.jpg','Workshop &ldquo;Ik Leer Bidden&rdquo; &mdash; Deel 2 (20 oktober 2023)')"><img src="w-2023-10-20-workshop-ik-leer-bidden-deel-2-thumb.jpg" alt="Flyer: Workshop Ik Leer Bidden, Deel 2" loading="lazy"></button>
-          </div>
+        <div class="workshop-card text-only">
           <div>
             <span class="wtag">Voor kinderen</span>
             <h3>Ik Leer Bidden voor Kinderen</h3>
             <p class="body">Een laagdrempelige en speelse workshop die kinderen wegwijs maakt in het gebed (salaah) &mdash; van de betekenis van de bewegingen tot het aanleren van de korte soera&rsquo;s. In twee delen: van uitleg naar oefening.</p>
-          </div>
-        </div>
-
-        <div class="workshop-card">
-          <div class="wimgs">
-            <button type="button" onclick="openLightbox('w-2023-11-18-zaalvoetbal-voor-meisjes-full.jpg','Zaalvoetbal voor Meisjes (18 november 2023)')"><img src="w-2023-11-18-zaalvoetbal-voor-meisjes-thumb.jpg" alt="Flyer: Zaalvoetbal voor Meisjes" loading="lazy"></button>
-          </div>
-          <div>
-            <span class="wtag">Leeftijdsgrens 10+</span>
-            <h3>Zaalvoetbal voor Meisjes</h3>
-            <p class="body">Een sportieve en gezellige activiteit waarbij meisjes onder begeleiding samen zaalvoetballen &mdash; goed voor beweging, teamgeest en onderling contact.</p>
           </div>
         </div>
       </div>
@@ -120,15 +101,6 @@
       </div>
     </div>
   </section>
-
-<!-- LIGHTBOX voor flyers -->
-  <div class="lightbox" id="flyerLightbox" role="dialog" aria-modal="true" aria-label="Flyer vergroot">
-    <button type="button" class="lb-close" aria-label="Sluiten">&times;</button>
-    <div class="lb-inner">
-      <img id="lbImg" src="" alt="">
-      <p class="lb-cap" id="lbCap"></p>
-    </div>
-  </div>
 
 </main>
 
@@ -161,23 +133,6 @@
   var menuToggle=document.getElementById('menuToggle');
   menuToggle.addEventListener('click',function(){var o=mobileMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',o?'true':'false')});
   document.getElementById('year').textContent=new Date().getFullYear();
-
-  /* ---- Lightbox voor flyers ---- */
-  var lb=document.getElementById('flyerLightbox');
-  var lbImg=document.getElementById('lbImg');
-  var lbCap=document.getElementById('lbCap');
-  window.openLightbox=function(src,caption){
-    if(!lb)return;
-    lbImg.src=src;lbImg.alt=caption;lbCap.textContent=caption;
-    lb.classList.add('open');
-  };
-  function closeLightbox(){if(lb)lb.classList.remove('open')}
-  if(lb){
-    lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox()});
-    var lbCloseBtn=lb.querySelector('.lb-close');
-    if(lbCloseBtn)lbCloseBtn.addEventListener('click',closeLightbox);
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
-  }
 </script>
 <script src="i18n.js"></script>
 </body>
