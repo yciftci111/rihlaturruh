@@ -160,12 +160,6 @@
   /* ---------------- WORKSHOP CARDS ---------------- */
   .workshop-card{display:grid;grid-template-columns:200px 1fr;gap:26px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px;align-items:start;margin-bottom:22px}
   .workshop-card.text-only{grid-template-columns:1fr}
-  .workshop-card.img-top{grid-template-columns:1fr;grid-template-rows:auto auto}
-  .workshop-card.img-top .wbanner{border-radius:6px;overflow:hidden;aspect-ratio:3/2;margin-bottom:4px}
-  .workshop-card.img-top .wbanner img{width:100%;height:100%;object-fit:cover;display:block}
-
-  .lesson-photo{border-radius:10px;overflow:hidden;aspect-ratio:3/2;margin:18px 0}
-  .lesson-photo img{width:100%;height:100%;object-fit:cover;display:block}
   @media(max-width:700px){.workshop-card{grid-template-columns:1fr}}
   .workshop-card.noimg{grid-template-columns:1fr}
   .workshop-card .wimgs{display:flex;gap:8px}
@@ -173,7 +167,7 @@
   .workshop-card .wimgs img{width:100%;border-radius:4px;aspect-ratio:3/4;object-fit:cover;transition:transform .2s;display:block}
   .workshop-card .wimgs img:hover{transform:scale(1.03)}
   .workshop-card h3{font-size:1.35rem;margin-bottom:8px}
-  .workshop-card .wtag{display:inline-block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+  .workshop-card .wtag,.wtag{display:inline-block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
 
   /* checklist */
   .checklist{list-style:none;display:flex;flex-direction:column;gap:14px}
