@@ -370,7 +370,7 @@
   .launch-gate{display:none;position:fixed;inset:0;z-index:9999;background:var(--paper);align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .6s ease}
   .launch-gate.hide{opacity:0;pointer-events:none}
   .launch-gate .lg-inner{max-width:560px}
-  .launch-gate .lg-logo{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:18px;border:1px solid var(--line)}
+  .launch-gate .lg-logo{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 22px;border:1px solid var(--line)}
   .launch-gate .lg-eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
   .launch-gate .lg-title{font-family:var(--display);font-size:clamp(2.2rem,7vw,3.4rem);color:var(--green-deep);margin:0}
   .launch-gate .lg-tag{font-family:var(--display);font-style:italic;color:var(--gold);margin:8px 0 20px;font-size:1.05rem}
