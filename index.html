@@ -19,56 +19,6 @@
 </head>
 <body>
 
-<div id="launchGate" class="launch-gate">
-  <div class="lg-inner">
-    <img src="logo-mark.png" alt="Rihlaturruh" class="lg-logo">
-    <p class="lg-eyebrow">Binnenkort online</p>
-    <h1 class="lg-title">Rihlaturruh</h1>
-    <p class="lg-tag">&#8250; De reis van de ziel &#8249;</p>
-    <p class="lg-lead">We zijn bijna klaar om deze plek met u te delen &mdash; voor islamitische geestelijke verzorging, kennisdeling en bezinning.</p>
-    <div class="lg-countdown">
-      <div class="lg-unit"><span class="lg-num" id="lgDays">00</span><span class="lg-label">dagen</span></div>
-      <div class="lg-unit"><span class="lg-num" id="lgHours">00</span><span class="lg-label">uren</span></div>
-      <div class="lg-unit"><span class="lg-num" id="lgMinutes">00</span><span class="lg-label">minuten</span></div>
-      <div class="lg-unit"><span class="lg-num" id="lgSeconds">00</span><span class="lg-label">seconden</span></div>
-    </div>
-    <p class="lg-date">Live op 2 augustus 2026 om 14:00 uur</p>
-  </div>
-</div>
-<script>
-(function(){
-  var gate = document.getElementById('launchGate');
-  if(!gate) return;
-  var launchTime = new Date('2026-08-02T14:00:00+02:00').getTime();
-  function pad(n){ n = Math.max(0,n); return String(n).length<2 ? '0'+n : String(n); }
-  var timer;
-  function tick(){
-    var diff = launchTime - Date.now();
-    if(diff <= 0){
-      gate.classList.add('hide');
-      document.body.style.overflow = '';
-      setTimeout(function(){ gate.style.display = 'none'; }, 650);
-      if(timer) clearInterval(timer);
-      return;
-    }
-    var d = Math.floor(diff/86400000);
-    var h = Math.floor(diff%86400000/3600000);
-    var m = Math.floor(diff%3600000/60000);
-    var s = Math.floor(diff%60000/1000);
-    document.getElementById('lgDays').textContent = pad(d);
-    document.getElementById('lgHours').textContent = pad(h);
-    document.getElementById('lgMinutes').textContent = pad(m);
-    document.getElementById('lgSeconds').textContent = pad(s);
-  }
-  if(Date.now() < launchTime){
-    gate.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    tick();
-    timer = setInterval(tick, 1000);
-  }
-})();
-</script>
-
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="wrap">
