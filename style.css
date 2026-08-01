@@ -365,3 +365,19 @@
   .nav .langsw{margin-left:12px;flex-direction:column;gap:1px;border-radius:8px;padding:2px;flex:none}
   .nav .langsw button{padding:2px 10px;border-radius:5px;font-size:.6rem;line-height:1.5}
   .mobile-menu .langsw{align-self:center;margin-top:6px}
+
+  /* ---------------- LAUNCH GATE (aftel-overlay) ---------------- */
+  .launch-gate{display:none;position:fixed;inset:0;z-index:9999;background:var(--paper);align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .6s ease}
+  .launch-gate.hide{opacity:0;pointer-events:none}
+  .launch-gate .lg-inner{max-width:560px}
+  .launch-gate .lg-logo{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:18px;border:1px solid var(--line)}
+  .launch-gate .lg-eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+  .launch-gate .lg-title{font-family:var(--display);font-size:clamp(2.2rem,7vw,3.4rem);color:var(--green-deep);margin:0}
+  .launch-gate .lg-tag{font-family:var(--display);font-style:italic;color:var(--gold);margin:8px 0 20px;font-size:1.05rem}
+  .launch-gate .lg-lead{color:var(--ink-soft);max-width:44ch;margin:0 auto 30px;line-height:1.65}
+  .launch-gate .lg-countdown{display:flex;gap:14px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+  .launch-gate .lg-unit{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;min-width:76px}
+  .launch-gate .lg-num{display:block;font-family:var(--display);font-size:2rem;font-weight:700;color:var(--green-deep);font-variant-numeric:tabular-nums}
+  .launch-gate .lg-label{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+  .launch-gate .lg-date{font-size:.85rem;color:var(--ink-soft)}
+  @media(max-width:480px){.launch-gate .lg-unit{min-width:58px;padding:12px 10px}.launch-gate .lg-num{font-size:1.5rem}}
