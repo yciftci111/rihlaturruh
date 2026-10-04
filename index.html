@@ -53,11 +53,11 @@
   .brand .wm span{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px}
 
   .nav{margin-left:auto;display:flex;align-items:center;gap:2px}
-  .nav button{font:inherit;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);background:none;border:0;padding:9px 10px;cursor:pointer;transition:color .2s;white-space:nowrap;position:relative}
+  .nav button{font:inherit;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:none;border:0;padding:8px 8px;cursor:pointer;transition:color .2s;white-space:nowrap;position:relative}
   .nav button:hover{color:var(--green-deep)}
   .nav button.active{color:var(--green-deep)}
   .nav button.active::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:1.5px;background:var(--gold)}
-  .nav .cta{margin-left:10px;background:var(--green);color:#F3EEE0;border-radius:2px;padding:11px 16px;letter-spacing:.1em}
+  .nav .cta{margin-left:8px;background:var(--green);color:#F3EEE0;border-radius:2px;padding:10px 14px;letter-spacing:.08em;white-space:nowrap;flex:none}
   .nav .cta:hover{background:var(--green-deep);color:#fff}
   .nav .cta::after{display:none}
 
@@ -66,7 +66,7 @@
   .mobile-menu button{font:inherit;font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-align:left;background:none;border:0;padding:15px 4px;color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line)}
   .mobile-menu button.active{color:var(--green-deep)}
   .mobile-menu .cta{color:#fff;background:var(--green);border-radius:2px;margin-top:14px;text-align:center;border-bottom:0}
-  @media(max-width:1080px){ .nav{display:none} .menu-toggle{display:grid;place-items:center} .mobile-menu.open{display:flex} }
+  @media(max-width:1120px){ .nav{display:none} .menu-toggle{display:grid;place-items:center} .mobile-menu.open{display:flex} }
 
   /* ---------------- PAGES ---------------- */
   .page{display:none;animation:fade .55s ease}
@@ -313,11 +313,15 @@
       mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 14%,#000 32%)}
   }
   .langsw{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card);flex:none}
-  .langsw button{font:inherit;font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:5px 9px;border:0;background:none;color:var(--ink-soft);border-radius:999px;cursor:pointer;transition:.18s}
+  .langsw button{font:inherit;font-size:.66rem;font-weight:700;letter-spacing:.06em;padding:5px 7px;border:0;background:none;color:var(--ink-soft);border-radius:999px;cursor:pointer;transition:.18s}
   .langsw button:hover{color:var(--green)}
   .langsw button.active{background:var(--green);color:#F3EEE0}
-  .nav .langsw{margin-left:10px}
+  .nav .langsw{margin-left:8px}
   .mobile-menu .langsw{align-self:center;margin-top:6px}
+  .dlrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+  .dlbtn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:600;font-size:.9rem;padding:10px 16px;border-radius:10px;box-shadow:0 7px 20px -14px rgba(24,50,38,.4);transition:border-color .15s,color .15s,box-shadow .15s}
+  .dlbtn:hover{border-color:var(--gold);color:var(--green)}
+  .dlbtn svg{flex:none;color:var(--gold)}
 </style>
 </head>
 <body>
@@ -781,11 +785,11 @@
         <p class="eyebrow" style="margin:0">Samenvatting &middot; Lezing</p>
         <h3 style="font-size:1.35rem;margin:5px 0 8px">Veerkracht vanuit de Koran</h3>
         <p class="body">Een samenvatting van de lezing ‘Building Emotional Resilience through the Qur’an’ van dr. Rania Awaad, uitgewerkt vanuit islamitische geestelijke verzorging.</p>
-        <p class="body" style="font-weight:600;color:var(--ink);margin:14px 0 8px">Lees de samenvatting (PDF):</p>
-        <div class="btns">
-          <a class="btn ghost" href="lezing-veerkracht-NL.pdf" target="_blank" rel="noopener">Nederlands</a>
-          <a class="btn ghost" href="lezing-veerkracht-EN.pdf" target="_blank" rel="noopener">English</a>
-          <a class="btn ghost" href="lezing-veerkracht-TR.pdf" target="_blank" rel="noopener">Türkçe</a>
+        <p class="body" style="color:var(--ink-soft);margin:12px 0 10px">Lees de samenvatting of download hem als pdf in jouw taal.</p>
+        <div class="dlrow">
+          <a class="dlbtn" href="lezing-veerkracht-NL.pdf" download><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>Nederlands (PDF)</a>
+          <a class="dlbtn" href="lezing-veerkracht-TR.pdf" download><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>Türkçe (PDF)</a>
+          <a class="dlbtn" href="lezing-veerkracht-EN.pdf" download><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>English (PDF)</a>
         </div>
       </div>
       <p class="body" style="text-align:center;color:var(--ink-soft);max-width:62ch;margin:22px auto 0;font-size:.95rem">Meer samenvattingen en verdieping worden hier stap voor stap toegevoegd.</p>
